@@ -25,6 +25,8 @@ example (P Q R : Prop) (hp : P) (hq : Q) (hr : R) : P ∧ Q ∧ R :=
 
 ペアの値には `(x, y)` も使う。
 
+ペアの型 `Prod α β` と直和 `Sum α β` の違いは、[基本データ型のペア](../basic-types/prod.md)と[直和](../basic-types/sum.md)を参照。
+
 ```lean
 def pair : Nat × String := (3, "three")
 

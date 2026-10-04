@@ -2,6 +2,8 @@
 
 リテラルは、**具体的な値を直接書く記法**である。同じ表記でも、周囲の型によって意味が決まるものがある。
 
+型の意味と基本操作は、[`Nat`](../basic-types/nat.md)、[`Int`](../basic-types/int.md)、[`String`・`Char`](../basic-types/string_char.md)、[`Array`](../basic-types/array.md) の各ページを参照。
+
 ```lean
 #check (3 : Nat)
 #check (3 : Int)
@@ -32,6 +34,8 @@ example : 0 :: numbers = [0, 1, 2, 3] := rfl
 ```
 
 `::` はリストの先頭に要素を付ける。リストと配列は別の型なので、括弧の違いに注意する。各要素は共通の要素型に合う必要がある。
+
+リストの構造と基本操作は [`List α`](../basic-types/list.md) を参照。
 
 空の場合には、要素型を指定する必要があることが多い。
 

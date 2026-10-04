@@ -2,6 +2,8 @@
 
 `class` は、**型などに対して用意すべき操作や性質を、型クラスとして定義する**構文である。`instance` は、その具体的な実装を登録する。
 
+[`List`・`Option`](../basic-types/README.md) はデータ型を作るものであり、型クラスではない。例えば `List Nat` は自然数のリストの型、`ToString (List Nat)` はそのリストを文字列に変える実装の型である。
+
 ```lean
 class HasLabel (α : Type) where
   label : α → String

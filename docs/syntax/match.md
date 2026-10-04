@@ -14,6 +14,8 @@ example : valueOrZero (some 7) = 7 := rfl
 
 `none` なら `0`、`some n` なら中身を `n` と呼んで返す。`|` が分岐の開始、`=>` がパターンと結果の区切りである。
 
+`some`・`none` と型そのものの意味は [`Option α`](../basic-types/option.md)、リストの構造は [`List α`](../basic-types/list.md) を参照。
+
 リストのような再帰的な型にも使える。
 
 ```lean
