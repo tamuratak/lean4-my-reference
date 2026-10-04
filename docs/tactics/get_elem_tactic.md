@@ -1,0 +1,23 @@
+# `get_elem_tactic`
+
+`get_elem_tactic` は、**添字アクセスに必要な、添字が範囲内にあるという条件を証明する**タクティクスである。
+
+`xs[i]` のようなアクセスには、通常 `i < xs.length` の証明が必要になる。
+
+```lean
+example (xs : Array Nat) (i : Nat) (h : i < xs.size) : i < xs.size := by
+  get_elem_tactic
+```
+
+手元の仮定や算術の自動化で、この条件を閉じることを試す。添字アクセスの記法から自動で呼ばれることも多い。
+
+```lean
+example : (#[10, 20, 30] : Array Nat)[1] = 20 := by
+  rfl
+```
+
+`get_elem_tactic_trivial` や `get_elem_tactic_extensible` は、この自動処理を構成・拡張するための関連操作である。
+
+参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+
+[タクティクス一覧に戻る](README.md)
