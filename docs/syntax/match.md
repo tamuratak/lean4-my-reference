@@ -44,6 +44,8 @@ example : both true false = false := rfl
 
 分岐前の式とパターンが等しいという証明を使う場合は [`match h : e with …`](match_eq.md) を参照。
 
+型や他のパターンから値が決まる箇所を示す `.(式)` は[非アクセス可能パターン](inaccessible_patterns.md)を参照。
+
 参照：[公式リファレンス：Pattern Matching](https://lean-lang.org/doc/reference/latest/Terms/Pattern-Matching/)。
 
 [文法要素の一覧に戻る](README.md)

@@ -43,6 +43,8 @@ def greet : IO Unit := do
 
 局所変数の更新、`for`・`while` による繰り返し、`break`・`continue` は [`do` 内の更新と繰り返し](do_control.md)を参照。
 
+`>>=`・`<$>`・`<*>`・`<|>` などを使って計算を組み合わせる書き方は[計算をつなぐ演算子](monad_operators.md)を参照。
+
 参照：[公式リファレンス：Functors, Monads and do-Notation](https://lean-lang.org/doc/reference/latest/Functors___-Monads-and--do--Notation/)。
 
 [文法要素の一覧に戻る](README.md)

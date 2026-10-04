@@ -39,6 +39,8 @@ example : [1, 2, 3].length = List.length [1, 2, 3] := rfl
 
 この `.length` は `List.length` にリストを渡す記法である。構造体のフィールドを取り出すドット記法については [`structure`](structure.md) を参照。
 
+残りの引数を推論する `..`、適用を短く書く `|>`・`<|`、関数合成 `∘` は[関数適用の省略・パイプ・関数合成](application_shortcuts.md)を参照。`.some` のように名前の先頭にドットを書く場合は[特殊な名前の記法](identifiers.md)で扱う。
+
 参照：[公式リファレンス：Function Application](https://lean-lang.org/doc/reference/latest/Terms/Function-Application/)。
 
 [文法要素の一覧に戻る](README.md)

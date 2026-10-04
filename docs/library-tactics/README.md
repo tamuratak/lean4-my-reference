@@ -70,7 +70,7 @@ python3 scripts/check_examples.py --library-project /path/to/project docs/librar
 
 標準ページと追加ライブラリのページは、ともに `lean-toolchain` が指定する Lean 4.35.0-rc3 で検証した。依存のコミットは `lake-manifest.json` に記録されている。検証時の mathlib は `6066db18d42ff20b84a4b29a6ab26cfc2cf4b527`、Aesop は `36cb0105a76ff3de70add8ae91afb6cfc57fafe3` である。
 
-`python3 scripts/check_examples.py` を追加オプションなしで実行し、標準383例・追加44例の計427例がすべて成功した。
+`python3 scripts/check_examples.py` を追加オプションなしで実行し、標準409例・追加ライブラリ44例の計453例がすべて成功した。
 
 異なる Lean バージョンの環境で追加確認を行う場合だけ、`--allow-library-toolchain-mismatch` を明示する。スクリプトはバージョンの違いと、固定バージョンでは未検証であることを表示する。
 

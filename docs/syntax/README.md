@@ -65,6 +65,7 @@ example : addOne 3 = 4 := by
 | ページ | 何を表すか |
 | --- | --- |
 | [関数適用](application.md) | `f x`、名前付き引数、`@`、ドットでの適用 |
+| [関数適用の省略・パイプ・関数合成](application_shortcuts.md) | `..`、`\|>`、`<\|`、`∘` |
 | [`fun … => …`・`(· + 1)`](fun.md) | その場で作る関数と、その短い記法 |
 | [パターンを使う `fun`](fun_patterns.md) | 引数の成分を取り出す関数、分岐を並べる関数 |
 | [式の `let`](let.md) | 本体を展開できる局所定義 |
@@ -77,11 +78,16 @@ example : addOne 3 = 4 := by
 | [`if let`](if_let.md) | パターンへの一致に応じた分岐と成分の取り出し |
 | [式の `match`](match.md) | 値のコンストラクターごとの分岐 |
 | [`match h : e with …`](match_eq.md) | 分岐前の式とパターンをつなぐ等式の証明 |
+| [非アクセス可能パターン](inaccessible_patterns.md) | 他のパターンや型から値が決まる部分を示す `.(式)` |
 | [型の指定](type_ascription.md) | `(e : α)`、`show α from e`、`show α by …` |
 | [`⟨…⟩`・`(x, y)`](anonymous_constructor.md) | コンストラクターによる構築、ペアと成分の取り出し |
+| [仮定から証明を取り出す `‹…›`](assumption_terms.md) | 仮定の名前ではなく型を指定して証明を取り出す |
 | [推論用の `_` と未完成の `?_`](placeholders.md) | 推論に任せる部分と、証明途中の穴 |
 | [数値・文字列・リスト・配列](literals.md) | `3`、`"hello"`、`'a'`、`[…]`、`#[…]`、`::` |
+| [真偽値の比較・演算](boolean_operators.md) | `==`、`!=`、`!`、`&&`、`\|\|` と命題の記号の違い |
+| [添字アクセス](indexing.md) | `xs[i]`、`xs[i]'h`、`xs[i]?`、`xs[i]!` |
 | [`do`・`←`・`return`](do.md) | 計算の結果を受け取り、次の計算につなぐ |
+| [計算をつなぐ演算子](monad_operators.md) | `>>=`、`<$>`、`<*>`、`<*`、`*>`、`<\|>` |
 | [`do` 内の更新と繰り返し](do_control.md) | `let mut`、`for`、`while`、`break`、`continue` |
 
 ## 型と関数の定義
@@ -103,10 +109,12 @@ example : addOne 3 = 4 := by
 | --- | --- |
 | [`import`](import.md) | 別モジュールの読み込み |
 | [`namespace`・`open`・`end`](namespace.md) | 名前の整理と、短い名前で使う範囲 |
+| [特殊な名前の記法](identifiers.md) | 期待される型から名前を補う `.名前`、予約語などを囲む `«…»` |
 | [`section`・`variable`・`include`](section.md) | 共通変数や設定の範囲、宣言に加える引数 |
 | [`set_option`・設定の `in`](set_option.md) | 設定の変更と、その有効範囲 |
 | [`notation`・`infix`・`scoped`](notation.md) | 既存の式に付ける記法と、その有効範囲 |
 | [`syntax`・`macro`・`macro_rules`](syntax_macros.md) | 新しい構文の宣言と、既存の構文への展開 |
+| [パーサーの組み合わせ](parser_combinators.md) | パーサーの `>>`、構文定義の `<\|>` |
 | [コメント・字下げ](comments.md) | 行・ブロック・ドキュメントコメント、複数行の範囲 |
 
 ## 例の検証
