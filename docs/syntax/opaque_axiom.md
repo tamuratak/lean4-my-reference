@@ -33,7 +33,7 @@ theorem chosenNumber_add_one : chosenNumber + 1 = 4 := by
 
 最初の宣言は自然数の値を仮定し、次の宣言はその値が `3` と等しいという命題を仮定する。後続の定理は、その仮定を使って証明している。
 
-`#print axioms` で定理が依存する公理を確認できる。この例で Lean が確認するのは、**仮定した公理から定理の結論を導けること**であり、`chosenNumber_eq` 自体を証明したわけではない。
+[`#print axioms`](../commands/print_axioms.md) で定理が依存する公理を確認できる。この例で Lean が確認するのは、**仮定した公理から定理の結論を導けること**であり、`chosenNumber_eq` 自体を証明したわけではない。
 
 `opaque` は本体を与えて型を確認する一方、`axiom` はその型の値が存在することから仮定する。単に定理の証明を書きたい場合は [`theorem`](theorem.md) を使う。
 

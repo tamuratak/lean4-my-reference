@@ -2,7 +2,7 @@
 
 Lean のコードに出てくる宣言、式、型、記法を、短い具体例で説明する。各ページは「何を書く構文か → どんな値・型・使える名前になるか → 実行できる例」を中心にしている。
 
-文法のページはすべて `docs/syntax/` 直下に置き、分類はこの一覧の中で行う。仮定やゴールを操作する命令は、別ディレクトリの[タクティクス一覧](../tactics/README.md)にまとめる。
+文法のページはすべて `docs/syntax/` 直下に置き、分類はこの一覧の中で行う。仮定やゴールを操作する命令は、別ディレクトリの[タクティクス一覧](../tactics/README.md)にまとめる。型や計算結果などを確認する `#check`・`#eval` などは、[確認・実行・検査用コマンド](../commands/README.md)にまとめる。
 
 ## 対象と例の実行方法
 
@@ -102,7 +102,6 @@ example : addOne 3 = 4 := by
 | [`import`](import.md) | 別モジュールの読み込み |
 | [`namespace`・`open`・`end`](namespace.md) | 名前の整理と、短い名前で使う範囲 |
 | [`section`・`variable`・`include`](section.md) | 共通変数や設定の範囲、宣言に加える引数 |
-| [`#check`・`#eval`・`#print`](commands.md) | 型、計算結果、宣言内容の確認 |
 | [`set_option`・設定の `in`](set_option.md) | 設定の変更と、その有効範囲 |
 | [`notation`・`infix`・`scoped`](notation.md) | 既存の式に付ける記法と、その有効範囲 |
 | [`syntax`・`macro`・`macro_rules`](syntax_macros.md) | 新しい構文の宣言と、既存の構文への展開 |
