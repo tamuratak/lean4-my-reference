@@ -40,24 +40,17 @@ mathlib4 は数学の定義・定理と多くのタクティクスを含むラ�
 
 各例は必要な `import` を明示している。コードブロックを一つずつ Lean ファイルにコピーし、依存ライブラリを持つ Lake プロジェクト内で `lake env lean Example.lean` とすれば実行できる。Aesop の例では `import Aesop` だけを使う。
 
-このリポジトリの `lakefile.toml` は mathlib v4.34.0 のコミットを固定し、`lake-manifest.json` はその依存も固定している。Aesop は mathlib が指定する依存を使用する。依存先の既存チェックアウトの状態には依存しない。
+このリポジトリの `lakefile.toml` は mathlib を依存として指定し、`lake-manifest.json` は mathlib とその依存のコミットを固定している。Aesop は mathlib が指定する依存を使用する。依存先の既存チェックアウトの状態には依存しない。
 
-初回は、GitHub にアクセスできる環境で依存を取得する。`--keep-toolchain` は対象の Lean 4.34.1 を維持するために付ける。
+依存関係のインストールはユーザーが行う。現在の `lean-toolchain` は Lean 4.35.0-rc3 を指定し、インストールした mathlib・Aesop も同じバージョンを使用する。ライブラリのビルド済みファイルを準備するには、ネットワークを利用できる環境で次を実行する。
 
 ```sh
-lake --keep-toolchain update
+lake exe cache get
 ```
 
-続いて、例に使うモジュールをビルドする。mathlib v4.34.0 が指定する Lean は 4.34.0 なので、4.34.1 では配布済みキャッシュをそのまま使えるとは限らない。ここではソースからのビルドを前提とする。
+依存を準備した後は、リポジトリのルートで全カテゴリの例を検証できる。
 
 ```sh
-lake build Mathlib.Data.Real.Basic Mathlib.Data.Int.Order.Basic Mathlib.Data.Fintype.Fin \
-  Mathlib.Tactic.Ring Mathlib.Tactic.NormNum Mathlib.Tactic.Linarith \
-  Mathlib.Tactic.Positivity Mathlib.Tactic.FieldSimp Mathlib.Tactic.Abel \
-  Mathlib.Tactic.LinearCombination Mathlib.Tactic.Push Mathlib.Tactic.ByContra \
-  Mathlib.Tactic.Contrapose Mathlib.Tactic.Convert Mathlib.Tactic.CongrExclamation \
-  Mathlib.Tactic.GCongr Mathlib.Tactic.FinCases Mathlib.Tactic.IntervalCases \
-  Mathlib.Tactic.Choose Mathlib.Tactic.Tauto Aesop
 python3 scripts/check_examples.py
 ```
 
@@ -75,9 +68,9 @@ python3 scripts/check_examples.py --library-project /path/to/project docs/librar
 
 ## 検証と参照方針
 
-標準ページの対象は Lean 4.34.1。追加ライブラリの依存は mathlib v4.34.0（`5ed2965256430c3649e86755f9576b54eca72435`）、Aesop はその依存（`355695d523e41d0554926416cba2a2b3544fbbc9`）に固定した。ただし **追加例の Lean 4.34.1 での検証は未完了**である。
+標準ページと追加ライブラリのページは、ともに `lean-toolchain` が指定する Lean 4.35.0-rc3 で検証した。依存のコミットは `lake-manifest.json` に記録されている。検証時の mathlib は `6066db18d42ff20b84a4b29a6ab26cfc2cf4b527`、Aesop は `36cb0105a76ff3de70add8ae91afb6cfc57fafe3` である。
 
-作成環境では固定した依存の一部を取得できなかったため、追加例のコンパイルは、手元の mathlib `bc5fddb836ac5f7939c4f017fbafb89edbbd34d0` とその Aesop `a90fbf7b02ff06a0deebf74088dff9e5fe02c9ea`、Lean 4.35.0-rc3 で確認した。これは互換性の追加確認であり、固定バージョンでの成功を意味しない。
+`python3 scripts/check_examples.py` を追加オプションなしで実行し、標準383例・追加44例の計427例がすべて成功した。
 
 異なる Lean バージョンの環境で追加確認を行う場合だけ、`--allow-library-toolchain-mismatch` を明示する。スクリプトはバージョンの違いと、固定バージョンでは未検証であることを表示する。
 

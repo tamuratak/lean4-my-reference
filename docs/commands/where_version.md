@@ -33,7 +33,7 @@ set_option pp.universes true
 #version
 ```
 
-このリファレンスでは Lean 4.34.1 を指定している。別の環境で例の振る舞いが違う場合、実際に使われているバージョンを確認する助けになる。
+このリファレンスでは Lean 4.35.0-rc3 を指定している。別の環境で例の振る舞いが違う場合、実際に使われているバージョンを確認する助けになる。
 
 個々の宣言は [`#print`](print.md)、名前空間や設定の指定方法は [`namespace`](../syntax/namespace.md) と [`set_option`](../syntax/set_option.md) を参照。
 

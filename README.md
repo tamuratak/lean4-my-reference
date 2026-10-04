@@ -12,7 +12,7 @@
 
 文法要素は `docs/syntax/`、確認用の `#` コマンドは `docs/commands/`、属性は `docs/attributes/`、標準タクティクスは `docs/tactics/` に分ける。追加ライブラリのタクティクスは `docs/library-tactics/` に分離し、その中でも `mathlib/` と `aesop/` を分ける。各分類のページはそれぞれのディレクトリ直下に置く。
 
-説明は短い具体例を中心にする。対象の Lean バージョンは `lean-toolchain`（4.34.1）を参照。追加ライブラリの依存バージョンと検証状況は[専用の一覧](docs/library-tactics/README.md#検証と参照方針)に記載する。
+説明は短い具体例を中心にする。対象の Lean バージョンは `lean-toolchain`（4.35.0-rc3）を参照。追加ライブラリの依存バージョンと検証状況は[専用の一覧](docs/library-tactics/README.md#検証と参照方針)に記載する。
 
 全カテゴリの例をまとめて検証するには、[追加ライブラリの準備](docs/library-tactics/README.md#例の実行と検証)を行ってから、リポジトリのルートで次を実行する。
 

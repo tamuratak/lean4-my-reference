@@ -22,7 +22,7 @@ def defaultBool : Bool :=
 example : defaultBool = true := rfl
 ```
 
-Lean 4.34.1 の式の `haveI` と `letI` は、与えた値をインライン化する。そのため、通常の [`have`](have.md) と [`let`](let.md) の本体の展開についての違いを、そのまま当てはめない。
+Lean 4.35.0-rc3 の式の `haveI` と `letI` は、与えた値をインライン化する。そのため、通常の [`have`](have.md) と [`let`](let.md) の本体の展開についての違いを、そのまま当てはめない。
 
 実装する値に応じたインスタンスを用意することもできる。
 

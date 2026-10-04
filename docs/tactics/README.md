@@ -4,7 +4,7 @@
 
 ## 対象と例の実行方法
 
-対象は **Lean 4.34.1 に同梱されるタクティクス**。Lean 本体と標準ライブラリ `Std` を使い、mathlib などの追加ライブラリには依存しない。バージョンはルートの `lean-toolchain` で固定している。
+対象は **Lean 4.35.0-rc3 に同梱されるタクティクス**。Lean 本体と標準ライブラリ `Std` を使い、mathlib などの追加ライブラリには依存しない。バージョンはルートの `lean-toolchain` で固定している。
 
 各ページの `lean` コードブロックは、原則として次の行をファイルの先頭に加えると、それぞれ独立に実行できる。
 
@@ -277,7 +277,7 @@ python3 scripts/check_examples.py docs/tactics/rcases.md
 
 ## 参照資料
 
-説明と例は、インストール済み Lean 4.34.1 の構文・実装とコンパイル結果を確認して作成した。公式リファレンスの `latest` は将来の変更を含み得るため、このリファレンスの動作確認は固定したバージョンを基準にする。
+説明と例は、インストール済み Lean 4.35.0-rc3 の構文・実装とコンパイル結果を確認して作成した。公式リファレンスの `latest` は将来の変更を含み得るため、このリファレンスの動作確認は固定したバージョンを基準にする。
 
 - [Lean 公式リファレンス：Tactic Reference](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)
 - [Lean 公式リファレンス：The Tactic Language](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/The-Tactic-Language/)
