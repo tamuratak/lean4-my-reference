@@ -37,6 +37,8 @@ example : next start = 1 := rfl
 
 名前に接頭辞を付けず、変数などの範囲だけを区切る場合は [`section`](section.md) を使う。
 
+名前空間に置くこと自体は宣言を非公開にしない。モジュールの外から使わせない [`private`](visibility.md) と、通常の `open` の対象から外す `protected` は別の指定である。
+
 参照：[公式リファレンス：Namespaces and Sections](https://lean-lang.org/doc/reference/latest/Namespaces-and-Sections/)。
 
 [文法要素の一覧に戻る](README.md)

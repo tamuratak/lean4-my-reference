@@ -44,6 +44,8 @@ example : countDown 4 = 4 := by
 
 `termination_by` は、停止条件を無視してよいという指定ではない。自動で証明できない減少条件には `decreasing_by` で証明を与える必要がある。
 
+式の中の補助関数は [`let rec`](let_rec.md)、定義の後に添える補助関数は [`where`](where.md)、互いを呼び出す複数の関数は [`mutual`](mutual.md) を参照。
+
 参照：[公式リファレンス：Recursive Definitions](https://lean-lang.org/doc/reference/latest/Definitions/Recursive-Definitions/)。
 
 [文法要素の一覧に戻る](README.md)

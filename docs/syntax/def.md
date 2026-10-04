@@ -36,6 +36,8 @@ example : guests.length = 2 := rfl
 
 `def` は名前を登録する。[`let`](let.md) は式の中だけで使う名前を作る。[`theorem`](theorem.md) は証明済みの命題を登録する。
 
+補助関数を後ろに添える [`where`](where.md)、名前の範囲を指定する [`private`・`protected`](visibility.md)、実行不能な定義の [`noncomputable`](noncomputable.md) は、それぞれ別のページで説明する。
+
 参照：[公式リファレンス：Definitions](https://lean-lang.org/doc/reference/latest/Definitions/Definitions/)。
 
 [文法要素の一覧に戻る](README.md)

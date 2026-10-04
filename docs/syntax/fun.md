@@ -31,6 +31,8 @@ example : (· + ·) (2 : Nat) 3 = 5 := rfl
 
 `by` の中でゴールを分けて書く先頭の `·` とは用途が違う。そちらは[タクティクスの複数ゴール構文](../tactics/semicolon.md)を参照。
 
+引数の成分をその場で取り出す `fun (x, y) => …` と、分岐を並べる `fun | … => …` は[パターンを使う `fun`](fun_patterns.md)を参照。
+
 参照：[公式リファレンス：Functions](https://lean-lang.org/doc/reference/latest/Terms/Functions/)。
 
 [文法要素の一覧に戻る](README.md)

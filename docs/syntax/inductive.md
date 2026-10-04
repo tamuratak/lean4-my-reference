@@ -48,6 +48,8 @@ def sample : Tree := .node (.leaf 1) (.leaf 2)
 
 成分を一つの形にまとめる型には [`structure`](structure.md) が便利である。
 
+互いを成分として使う型の定義は [`mutual`](mutual.md)、インスタンスの自動生成は [`deriving`](deriving.md) を参照。
+
 参照：[公式リファレンス：Inductive Types](https://lean-lang.org/doc/reference/latest/The-Type-System/Inductive-Types/)。
 
 [文法要素の一覧に戻る](README.md)

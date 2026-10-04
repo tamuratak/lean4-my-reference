@@ -6,7 +6,7 @@ Lean のコードに出てくる宣言、式、型、記法を、短い具体例
 
 ## 対象と例の実行方法
 
-対象は **Lean 4.34.1 の基本的な文法と、標準で使える記法**である。mathlib などの追加ライブラリには依存しない。まず通常の定義や証明を読み書きするための項目を扱い、構文拡張の実装、引用・反引用、相互再帰などの詳細はまだ扱わない。
+対象は **Lean 4.34.1 の基本的な文法と、標準で使える記法**である。mathlib などの追加ライブラリには依存しない。通常の定義や証明を読み書きするための項目に加えて、相互再帰や構文拡張の基本も扱う。構文木を操作する一般的なメタプログラムや、再帰の高度な停止性の証明などはまだ扱わない。
 
 各 `lean` コードブロックは、それぞれ独立した完成例である。そのまま `.lean` ファイルにコピーして実行でき、追加のインポートが必要な例ではブロック内に `import` を記載している。直前のブロックの定義を引き継ぐ必要はない。
 
@@ -18,7 +18,7 @@ Lean のコードに出てくる宣言、式、型、記法を、短い具体例
 
 **コマンド**は、ファイルに宣言を追加したり、設定や読み込みを行ったりする。`def`・`theorem`・`import` などが該当する。
 
-**項（式）**は、型を持つ値を表す。`3`・`f x`・`fun x => x` などであり、命題もその証明も項として扱う。
+**項**（**式**）は、型を持つ値を表す。`3`・`f x`・`fun x => x` などであり、命題もその証明も項として扱う。
 
 **タクティクス**は、`by` の中でゴールを操作して項を作るための命令である。
 
@@ -47,8 +47,12 @@ example : addOne 3 = 4 := by
 | ページ | 何を表すか |
 | --- | --- |
 | [`def`・`abbrev`](def.md) | 値や関数の定義、展開しやすい別名 |
+| [`private`・`protected`](visibility.md) | 宣言名の使える範囲、名前空間を開く際の扱い |
+| [`noncomputable`](noncomputable.md) | 実行用のコード生成から除外する定義 |
+| [`opaque`・`axiom`](opaque_axiom.md) | 本体を展開しない定義、値や命題を仮定する宣言 |
 | [`theorem`・`example`](theorem.md) | 名前のある定理と、名前を残さない確認用の宣言 |
 | [引数の括弧](binders.md) | 明示的・暗黙・インスタンス・厳密な暗黙の引数 |
+| [引数の既定値](default_parameters.md) | `(x : α := e)`、タクティクスで補う自動引数 |
 | [関数の型：`→`・`∀`](function_types.md) | 関数、含意、依存関数、全称命題 |
 | [`Prop`・`Type`・`Sort`・`universe`](universes.md) | 命題とデータ型の違い、型の階層 |
 | [論理の記号](logical_symbols.md) | `∧`・`∨`・`¬`・`↔`・`∃` と証明の形 |
@@ -60,26 +64,36 @@ example : addOne 3 = 4 := by
 | --- | --- |
 | [関数適用](application.md) | `f x`、名前付き引数、`@`、ドットでの適用 |
 | [`fun … => …`・`(· + 1)`](fun.md) | その場で作る関数と、その短い記法 |
+| [パターンを使う `fun`](fun_patterns.md) | 引数の成分を取り出す関数、分岐を並べる関数 |
 | [式の `let`](let.md) | 本体を展開できる局所定義 |
+| [`let rec`](let_rec.md) | 式の途中に置く再帰的な補助関数 |
 | [式の `have`](have.md) | 後続の式で使う補助的な証明や値 |
+| [式の `haveI`・`letI`](local_instances.md) | 後続の式で使う局所インスタンス |
 | [`by`](by.md) | タクティクスで作る項 |
 | [式の `calc`](calc.md) | 等式・不等式などの段階的な証明 |
 | [式の `if`](if.md) | 条件に応じて値を返す分岐 |
+| [`if let`](if_let.md) | パターンへの一致に応じた分岐と成分の取り出し |
 | [式の `match`](match.md) | 値のコンストラクターごとの分岐 |
+| [`match h : e with …`](match_eq.md) | 分岐前の式とパターンをつなぐ等式の証明 |
 | [型の指定](type_ascription.md) | `(e : α)`、`show α from e`、`show α by …` |
 | [`⟨…⟩`・`(x, y)`](anonymous_constructor.md) | コンストラクターによる構築、ペアと成分の取り出し |
 | [推論用の `_` と未完成の `?_`](placeholders.md) | 推論に任せる部分と、証明途中の穴 |
 | [数値・文字列・リスト・配列](literals.md) | `3`、`"hello"`、`'a'`、`[…]`、`#[…]`、`::` |
 | [`do`・`←`・`return`](do.md) | 計算の結果を受け取り、次の計算につなぐ |
+| [`do` 内の更新と繰り返し](do_control.md) | `let mut`、`for`、`while`、`break`、`continue` |
 
 ## 型と関数の定義
 
 | ページ | 何を表すか |
 | --- | --- |
 | [`structure`](structure.md) | 名前付きのフィールドを持つ型、構築と更新 |
+| [`structure … extends …`](extends.md) | 親のフィールドを引き継ぐ構造体と親への射影 |
 | [`inductive`](inductive.md) | コンストラクターを列挙して作る型 |
 | [パターンによる関数定義・再帰](recursive.md) | `| … => …`、再帰呼び出し、`termination_by` |
+| [補助定義の `where`](where.md) | 主要な定義の後に添える補助関数や値 |
+| [`mutual … end`](mutual.md) | 互いを参照する関数や型の定義 |
 | [`class`・`instance`](class.md) | 型クラスの要求と、探索で補う実装 |
+| [`deriving`](deriving.md) | 型クラスのインスタンスの自動生成 |
 
 ## ファイル・名前・記法の整理
 
@@ -89,7 +103,9 @@ example : addOne 3 = 4 := by
 | [`namespace`・`open`・`end`](namespace.md) | 名前の整理と、短い名前で使う範囲 |
 | [`section`・`variable`・`include`](section.md) | 共通変数や設定の範囲、宣言に加える引数 |
 | [`#check`・`#eval`・`#print`](commands.md) | 型、計算結果、宣言内容の確認 |
+| [`set_option`・設定の `in`](set_option.md) | 設定の変更と、その有効範囲 |
 | [`notation`・`infix`・`scoped`](notation.md) | 既存の式に付ける記法と、その有効範囲 |
+| [`syntax`・`macro`・`macro_rules`](syntax_macros.md) | 新しい構文の宣言と、既存の構文への展開 |
 | [属性：`@[…]`・`attribute`](attributes.md) | 宣言に付ける追加の扱い |
 | [コメント・字下げ](comments.md) | 行・ブロック・ドキュメントコメント、複数行の範囲 |
 

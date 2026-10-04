@@ -33,6 +33,8 @@ def render {α : Type} [ToString α] (x : α) : String := toString x
 
 同じ型の明示的な引数は `(x y : Nat)` とまとめられる。`{…}` で囲んでも引数がなくなるわけではなく、呼び出し時の指定を省けるだけである。
 
+省略時の値を指定する `(x : α := e)` と、タクティクスで補う引数は[引数の既定値](default_parameters.md)を参照。
+
 参照：[公式リファレンス：Functions / Implicit Parameters](https://lean-lang.org/doc/reference/latest/Terms/Functions/)。
 
 [文法要素の一覧に戻る](README.md)

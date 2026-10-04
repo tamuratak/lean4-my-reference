@@ -37,6 +37,8 @@ instance : ToString Score where
 
 `[HasLabel α]` は真偽を場合分けする記法ではなく、使える実装を引数として要求する記法である。
 
+インスタンスを自動生成する [`deriving`](deriving.md) と、一つの式の後続部分だけで使う [`haveI`・`letI`](local_instances.md) もある。
+
 参照：[公式リファレンス：Type Classes](https://lean-lang.org/doc/reference/latest/Type-Classes/)。
 
 [文法要素の一覧に戻る](README.md)

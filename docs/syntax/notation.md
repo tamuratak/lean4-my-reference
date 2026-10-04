@@ -40,7 +40,7 @@ example : three + 1 = 4 := rfl
 
 `open scoped Demo` はスコープ付き記法などを有効にする。名前空間の普通の定義名まで短くするものではない。
 
-記法は新しい数学的性質を証明するものではなく、式の書き方を増やすものである。一般的な構文や展開処理を定義する `syntax`・`macro` は、このページの対象には含めない。
+記法は新しい数学的性質を証明するものではなく、式の書き方を増やすものである。新しい構文と、その展開規則を定義する方法は [`syntax`・`macro`・`macro_rules`](syntax_macros.md) を参照。
 
 参照：[公式リファレンス：Notations and Macros](https://lean-lang.org/doc/reference/latest/Notations-and-Macros/)。
 

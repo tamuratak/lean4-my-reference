@@ -40,6 +40,8 @@ def double (n : Nat) : Nat := n + n
 
 型が期待どおりか迷ったときは `#check`、具体的な入力で動きを確認したいときは `#eval`、定義そのものを読みたいときは `#print` を使う。
 
+表示や処理の設定を変更する [`set_option`](set_option.md)、定理の依存公理を表示する [`#print axioms`](opaque_axiom.md) も使える。
+
 参照：[公式リファレンス：Interacting with Lean](https://lean-lang.org/doc/reference/latest/Interacting-with-Lean/)。
 
 [文法要素の一覧に戻る](README.md)

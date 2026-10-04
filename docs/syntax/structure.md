@@ -50,6 +50,8 @@ example : moveRight ⟨2, 3⟩ = (⟨3, 3⟩ : Point) := rfl
 
 複数の形を持つ型や再帰的な型を定義する場合は [`inductive`](inductive.md) を使う。
 
+既存の構造体のフィールドを引き継ぐ [`extends`](extends.md) と、インスタンスを自動生成する [`deriving`](deriving.md) も使える。
+
 参照：[公式リファレンス：Inductive Types / Structures](https://lean-lang.org/doc/reference/latest/The-Type-System/Inductive-Types/)。
 
 [文法要素の一覧に戻る](README.md)

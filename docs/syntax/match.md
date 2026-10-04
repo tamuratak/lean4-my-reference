@@ -42,6 +42,8 @@ example : both true false = false := rfl
 
 `by` の中で証明を分ける場合は、[タクティクスの `match`](../tactics/match.md)を参照。
 
+分岐前の式とパターンが等しいという証明を使う場合は [`match h : e with …`](match_eq.md) を参照。
+
 参照：[公式リファレンス：Pattern Matching](https://lean-lang.org/doc/reference/latest/Terms/Pattern-Matching/)。
 
 [文法要素の一覧に戻る](README.md)

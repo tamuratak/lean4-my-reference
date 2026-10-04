@@ -36,6 +36,8 @@ example : label true = "yes" := rfl
 
 値のコンストラクターごとに分けるなら [`match`](match.md)、`by` 内で証明の分岐を選ぶ場合は[タクティクスの `if`](../tactics/if.md)を参照。
 
+パターンに一致するかで分岐し、その成分も取り出す場合は [`if let`](if_let.md) を使える。
+
 参照：[公式リファレンス：Conditionals](https://lean-lang.org/doc/reference/latest/Terms/Conditionals/)。
 
 [文法要素の一覧に戻る](README.md)

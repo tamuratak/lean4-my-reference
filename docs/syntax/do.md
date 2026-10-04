@@ -41,6 +41,8 @@ def greet : IO Unit := do
 
 順に `hello` と `Lean` が表示される。`do` は [`by`](by.md) のように証明のゴールを操作するものではなく、モナドの計算をつなぐ構文である。`←` の具体的な動きは、使うモナドによって変わる。
 
+局所変数の更新、`for`・`while` による繰り返し、`break`・`continue` は [`do` 内の更新と繰り返し](do_control.md)を参照。
+
 参照：[公式リファレンス：Functors, Monads and do-Notation](https://lean-lang.org/doc/reference/latest/Functors___-Monads-and--do--Notation/)。
 
 [文法要素の一覧に戻る](README.md)
