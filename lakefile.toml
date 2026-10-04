@@ -1,0 +1,7 @@
+name = "lean4-my-reference"
+version = "0.1.0"
+fixedToolchain = true
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"

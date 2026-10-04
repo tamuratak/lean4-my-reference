@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BLOCK = re.compile(r'^```lean\s*\n(.*?)^```\s*$', re.MULTILINE | re.DOTALL)
 
 
-def check(path):
+def check(path, library_command):
     blocks = list(BLOCK.finditer(path.read_text()))
     errors = []
     for number, match in enumerate(blocks, 1):
@@ -25,12 +25,14 @@ def check(path):
         # Preserve the common import for existing tactic pages only.
         common_import = 'import Std.Tactic\n' if path.parent == ROOT / 'docs/tactics' else ''
         source = common_import + '\n'.join(imports) + '\n' + code
+        external = any(re.match(r'import (Mathlib|Aesop)(\.|\s|$)', line) for line in imports)
+        command, working_directory = library_command if external else (['lean'], ROOT)
         with tempfile.TemporaryDirectory(prefix='lean-reference-') as directory:
             source_path = Path(directory) / 'Example.lean'
             source_path.write_text(source)
             try:
                 result = subprocess.run(
-                    ['lean', str(source_path)], cwd=ROOT, text=True,
+                    command + [str(source_path)], cwd=working_directory, text=True,
                     stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=90,
                 )
             except (subprocess.TimeoutExpired, OSError) as error:
@@ -45,10 +47,41 @@ def check(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('paths', nargs='*', type=Path)
+    parser.add_argument('--library-project', type=Path, default=ROOT,
+                        help='Lake project providing Mathlib and Aesop (default: this repository)')
+    parser.add_argument('--allow-library-toolchain-mismatch', action='store_true',
+                        help='Explicitly allow an additional compatibility check with another Lean version')
     args = parser.parse_args()
     paths = [path.resolve() for path in args.paths] if args.paths else sorted((ROOT / 'docs').rglob('*.md'))
+    library_project = args.library_project.resolve()
+    library_command = (['lake', 'env', 'lean'], library_project)
+    external = any(re.search(r'^import (Mathlib|Aesop)(\.|\s|$)', path.read_text(), re.MULTILINE)
+                   for path in paths)
+    if external:
+        try:
+            standard_version = subprocess.check_output(['lean', '--version'], cwd=ROOT, text=True)
+            library_version = subprocess.check_output(
+                ['lake', 'env', 'lean', '--version'], cwd=library_project, text=True,
+                stderr=subprocess.STDOUT, timeout=90)
+        except (subprocess.SubprocessError, OSError) as error:
+            print(f'Cannot initialize library project: {error}')
+            if isinstance(error, subprocess.CalledProcessError):
+                print(error.output)
+            return True
+        # Lake may print configuration warnings before Lean's version line.
+        library_version_line = next((line for line in library_version.splitlines()
+                                     if line.startswith('Lean (version ')), None)
+        if library_version_line is None:
+            print(f'Cannot determine library Lean version:\n{library_version}')
+            return True
+        print(f'Library examples: {library_version_line}')
+        if library_version_line != standard_version.strip():
+            print('Library toolchain differs from the repository toolchain.')
+            if not args.allow_library_toolchain_mismatch:
+                return True
+            print('Compatibility check only; the pinned toolchain remains unverified for library examples.')
     with ThreadPoolExecutor(max_workers=4) as executor:
-        results = list(executor.map(check, paths))
+        results = list(executor.map(lambda path: check(path, library_command), paths))
     errors = [error for _, failures in results for error in failures]
     for error in errors:
         print(error)

@@ -255,6 +255,8 @@ example (P : Prop) : P → P := by
 
 名前が似ていても、`grind_linarith` と `linarith` は別の操作である。また、`grind` の内部言語にある `by_contra` と、一般の `by` 証明で使うタクティクスも区別する。
 
+これらの追加タクティクスは、[追加ライブラリの一覧](../library-tactics/README.md)から読む。[mathlib4](../library-tactics/mathlib/README.md) と [Aesop](../library-tactics/aesop/README.md) の解説は別ディレクトリに置いている。
+
 ## 例の検証
 
 リポジトリのルートで次を実行する。Python 3 と、`lean-toolchain` が指定する Lean を用意しておく。
@@ -264,6 +266,8 @@ python3 scripts/check_examples.py
 ```
 
 このスクリプトは Markdown の各 `lean` ブロックに共通インポートを補い、独立した一時ファイルとして Lean に渡す。エラーや `sorry` を含む完成例は失敗として扱う。出力や警告を意図的に表示する例もあるため、メッセージが出ること自体は失敗ではない。
+
+引数なしの実行は追加ライブラリの例も含むため、その依存環境の準備が必要になる。このディレクトリの標準例だけなら `python3 scripts/check_examples.py docs/tactics/*.md` で、追加ライブラリなしに検証できる。
 
 一つのページだけを確認する場合はファイルを指定できる。
 
