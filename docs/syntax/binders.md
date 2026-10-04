@@ -68,6 +68,35 @@ example : strictKeep (3 : Nat) = 3 := rfl
 
 つまり、値を渡して呼び出す場合の使い方は同じで、違いは**値を渡す前に、暗黙引数を補い始めるかどうか**にある。
 
+### 厳密な暗黙引数だとエラーになる例
+
+後続に明示的な引数がない場合は、通常の暗黙引数の方が使いやすい。例えば、空リストを返す定義で比較できる。
+
+```lean
+def empty {α : Type} : List α := []
+def strictEmpty ⦃α : Type⦄ : List α := []
+
+example : List Nat := empty
+example : List Nat := strictEmpty (α := Nat)
+```
+
+`empty` は、期待される型 `List Nat` から `α = Nat` を推論できる。一方、`strictEmpty` を型の指定なしで使うと、次はエラーになる。
+
+```text
+example : List Nat := strictEmpty
+
+Type mismatch
+  strictEmpty
+has type
+  ⦃α : Type⦄ → List α
+but is expected to have type
+  List Nat
+```
+
+`strictEmpty` には後続の明示的な引数がないため、自動挿入を始めるきっかけがない。`α` が引数として残り、リストそのものではなく「型を受け取ってリストを返す関数」になっている。上の成功例のように `(α := Nat)` を指定すれば使えるが、通常の暗黙引数ならこの指定は不要である。
+
+このため、すべての暗黙引数を厳密にするのではなく、`⦃…⦄` は後続に明示的な引数がある場合に使うのが基本である。
+
 参照：[公式リファレンス：Functions / Implicit Parameters](https://lean-lang.org/doc/reference/latest/Terms/Functions/)。
 
 [文法要素の一覧に戻る](README.md)
