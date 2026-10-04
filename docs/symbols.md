@@ -48,6 +48,7 @@
 | `{…}`・`{… with …}` | フィールド名を指定して構造体を作る・更新する | `{ p with x := 3 }` | [構造体](syntax/structure.md) |
 | `[…]`・`[]` | リストを作る・空リストを表す | `[1, 2, 3]` | [リテラル](syntax/literals.md) |
 | `::` | リストの先頭に要素を追加するコンストラクター | `1 :: [2, 3]` | [リテラル](syntax/literals.md) |
+| `++` | 連結。リストや文字列などをつなぐ | `[1, 2] ++ [3]`、`"Hello" ++ " Lean"` | [リスト](basic-types/list.md)・[文字列](basic-types/string_char.md) |
 | `#[…]` | 配列を作る | `#[1, 2, 3]` | [リテラル](syntax/literals.md) |
 | `a[i]` | 添字アクセス。範囲内であることの証明を自動で補う | `xs[i]` | [添字アクセス](syntax/indexing.md) |
 | `a[i]'h` | アポストロフィの後に、範囲内であることの証明を渡す | `xs[i]'h` | [添字アクセス](syntax/indexing.md) |

@@ -20,6 +20,8 @@ example : (some 0 : Option Nat) ≠ none := by
 
 `some 0` は「値 `0` がある」、`none` は「値がない」であり、区別される。`none` だけでは中身の型が決まらないので、必要なら `(none : Option Nat)` のように型を指定する。
 
+値がない理由も保持したい場合は、[`Except ε α`](except.md) を使う。
+
 ## 中身を使う
 
 `Option Nat` と `Nat` は別の型なので、`some 3` をそのまま自然数として足すことはできない。まず値の形で分ける。
