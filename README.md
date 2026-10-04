@@ -10,6 +10,7 @@
 - [確認・実行・検査用の `#` コマンド](docs/commands/README.md)：型、計算結果、宣言内容、期待した動作の確認。
 - [属性の一覧](docs/attributes/README.md)：`@[simp]` など、宣言の登録や追加の扱い。
 - [標準タクティクスの一覧](docs/tactics/README.md)：仮定やゴールを操作する証明の命令。
+- [プログラム検証の案内](docs/tactics/program_verification.md)：`mstart`・`mintro`・`mvcgen` などの用途、記法、関連タクティクスへの索引。
 - [追加ライブラリのタクティクス](docs/library-tactics/README.md)：mathlib4 の算術・論理・式変形と、Aesop の証明探索。
 
 文法要素は `docs/syntax/`、基本データ型は `docs/basic-types/`、確認用の `#` コマンドは `docs/commands/`、属性は `docs/attributes/`、標準タクティクスは `docs/tactics/` に分ける。追加ライブラリのタクティクスは `docs/library-tactics/` に分離し、その中でも `mathlib/` と `aesop/` を分ける。各分類のページはそれぞれのディレクトリ直下に置く。
