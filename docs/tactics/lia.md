@@ -13,6 +13,6 @@ example (x y : Int) (h : x ≤ y) : x + 2 ≤ y + 3 := by
 
 `cutsat` は同種の機能の古い名前で、このバージョンでは非推奨である。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`lia`](https://lean-lang.org/doc/api/Init/Grind/Tactics.html#Lean.Parser.Tactic.lia)。
 
 [タクティクス一覧に戻る](README.md)

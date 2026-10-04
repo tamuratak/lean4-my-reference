@@ -24,6 +24,6 @@ example (a b : Nat) (h : a = b) : b + 1 = a + 1 := by
 
 `rwa [h]` は `rw [h]` の後に `assumption` を試す書き方である。`erw` は通常の `rw` より定義の展開を許して書き換える。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`rw`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.rwSeq)。
 
 [タクティクス一覧に戻る](README.md)

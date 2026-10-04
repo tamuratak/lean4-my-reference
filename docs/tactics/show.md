@@ -22,6 +22,6 @@ example (P Q : Prop) (hp : P) (hq : Q) : P ∧ Q := by
 
 `change` は主に現在のゴールや指定した仮定の書き方を変える操作、`show` は証明したい型を明示してゴールを選ぶ操作と考えるとよい。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`show`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.show)。
 
 [タクティクス一覧に戻る](README.md)

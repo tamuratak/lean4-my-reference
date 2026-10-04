@@ -13,6 +13,6 @@ example (n m : Nat) (h : n = m) : (n : Int) = (m : Int) := by
 
 `apply_mod_cast` は前提を残す適用、`rw_mod_cast` は書き換え、`assumption_mod_cast` は仮定からの探索を、型変換の整理と組み合わせる変種である。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`exact_mod_cast`](https://lean-lang.org/doc/api/Init/Tactics.html)。
 
 [タクティクス一覧に戻る](README.md)

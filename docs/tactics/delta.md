@@ -16,6 +16,6 @@ example (n : Nat) : twice n = n + n := by
 
 `unfold` は定義に対応する等式を利用するが、`delta` は定数の定義本体を直接展開する。再帰関数の内部表現まで開くと式が読みにくくなることがあるので、通常の証明では先に `unfold` や `simp [定義名]` を使うとよい。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`delta`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.delta)。
 
 [タクティクス一覧に戻る](README.md)

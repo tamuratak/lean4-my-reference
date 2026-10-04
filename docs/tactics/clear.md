@@ -14,6 +14,6 @@ example (P Q : Prop) (hp : P) (hq : Q) : P := by
 
 複数まとめて消すなら `clear h₁ h₂` と書く。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/The-Tactic-Language/)、[公式 API ドキュメント：`clear`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.clear)。
 
 [タクティクス一覧に戻る](README.md)

@@ -21,6 +21,6 @@ example : ∀ b : Bool, b = false ∨ b = true := by
 
 `Decidable` による判定方法が必要である。任意の自然数変数を含む算術命題を、一般に `decide` で解けるわけではない。そうした場合は `omega` を使う。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`decide`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.decide)。
 
 [タクティクス一覧に戻る](README.md)

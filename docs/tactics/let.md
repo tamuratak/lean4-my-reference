@@ -16,6 +16,6 @@ example : ∃ n : Nat, n = 3 := by
 
 `let'` は内部で `refine'` に対応する処理を使う変種である。`let rec` は局所的な再帰関数を定義するための構文で、再帰定義の停止性の条件も満たす必要がある。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`let`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.tacticLet__)。
 
 [タクティクス一覧に戻る](README.md)

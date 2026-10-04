@@ -14,6 +14,6 @@ example (n : Nat) : 0 + n = n := by
 
 通常の証明では `rfl` や `simp` と直接書けばよい。`sym` の内側で使える操作や設定は通常の証明モードと同じとは限らないため、より細かな制御が必要なときに公式リファレンスを確認する。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`sym`](https://lean-lang.org/doc/api/Init/Grind/Tactics.html#Lean.Parser.Tactic.sym)。
 
 [タクティクス一覧に戻る](README.md)

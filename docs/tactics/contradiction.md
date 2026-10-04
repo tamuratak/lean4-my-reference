@@ -21,6 +21,6 @@ example (n : Nat) (h : Nat.succ n = 0) : False := by
 
 一般的な算術の矛盾をすべて解くわけではない。`n < n` のような算術的な条件では `omega` などを使う。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`contradiction`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.contradiction)。
 
 [タクティクス一覧に戻る](README.md)

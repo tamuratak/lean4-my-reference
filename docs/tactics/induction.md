@@ -17,6 +17,6 @@ example (n : Nat) : 0 + n = n := by
 
 `cases` との違いは、この `ih` が手に入ることである。証明したい命題に他の変数が依存する場合は、`induction n generalizing ...` で帰納法の仮定を一般化することもある。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`induction`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.induction)。
 
 [タクティクス一覧に戻る](README.md)

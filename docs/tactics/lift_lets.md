@@ -14,6 +14,6 @@ example (f : Nat → Nat) : f (let n := 3; n) = f 3 := by
 
 この操作は、関数の値を計算するのではなく、定義上同じ意味のまま `let` の配置を整える。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`lift_lets`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.liftLets)。
 
 [タクティクス一覧に戻る](README.md)

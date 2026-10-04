@@ -13,6 +13,6 @@ example (x : BitVec 8) : x.toNat < 256 := by
 
 ビット演算を含むどんな式でも解けるわけではない。変換後に `omega` が扱える形になることが必要である。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`bv_omega`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.tacticBv_omega)。
 
 [タクティクス一覧に戻る](README.md)

@@ -20,6 +20,6 @@ example (P Q : Prop) : P → Q → P := by
 
 名前を省略した `intro` は一つ導入するが、名前を省略した `intros` は可能な分をまとめて導入する。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`intros`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.intros)。
 
 [タクティクス一覧に戻る](README.md)

@@ -17,6 +17,6 @@ example (n m : Nat) (h : n = m) : (let x := n; x) = m := by
 
 `dsimp [定義名]` と展開する定義を指定したり、`dsimp at h` と仮定を指定したりできる。`dsimp!`、`dsimp?`、`dsimp?!` という変種もある。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`dsimp`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.dsimp)。
 
 [タクティクス一覧に戻る](README.md)

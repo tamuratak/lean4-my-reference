@@ -13,6 +13,6 @@ example (n : Nat) : n + 1 > n := by
 
 `simp_arith!`、`simp_all_arith`、`simp_all_arith!` も同様の旧式の名前である。仮定も組み合わせるなら `simp_all +arith`、積極的な展開もするなら `simp! +arith` や `simp_all! +arith` を使う。複数の不等式を使う一般的な線形算術では、`omega` や `grind` が適することもある。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`simp_arith`](https://lean-lang.org/doc/api/Init/Meta.html#Lean.Parser.Tactic.simpArith)。
 
 [タクティクス一覧に戻る](README.md)

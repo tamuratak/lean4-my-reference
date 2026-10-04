@@ -276,6 +276,5 @@ python3 scripts/check_examples.py docs/tactics/rcases.md
 説明と例は、インストール済み Lean 4.34.1 の構文・実装とコンパイル結果を確認して作成した。公式リファレンスの `latest` は将来の変更を含み得るため、このリファレンスの動作確認は固定したバージョンを基準にする。
 
 - [Lean 公式リファレンス：Tactic Reference](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)
-- [Lean 4.34.1：基本タクティクスの構文と説明](https://github.com/leanprover/lean4/blob/v4.34.1/src/Init/Tactics.lean)
-- [Lean 4.34.1：タクティクスの実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)
-- [Lean 4.34.1：標準ライブラリのタクティクス](https://github.com/leanprover/lean4/tree/v4.34.1/src/Std/Tactic)
+- [Lean 公式リファレンス：The Tactic Language](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/The-Tactic-Language/)
+- [Lean 公式 API ドキュメント](https://lean-lang.org/doc/api/)

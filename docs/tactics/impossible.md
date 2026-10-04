@@ -20,6 +20,6 @@ example (n : Nat) : n = 0 := by
 
 矛盾した仮定から正しいゴールを閉じる `contradiction` や `nomatch` とは用途が異なる。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`impossible`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.impossible)。
 
 [タクティクス一覧に戻る](README.md)

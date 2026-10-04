@@ -13,6 +13,6 @@ example (a b c : Nat) (hab : a ≤ b) (hbc : b ≤ c) : a ≤ c := by
 
 `grind_linarith` は線形算術の機能に絞る関連タクティクスである。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`grind_order`](https://lean-lang.org/doc/api/Init/Grind/Tactics.html#Lean.Parser.Tactic.grind_order)。
 
 [タクティクス一覧に戻る](README.md)

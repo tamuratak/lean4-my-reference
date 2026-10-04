@@ -24,6 +24,6 @@ example : ∀ n : Nat, n = n := by
 
 `intros` は導入できる引数をまとめて導入する。名前を指定しないと Lean が名前を選ぶので、後で使う仮定には `intro hp` のように名前を付けると読みやすい。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`intro`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.intro)。
 
 [タクティクス一覧に戻る](README.md)

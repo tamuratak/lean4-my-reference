@@ -17,6 +17,6 @@ example : ⦃⌜True⌝⦄ (pure 3 : Id Nat) ⦃⇓ n => ⌜n = 3⌝⦄ := by
 
 `mvcgen [仕様の定理, 定義名]` で使う情報を追加できる。ループでは不変条件が必要になることもある。`mvcgen?` は不変条件の候補を表示するための関連操作である。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/blob/v4.34.1/src/Std/Tactic/Do/Syntax.lean)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`mvcgen`](https://lean-lang.org/doc/api/Std/Tactic/Do/Syntax.html#Lean.Parser.Tactic.mvcgen)。
 
 [タクティクス一覧に戻る](README.md)

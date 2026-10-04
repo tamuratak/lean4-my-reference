@@ -14,6 +14,6 @@ example (a b : Nat) (h : a = b) : a + 1 = b + 1 := by
 
 逆向きには `rewrite [← h]`、仮定を対象にするなら `rewrite [h] at ha` と書く。通常は `rw` を使い、書き換え後の状態をあえて残したいときに `rewrite` を使う。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`rewrite`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.rewriteSeq)。
 
 [タクティクス一覧に戻る](README.md)

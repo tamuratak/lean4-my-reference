@@ -21,6 +21,6 @@ example (P Q R : Prop) (hq : Q) : P ∨ Q ∨ R := by
 
 `P ∨ Q ∨ R` は `P ∨ (Q ∨ R)` と読まれるので、右へ進んでから左を選ぶと `Q` に届く。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`right`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.right)。
 
 [タクティクス一覧に戻る](README.md)

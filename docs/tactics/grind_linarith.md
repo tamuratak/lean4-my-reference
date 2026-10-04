@@ -13,6 +13,6 @@ example (x y : Int) (h : x ≤ y) : x + 1 ≤ y + 1 := by
 
 `grind` は算術に加えて等式や論理の推論も連携させる。まず `grind` で証明できたものを、必要に応じて機能を絞って書ける。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`grind_linarith`](https://lean-lang.org/doc/api/Init/Grind/Tactics.html#Lean.Parser.Tactic.grind_linarith)。
 
 [タクティクス一覧に戻る](README.md)

@@ -16,6 +16,6 @@ example (n : Nat) : twice n = n + n := by
 
 再帰的な定義では、定義に対応する等式を使って展開する。単純な略記を開くだけなら `dsimp [twice]` や `simp [twice]` でも扱える。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`unfold`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.unfold)。
 
 [タクティクス一覧に戻る](README.md)

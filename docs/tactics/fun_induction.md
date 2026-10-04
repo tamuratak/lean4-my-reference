@@ -17,6 +17,6 @@ example (n : Nat) : down n = 0 := by
 
 `induction n` は自然数のコンストラクターに沿う。`fun_induction` は関数の分岐と再帰呼出しに沿う、という違いがある。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`fun_induction`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.funInduction)。
 
 [タクティクス一覧に戻る](README.md)

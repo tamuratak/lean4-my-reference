@@ -18,6 +18,6 @@ example (a b c : Nat) : (a + b) + c = c + (b + a) := by
   ac_nf
 ```
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`ac_rfl`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.acRfl)。
 
 [タクティクス一覧に戻る](README.md)

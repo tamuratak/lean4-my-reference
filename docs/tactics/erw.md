@@ -13,6 +13,6 @@ example (a b : Nat) (h : a = b) : a + 1 = b + 1 := by
 
 この単純な例では `rw` でも証明できる。`erw` を必要とする証明は、定義の実装に強く依存する場合がある。まず `rw` を試し、照合に必要な展開が足りない場合に使うとよい。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`erw`](https://lean-lang.org/doc/api/Lean/Elab/Tactic/Rewrite.html)。
 
 [タクティクス一覧に戻る](README.md)

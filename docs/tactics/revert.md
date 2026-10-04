@@ -22,6 +22,6 @@ example (n : Nat) (h : n = 0) : n = 0 := by
 
 この例では `h` が `n` に依存するため、`n` を戻すと `h` も戻る。帰納法を始める前に、命題を一般化したいときによく使う。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/The-Tactic-Language/)、[公式 API ドキュメント：`revert`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.revert)。
 
 [タクティクス一覧に戻る](README.md)

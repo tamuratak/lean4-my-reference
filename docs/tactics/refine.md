@@ -18,6 +18,6 @@ example : ∃ n : Nat, n = 3 := by
 
 `refine` では `?_` が明示的な穴になる。`refine'` はさらに、推論で解決されなかった通常の穴 `_` などもゴールとして扱う。最初は `refine` と `?_` の組合せを使うと、残す課題が分かりやすい。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`refine`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.refine)。
 
 [タクティクス一覧に戻る](README.md)

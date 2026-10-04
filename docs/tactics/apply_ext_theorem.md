@@ -15,6 +15,6 @@ example (f g : Nat → Nat) (h : ∀ n, f n = g n) : f = g := by
 
 普通の証明では `funext n` や `ext n` の方が短く、何を導入するかも明示できる。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`apply_ext_theorem`](https://lean-lang.org/doc/api/Init/Ext.html#Lean.Elab.Tactic.Ext.applyExtTheorem)。
 
 [タクティクス一覧に戻る](README.md)

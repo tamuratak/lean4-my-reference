@@ -15,6 +15,6 @@ example (P : Prop) (hp : P) : P ∧ True := by
 
 どのゴールでも成功しなければ `any_goals` も失敗する。すべてのゴールで成功することを求めるなら `all_goals` を使う。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/The-Tactic-Language/)、[公式 API ドキュメント：`any_goals`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.anyGoals)。
 
 [タクティクス一覧に戻る](README.md)

@@ -14,6 +14,6 @@ example : (let n : Nat := 3; True) := by
 
 局所定義の値を消す `clear_value` と関連しているが、こちらはゴールや仮定の式の中にある `let` を対象にする。仮定なら `let_to_have at h` と指定する。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`let_to_have`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.letToHave)。
 
 [タクティクス一覧に戻る](README.md)

@@ -21,6 +21,6 @@ example (P : Prop) : P ∨ ¬ P := by
 
 `cases h` は既にある値をコンストラクターで分解するが、`by_cases h : P` は命題の真偽を新しく場合分けする。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`by_cases`](https://lean-lang.org/doc/api/Init/ByCases.html)。
 
 [タクティクス一覧に戻る](README.md)

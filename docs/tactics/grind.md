@@ -29,6 +29,6 @@ example (n : Nat) : twice n = n + n := by
 
 `grind => ...` は、`grind` 専用の操作を明示して探索を制御するための構文である。内部の命令と、普通の `by` の中のタクティクスは同じとは限らない。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`grind`](https://lean-lang.org/doc/api/Init/Grind/Tactics.html#Lean.Parser.Tactic.grind)。
 
 [タクティクス一覧に戻る](README.md)

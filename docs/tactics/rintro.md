@@ -19,6 +19,6 @@ example (P Q : Prop) : (P ∨ Q) → (Q ∨ P) := by
 
 `rintro?` は導入と分解のパターンを提案する。自分で付けたい名前が決まっているなら `rintro` で直接指定する。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`rintro`](https://lean-lang.org/doc/api/Init/RCases.html#Lean.Parser.Tactic.rintro)。
 
 [タクティクス一覧に戻る](README.md)

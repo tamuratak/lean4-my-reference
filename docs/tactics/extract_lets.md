@@ -21,6 +21,6 @@ n : Nat := 3
 
 `lift_lets` は式の奥にある `let` を式の外側へ移し、`extract_lets` はそれを局所定義として取り出すために使う。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`extract_lets`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.extractLets)。
 
 [タクティクス一覧に戻る](README.md)

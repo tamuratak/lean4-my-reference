@@ -21,6 +21,6 @@ example (P : Prop) (hp : P) : P := by
 
 最初から名前を選べるなら、`intro hp` や `cases h with ...` と導入時に付ける方が分かりやすい。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/The-Tactic-Language/)、[公式 API ドキュメント：`rename_i`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.renameI)。
 
 [タクティクス一覧に戻る](README.md)

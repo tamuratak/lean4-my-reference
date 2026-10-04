@@ -16,6 +16,6 @@ example (n : Nat) (h : n = 3) : 0 + n = 3 := by
 
 `simp_all only [...]` で補題を制限できる。`simp_all!` は展開を積極的に行い、`simp_all?` と `simp_all?!` は使った補題に基づく提案を表示する。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`simp_all`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.simpAll)。
 
 [タクティクス一覧に戻る](README.md)

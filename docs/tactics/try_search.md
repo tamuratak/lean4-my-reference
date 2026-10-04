@@ -13,6 +13,6 @@ example (n : Nat) : n + 0 = n := by
 
 `suggestions` はエディター上の候補表示に関わる関連操作であり、`∎` も証明提案を利用するための書き方である。候補探しの後は、提案された `rfl` や `exact ...` を採用すると、使った方法が明示される。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`try?`](https://lean-lang.org/doc/api/Init/Try.html#Lean.Parser.Tactic.tryTrace)。
 
 [タクティクス一覧に戻る](README.md)

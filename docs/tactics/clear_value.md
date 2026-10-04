@@ -15,6 +15,6 @@ example : ∃ n : Nat, n = 3 := by
 
 単に `clear_value n` と書くと、定義の値は展開できなくなる。`clear n` が名前そのものを消すのに対し、`clear_value` は値だけを消す。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`clear_value`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.clearValue)。
 
 [タクティクス一覧に戻る](README.md)

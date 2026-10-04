@@ -22,6 +22,6 @@ example (a b c : Nat) (hab : a ≤ b) (hbc : b ≤ c) : a ≤ c := by
 
 途中の証明にも `by ...` を使える。長い書き換えを、何を経由したかが見える形で書きたいときに便利である。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`calc`](https://lean-lang.org/doc/api/Lean/Elab/Tactic/Calc.html)。
 
 [タクティクス一覧に戻る](README.md)

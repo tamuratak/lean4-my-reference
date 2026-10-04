@@ -15,6 +15,6 @@ example (b : Bool) : b = false ∨ b = true := by
 
 既にゴールの式に含まれる `match` の分岐を分けたい場合は `split` が便利である。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`match`](https://lean-lang.org/doc/api/Lean/Parser/Tactic.html#Lean.Parser.Tactic.match)。
 
 [タクティクス一覧に戻る](README.md)

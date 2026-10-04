@@ -22,6 +22,6 @@ example (n : Nat) : n = 0 ∨ ∃ k, n = Nat.succ k := by
 
 `cases` は帰納法の仮定を作らない。小さい値についての結論を使いたい場合は `induction` を使う。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`cases`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.cases)。
 
 [タクティクス一覧に戻る](README.md)

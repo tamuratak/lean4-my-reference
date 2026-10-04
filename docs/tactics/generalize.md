@@ -20,6 +20,6 @@ example (n : Nat) : n + 1 > 0 := by
 
 `generalize n + 1 = k` と名前を省略すると、その等式は残らない。式を変数にした後で `cases k` などを使いたいときに役立つ。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`generalize`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.generalize)。
 
 [タクティクス一覧に戻る](README.md)

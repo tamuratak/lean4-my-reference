@@ -14,6 +14,6 @@ example (n m : Nat) : ((n + m : Nat) : Int) = (n : Int) + (m : Int) := by
 
 `push_cast at h` と仮定も対象にできる。元の型への等式に戻すなど、より広い型変換の整理には `norm_cast` を使う。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`push_cast`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.pushCast)。
 
 [タクティクス一覧に戻る](README.md)

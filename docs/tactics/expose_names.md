@@ -15,6 +15,6 @@ example (P : Prop) : P → P := by
 
 `unhygienic` は内側のタクティクスで名前の衛生性の設定を変える関連操作である。通常の証明では `intro hp` や `rename_i` で明示的に名前を付ければ十分である。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`expose_names`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.exposeNames)。
 
 [タクティクス一覧に戻る](README.md)

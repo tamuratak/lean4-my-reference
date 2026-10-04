@@ -18,6 +18,6 @@ example (x y : Int) (h : x * x = y) : x * x + 1 = y + 1 := by
 
 `grind` の多項式ソルバーに絞った操作である。`ac_rfl` は結合則と交換則の並べ替えに使い、`grobner` は分配法則なども含む多項式の関係に使う。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`grobner`](https://lean-lang.org/doc/api/Init/Grind/Tactics.html#Lean.Parser.Tactic.grobner)。
 
 [タクティクス一覧に戻る](README.md)

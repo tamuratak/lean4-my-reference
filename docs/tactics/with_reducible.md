@@ -22,6 +22,6 @@ example (n : Nat) : twice n = n + n := by
 
 展開の設定は内側の操作に対して適用される。普通の証明では先に `change`、`unfold`、`simp [定義名]` で必要な形を明示すると読みやすい。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`with_reducible`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.withReducible)。
 
 [タクティクス一覧に戻る](README.md)

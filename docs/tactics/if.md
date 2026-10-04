@@ -16,6 +16,6 @@ example (n : Nat) : n = 0 ∨ n ≠ 0 := by
 
 命題の真偽に沿って両方の場合を証明する用途では `by_cases h : n = 0` と書く方法もある。ゴールの中にある `if` を分けたい場合は `split` を使う。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`if`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.tacDepIfThenElse)。
 
 [タクティクス一覧に戻る](README.md)

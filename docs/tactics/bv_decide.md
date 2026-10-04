@@ -16,6 +16,6 @@ example (x : BitVec 8) : x ^^^ x = 0 := by
 
 `bv_normalize` はソルバーに渡す前の正規化を行い、`bv_decide?` は証明の再実行に使える情報を提案する。`bv_check` は既に用意した証明書を検査するための操作で、証明書ファイルが必要になる。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`bv_decide`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.bvDecide)。
 
 [タクティクス一覧に戻る](README.md)

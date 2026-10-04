@@ -14,6 +14,6 @@ example (P Q : Prop) (hp : P) (hq : Q) : P ∧ Q := by
 
 エディターに表示された提案を採用すると、適用した定理を明示した証明にできる。検索の範囲はインポート済みの定理に依存する。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`apply?`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.apply%3F)。
 
 [タクティクス一覧に戻る](README.md)

@@ -22,6 +22,6 @@ example (P : Nat → Prop) (h : P 1 → P 3) (h1 : P 1) : ∃ n, P n := by
 
 自動で閉じるかどうかに頼らず課題を明示するなら、`refine ⟨3, ?_⟩` と書くこともできる。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`exists`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.tacticExists_%2C%2C)。
 
 [タクティクス一覧に戻る](README.md)

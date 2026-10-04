@@ -13,6 +13,6 @@ example : (List.range 1000).length = 1000 := by
 
 通常の `decide` はカーネルの計算による検査を使う。一方 `native_decide` の結果にはコンパイラーと実行系も関わり、生成される証明は `Lean.ofReduceBool` という公理に依存する。計算量と検証の前提の違いを理解した上で使う。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`native_decide`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.nativeDecide)。
 
 [タクティクス一覧に戻る](README.md)

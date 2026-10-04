@@ -20,6 +20,6 @@ example (a b : Nat) (xs ys : List Nat) (h : a :: xs = b :: ys) : a = b := by
 
 `injections` は仮定にあるコンストラクターの等式に対して、この操作を繰り返す。一般の関数 `f` は単射とは限らないので、`f a = f b` から常に `a = b` を取り出せるわけではない。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`injection`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.injection)。
 
 [タクティクス一覧に戻る](README.md)

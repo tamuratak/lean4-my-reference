@@ -21,6 +21,6 @@ example (n : Nat) (h : 3 ≤ n) : n - 3 + 3 = n := by
 
 定数倍を含む線形算術が主な対象である。変数どうしの積 `n * m` などの非線形な関係を、一般に解くタクティクスではない。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`omega`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.omega)。
 
 [タクティクス一覧に戻る](README.md)

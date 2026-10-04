@@ -21,6 +21,6 @@ example (P Q : Prop) (hp : P) (hq : Q) : P ∧ Q := by
 
 つまり、`exact` が完成した証明を渡すのに対し、`apply` は「この定理で証明するには何が必要か」を取り出す。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`apply`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.apply)。
 
 [タクティクス一覧に戻る](README.md)

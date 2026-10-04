@@ -22,6 +22,6 @@ example (P Q R : Prop) (hp : P) (hq : Q) (hr : R) : P ∧ Q ∧ R := by
 
 `repeat skip` のように、成功しても何も変えない操作は終了しないので避ける。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/The-Tactic-Language/)、[公式 API ドキュメント：`repeat`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.tacticRepeat_)。
 
 [タクティクス一覧に戻る](README.md)

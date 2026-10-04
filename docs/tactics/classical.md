@@ -16,6 +16,6 @@ example (P : Prop) : P ∨ ¬ P := by
 
 数値の比較や有限の計算を扱う証明では、既に判定方法があるため不要なことも多い。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`classical`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.classical)。
 
 [タクティクス一覧に戻る](README.md)

@@ -14,6 +14,6 @@ example (P Q : Prop) (hp : P) : P ∨ Q := by
 
 仮定にある論理和を場合分けする操作は別であり、`cases` や `rcases` を使う。
 
-参照：[Lean 4.34.1 の構文・実装](https://github.com/leanprover/lean4/tree/v4.34.1/src/Lean/Elab/Tactic)。
+参照：[公式リファレンスマニュアル](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)、[公式 API ドキュメント：`left`](https://lean-lang.org/doc/api/Init/Tactics.html#Lean.Parser.Tactic.left)。
 
 [タクティクス一覧に戻る](README.md)
