@@ -25,6 +25,30 @@ def greeting : String := "hello"
 #eval greeting
 ```
 
+## `where` の後ろにフィールドを並べる
+
+構造体の値を定義するときは、`:= 本体` の代わりに `where` を書き、その後ろにフィールドごとの値を並べられる。
+
+```lean
+structure Point where
+  x : Nat
+  y : Nat
+
+def p : Point where
+  x := 2
+  y := 3
+
+example : p = ({ x := 2, y := 3 } : Point) := rfl
+example : p.x = 2 := rfl
+example : p.y = 3 := rfl
+```
+
+`structure Point where …` はフィールドの名前と型を宣言し、`def p : Point where …` はそのフィールドに値を渡して `p` を定義する。後者は `def p : Point := { x := 2, y := 3 }` と同じ意味である。詳しい構築方法やフィールドの更新は、[構造体のページ](structure.md)を参照。
+
+ここでの `where` は、構造体の値を作るための区切りである。定義の本体の後ろに補助関数を置く [`where`](where.md) とは用途が異なる。
+
+## `abbrev`：展開されやすい別名
+
 `abbrev` も定義を作るが、Lean が型を合わせる際に、通常の `def` より積極的に本体を展開する。型などの短い別名を作りたいときに使える。
 
 ```lean
