@@ -1,0 +1,121 @@
+# 文法要素の日本語リファレンス
+
+Lean のコードに出てくる宣言、式、型、記法を、短い具体例で説明する。各ページは「何を書く構文か → どんな値・型・使える名前になるか → 実行できる例」を中心にしている。
+
+文法のページはすべて `docs/syntax/` 直下に置き、分類はこの一覧の中で行う。仮定やゴールを操作する命令は、別ディレクトリの[タクティクス一覧](../tactics/README.md)にまとめる。
+
+## 対象と例の実行方法
+
+対象は **Lean 4.34.1 の基本的な文法と、標準で使える記法**である。mathlib などの追加ライブラリには依存しない。まず通常の定義や証明を読み書きするための項目を扱い、構文拡張の実装、引用・反引用、相互再帰などの詳細はまだ扱わない。
+
+各 `lean` コードブロックは、それぞれ独立した完成例である。そのまま `.lean` ファイルにコピーして実行でき、追加のインポートが必要な例ではブロック内に `import` を記載している。直前のブロックの定義を引き継ぐ必要はない。
+
+- `lean`：完成した証明・定義・確認コマンド。自動検証の対象。
+- `text`：構文のひな形、型・状態・出力の説明用表示。実行対象ではない。
+- `lean-incomplete`：未解決の穴を含む途中の例。完成例の検証から除外する。
+
+## まず押さえる区別
+
+**コマンド**は、ファイルに宣言を追加したり、設定や読み込みを行ったりする。`def`・`theorem`・`import` などが該当する。
+
+**項（式）**は、型を持つ値を表す。`3`・`f x`・`fun x => x` などであり、命題もその証明も項として扱う。
+
+**タクティクス**は、`by` の中でゴールを操作して項を作るための命令である。
+
+```lean
+def addOne (n : Nat) : Nat := n + 1
+
+example : addOne 3 = 4 := by
+  rfl
+```
+
+`def` は定義を登録するコマンド、`n + 1` はその本体の式、`by` はタクティクスによって項を作る文法である。`rfl` がタクティクスに当たる。
+
+同じ名前でも、書く位置によって役割が違う。式の `let`・`have`・`match`・`if`・`show`・`calc` と、`by` 内の同名の操作は、それぞれのページで区別する。文法の例に証明のためのタクティクスが登場することはあるが、タクティクス自体の説明は別の一覧で行う。
+
+## 最初に読むページ
+
+1. [`def`](def.md)・[`theorem`・`example`](theorem.md)：宣言の `:` と `:=` を読む。
+2. [関数の型](function_types.md)・[引数の括弧](binders.md)：入力と結果の型を読む。
+3. [関数適用](application.md)・[`fun`](fun.md)：関数に値を渡す・関数を作る。
+4. [`⟨…⟩`](anonymous_constructor.md)・[論理の記号](logical_symbols.md)：証明の形を読む。
+5. [`let`](let.md)・[`if`](if.md)・[`match`](match.md)：途中の値と分岐を書く。
+6. [`by`](by.md)：タクティクスによる証明とのつながりを理解する。
+
+## 宣言・引数・型
+
+| ページ | 何を表すか |
+| --- | --- |
+| [`def`・`abbrev`](def.md) | 値や関数の定義、展開しやすい別名 |
+| [`theorem`・`example`](theorem.md) | 名前のある定理と、名前を残さない確認用の宣言 |
+| [引数の括弧](binders.md) | 明示的・暗黙・インスタンス・厳密な暗黙の引数 |
+| [関数の型：`→`・`∀`](function_types.md) | 関数、含意、依存関数、全称命題 |
+| [`Prop`・`Type`・`Sort`・`universe`](universes.md) | 命題とデータ型の違い、型の階層 |
+| [論理の記号](logical_symbols.md) | `∧`・`∨`・`¬`・`↔`・`∃` と証明の形 |
+| [部分型：`{x : α // P x}`](subtype.md) | 条件を満たす値と、その条件の証明 |
+
+## 式の組み立て・証明の記法
+
+| ページ | 何を表すか |
+| --- | --- |
+| [関数適用](application.md) | `f x`、名前付き引数、`@`、ドットでの適用 |
+| [`fun … => …`・`(· + 1)`](fun.md) | その場で作る関数と、その短い記法 |
+| [式の `let`](let.md) | 本体を展開できる局所定義 |
+| [式の `have`](have.md) | 後続の式で使う補助的な証明や値 |
+| [`by`](by.md) | タクティクスで作る項 |
+| [式の `calc`](calc.md) | 等式・不等式などの段階的な証明 |
+| [式の `if`](if.md) | 条件に応じて値を返す分岐 |
+| [式の `match`](match.md) | 値のコンストラクターごとの分岐 |
+| [型の指定](type_ascription.md) | `(e : α)`、`show α from e`、`show α by …` |
+| [`⟨…⟩`・`(x, y)`](anonymous_constructor.md) | コンストラクターによる構築、ペアと成分の取り出し |
+| [推論用の `_` と未完成の `?_`](placeholders.md) | 推論に任せる部分と、証明途中の穴 |
+| [数値・文字列・リスト・配列](literals.md) | `3`、`"hello"`、`'a'`、`[…]`、`#[…]`、`::` |
+| [`do`・`←`・`return`](do.md) | 計算の結果を受け取り、次の計算につなぐ |
+
+## 型と関数の定義
+
+| ページ | 何を表すか |
+| --- | --- |
+| [`structure`](structure.md) | 名前付きのフィールドを持つ型、構築と更新 |
+| [`inductive`](inductive.md) | コンストラクターを列挙して作る型 |
+| [パターンによる関数定義・再帰](recursive.md) | `| … => …`、再帰呼び出し、`termination_by` |
+| [`class`・`instance`](class.md) | 型クラスの要求と、探索で補う実装 |
+
+## ファイル・名前・記法の整理
+
+| ページ | 何を表すか |
+| --- | --- |
+| [`import`](import.md) | 別モジュールの読み込み |
+| [`namespace`・`open`・`end`](namespace.md) | 名前の整理と、短い名前で使う範囲 |
+| [`section`・`variable`・`include`](section.md) | 共通変数や設定の範囲、宣言に加える引数 |
+| [`#check`・`#eval`・`#print`](commands.md) | 型、計算結果、宣言内容の確認 |
+| [`notation`・`infix`・`scoped`](notation.md) | 既存の式に付ける記法と、その有効範囲 |
+| [属性：`@[…]`・`attribute`](attributes.md) | 宣言に付ける追加の扱い |
+| [コメント・字下げ](comments.md) | 行・ブロック・ドキュメントコメント、複数行の範囲 |
+
+## 例の検証
+
+リポジトリのルートで実行する。`lean-toolchain` が指定する Lean 4.34.1 を使い、文法とタクティクスの完成例をすべて確認する。
+
+```sh
+python3 scripts/check_examples.py
+```
+
+一つの文法ページだけを検証することもできる。
+
+```sh
+python3 scripts/check_examples.py docs/syntax/match.md
+```
+
+文法の例には共通インポートを補わず、記載されたコードを検証する。既存のタクティクスの例には、そちらの一覧に記載した共通インポート `Std.Tactic` を補う。`sorry` を含む例や Lean のエラーは失敗として扱う。
+
+## 参照資料
+
+各ページから公式リファレンスの該当項目へリンクしている。`latest` は固定バージョンより新しい内容を含み得るため、動作確認は `lean-toolchain` のバージョンを基準にする。
+
+- [Lean 公式リファレンス：Definitions](https://lean-lang.org/doc/reference/latest/Definitions/)
+- [Lean 公式リファレンス：Terms](https://lean-lang.org/doc/reference/latest/Terms/)
+- [Lean 公式リファレンス：The Type System](https://lean-lang.org/doc/reference/latest/The-Type-System/)
+- [Lean 公式 API ドキュメント](https://lean-lang.org/doc/api/)
+
+[リポジトリの案内に戻る](../../README.md)

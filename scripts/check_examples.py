@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check complete Lean examples embedded in the tactic reference."""
+"""Check complete Lean examples embedded in the Japanese reference."""
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor
@@ -22,7 +22,9 @@ def check(path):
         if re.search(r'\b(sorry|admit)\b', code):
             errors.append(f'{path.relative_to(ROOT)}: example {number}: unfinished proof')
             continue
-        source = 'import Std.Tactic\n' + '\n'.join(imports) + '\n' + code
+        # Preserve the common import for existing tactic pages only.
+        common_import = 'import Std.Tactic\n' if path.parent == ROOT / 'docs/tactics' else ''
+        source = common_import + '\n'.join(imports) + '\n' + code
         with tempfile.TemporaryDirectory(prefix='lean-reference-') as directory:
             source_path = Path(directory) / 'Example.lean'
             source_path.write_text(source)
@@ -44,7 +46,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('paths', nargs='*', type=Path)
     args = parser.parse_args()
-    paths = args.paths or sorted((ROOT / 'docs/tactics').glob('*.md'))
+    paths = [path.resolve() for path in args.paths] if args.paths else sorted((ROOT / 'docs').rglob('*.md'))
     with ThreadPoolExecutor(max_workers=4) as executor:
         results = list(executor.map(check, paths))
     errors = [error for _, failures in results for error in failures]
