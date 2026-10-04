@@ -23,6 +23,8 @@ example : positiveValue ⟨2, by decide⟩ = 2 := rfl
 
 存在命題 `∃ x : α, P x` も値と証明を組にするが、それ自体は `Prop` の命題である。部分型は条件付きのデータとして値を保持し、`.val` を計算に使える。
 
+２番目に条件の証明ではなく、１番目の値に応じた型のデータを保持したい場合は、[依存ペア型 `Σ x : α, β x`](sigma.md) を使う。
+
 また、`{α : Type}` のような引数の波括弧は暗黙の引数であり、`//` を含むこの部分型の記法とは違う。
 
 参照：[公式リファレンス：Subtypes](https://lean-lang.org/doc/reference/latest/Basic-Types/Subtypes/)。

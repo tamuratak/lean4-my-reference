@@ -39,6 +39,8 @@
 | `(…)` | 式をまとめ、結び付く順序を指定する | `double (2 + 3)` | [関数適用](syntax/application.md) |
 | `(x, y)` | ペアを作る | `(3, "three")` | [組とコンストラクター](syntax/anonymous_constructor.md) |
 | `×` | ペアの型、直積型 | `Nat × String` | [組とコンストラクター](syntax/anonymous_constructor.md) |
+| `Σ` | シグマ。依存ペア型、依存和型 | `Σ n : Nat, Fin n` | [依存ペア型](syntax/sigma.md) |
+| `(x : α) × β x` | １番目の値に名前を付ける依存ペア型 | `(n : Nat) × Fin n` | [依存ペア型](syntax/sigma.md) |
 | `⟨…⟩` | 山括弧。期待される型のコンストラクターへ成分を渡す | `exact ⟨hp, hq⟩` | [組とコンストラクター](syntax/anonymous_constructor.md) |
 | パターンの `⟨…⟩` | 組や証明の中身を分解する | `rcases h with ⟨x, hx⟩` | [rcases](tactics/rcases.md) |
 | `{x : α // P x}` | 部分型。条件を満たす値と、その証明を持つ型 | `{n : Nat // n > 0}` | [部分型](syntax/subtype.md) |

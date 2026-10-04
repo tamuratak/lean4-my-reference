@@ -59,6 +59,7 @@ example : addOne 3 = 4 := by
 | [`Prop`・`Type`・`Sort`・`universe`](universes.md) | 命題とデータ型の違い、型の階層 |
 | [論理の記号](logical_symbols.md) | `∧`・`∨`・`¬`・`↔`・`∃` と証明の形 |
 | [部分型：`{x : α // P x}`](subtype.md) | 条件を満たす値と、その条件の証明 |
+| [依存ペア型：`Σ`](sigma.md) | １番目の値に応じて２番目の型が決まるペア |
 
 ## 式の組み立て・証明の記法
 

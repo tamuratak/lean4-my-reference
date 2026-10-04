@@ -35,6 +35,8 @@ example : (⟨3, "three"⟩ : Nat × String) = pair := rfl
 
 `.1` と `.2` は成分を取り出す。`(x, y)` はペアの記法であり、論理積の証明なども作れる `⟨…⟩` より用途が限定される。
 
+２番目の成分の型が１番目の値によって決まるペアには、[依存ペア型 `Σ`](sigma.md) を使う。その値も `⟨x, y⟩` で作れる。
+
 [`rcases`](../tactics/rcases.md) のパターン内の `⟨…⟩` は中身を取り出す指定である。式として書く `⟨…⟩` は、逆に中身を渡して値や証明を作る。
 
 参照：[公式リファレンス：Structures and Constructors](https://lean-lang.org/doc/reference/latest/Terms/Structures-and-Constructors/)。
