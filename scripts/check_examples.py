@@ -4,6 +4,7 @@
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+import os
 import re
 import subprocess
 import tempfile
@@ -12,8 +13,30 @@ ROOT = Path(__file__).resolve().parents[1]
 BLOCK = re.compile(r'^```lean\s*\n(.*?)^```\s*$', re.MULTILINE | re.DOTALL)
 
 
+def changed_paths():
+    """Select existing docs Markdown files changed from HEAD, including untracked files."""
+    commands = [
+        ['git', 'diff', '--name-only', '-z', 'HEAD', '--', 'docs/'],
+        ['git', 'ls-files', '--others', '--exclude-standard', '-z', '--', 'docs/'],
+    ]
+    paths = set()
+    for command in commands:
+        result = subprocess.run(command, cwd=ROOT, stdout=subprocess.PIPE,
+                                stderr=subprocess.PIPE, check=True, timeout=30)
+        for name in result.stdout.split(b'\0'):
+            if name:
+                path = ROOT / os.fsdecode(name)
+                if path.suffix == '.md' and path.is_file():
+                    paths.add(path)
+    return sorted(paths)
+
+
 def check(path, library_command):
-    blocks = list(BLOCK.finditer(path.read_text()))
+    try:
+        text = path.read_text()
+    except OSError as error:
+        return 0, [f'{path}: cannot read: {error}']
+    blocks = list(BLOCK.finditer(text))
     errors = []
     for number, match in enumerate(blocks, 1):
         code = match.group(1)
@@ -39,7 +62,7 @@ def check(path, library_command):
                 errors.append(f'{path.relative_to(ROOT)}: example {number}: {error}')
                 continue
             if result.returncode or re.search(r"declaration uses [`']sorry[`']", result.stdout):
-                line = path.read_text()[:match.start()].count('\n') + 1
+                line = text[:match.start()].count('\n') + 1
                 errors.append(f'{path.relative_to(ROOT)}:{line}: example {number}\n{result.stdout}')
     return len(blocks), errors
 
@@ -47,16 +70,38 @@ def check(path, library_command):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('paths', nargs='*', type=Path)
+    parser.add_argument('--changed', action='store_true',
+                        help='Check docs Markdown files changed from HEAD, including staged and untracked files')
     parser.add_argument('--library-project', type=Path, default=ROOT,
                         help='Lake project providing Mathlib and Aesop (default: this repository)')
     parser.add_argument('--allow-library-toolchain-mismatch', action='store_true',
                         help='Explicitly allow an additional compatibility check with another Lean version')
     args = parser.parse_args()
-    paths = [path.resolve() for path in args.paths] if args.paths else sorted((ROOT / 'docs').rglob('*.md'))
+    if args.changed and args.paths:
+        parser.error('--changed cannot be combined with explicit paths')
+    if args.changed:
+        try:
+            paths = changed_paths()
+        except subprocess.CalledProcessError as error:
+            parser.error(f'Cannot select changed files: {os.fsdecode(error.stderr).strip()}')
+        except (subprocess.TimeoutExpired, OSError) as error:
+            parser.error(f'Cannot select changed files: {error}')
+        print(f'Selected {len(paths)} changed Markdown files under docs/ (relative to HEAD, including untracked):')
+        for path in paths:
+            print(f'  {str(path.relative_to(ROOT))!r}')
+        if not paths:
+            print('No changed Markdown files to check.')
+            return False
+    else:
+        paths = [path.resolve() for path in args.paths] if args.paths else sorted((ROOT / 'docs').rglob('*.md'))
     library_project = args.library_project.resolve()
     library_command = (['lake', 'env', 'lean'], library_project)
-    external = any(re.search(r'^import (Mathlib|Aesop)(\.|\s|$)', path.read_text(), re.MULTILINE)
-                   for path in paths)
+    try:
+        external = any(re.search(r'^import (Mathlib|Aesop)(\.|\s|$)', path.read_text(), re.MULTILINE)
+                       for path in paths)
+    except OSError as error:
+        print(f'Cannot read Markdown file: {error}')
+        return True
     if external:
         try:
             standard_version = subprocess.check_output(['lean', '--version'], cwd=ROOT, text=True)
