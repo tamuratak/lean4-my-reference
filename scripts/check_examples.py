@@ -32,7 +32,11 @@ def changed_paths():
 
 
 def check(path, library_command):
-    blocks = list(BLOCK.finditer(path.read_text()))
+    try:
+        text = path.read_text()
+    except OSError as error:
+        return 0, [f'{path}: cannot read: {error}']
+    blocks = list(BLOCK.finditer(text))
     errors = []
     for number, match in enumerate(blocks, 1):
         code = match.group(1)
@@ -58,7 +62,7 @@ def check(path, library_command):
                 errors.append(f'{path.relative_to(ROOT)}: example {number}: {error}')
                 continue
             if result.returncode or re.search(r"declaration uses [`']sorry[`']", result.stdout):
-                line = path.read_text()[:match.start()].count('\n') + 1
+                line = text[:match.start()].count('\n') + 1
                 errors.append(f'{path.relative_to(ROOT)}:{line}: example {number}\n{result.stdout}')
     return len(blocks), errors
 
@@ -82,7 +86,9 @@ def main():
             parser.error(f'Cannot select changed files: {os.fsdecode(error.stderr).strip()}')
         except (subprocess.TimeoutExpired, OSError) as error:
             parser.error(f'Cannot select changed files: {error}')
-        print(f'Selected {len(paths)} changed Markdown files under docs/ (relative to HEAD).')
+        print(f'Selected {len(paths)} changed Markdown files under docs/ (relative to HEAD, including untracked):')
+        for path in paths:
+            print(f'  {str(path.relative_to(ROOT))!r}')
         if not paths:
             print('No changed Markdown files to check.')
             return False
@@ -90,8 +96,12 @@ def main():
         paths = [path.resolve() for path in args.paths] if args.paths else sorted((ROOT / 'docs').rglob('*.md'))
     library_project = args.library_project.resolve()
     library_command = (['lake', 'env', 'lean'], library_project)
-    external = any(re.search(r'^import (Mathlib|Aesop)(\.|\s|$)', path.read_text(), re.MULTILINE)
-                   for path in paths)
+    try:
+        external = any(re.search(r'^import (Mathlib|Aesop)(\.|\s|$)', path.read_text(), re.MULTILINE)
+                       for path in paths)
+    except OSError as error:
+        print(f'Cannot read Markdown file: {error}')
+        return True
     if external:
         try:
             standard_version = subprocess.check_output(['lean', '--version'], cwd=ROOT, text=True)

@@ -68,11 +68,14 @@ class ChangedPathsTest(unittest.TestCase):
 
     def test_changed_mode_checks_only_selected_files(self):
         path = self.write('docs/new.md', '```lean\nexample : True := by trivial\n```\n')
+        newline_path = self.write('docs/name with\na newline.md', 'text\n')
         with patch('sys.argv', ['check_examples.py', '--changed']), \
                 patch.object(check_examples, 'check', return_value=(1, [])) as check, \
-                redirect_stdout(io.StringIO()):
+                redirect_stdout(io.StringIO()) as output:
             self.assertFalse(check_examples.main())
-        check.assert_called_once_with(path, (['lake', 'env', 'lean'], self.root.resolve()))
+        self.assertEqual({call.args[0] for call in check.call_args_list}, {path, newline_path})
+        self.assertIn("  'docs/new.md'\n", output.getvalue())
+        self.assertIn("  'docs/name with\\na newline.md'\n", output.getvalue())
 
     def test_explicit_paths_cannot_be_combined_with_changed(self):
         with patch('sys.argv', ['check_examples.py', '--changed', 'docs/modified.md']), \
@@ -89,6 +92,21 @@ class ChangedPathsTest(unittest.TestCase):
             check_examples.main()
         self.assertEqual(error.exception.code, 2)
         self.assertIn('Cannot select changed files', output.getvalue())
+
+    def test_check_reports_read_error(self):
+        path = self.root / 'docs/missing.md'
+        count, errors = check_examples.check(path, (['lake', 'env', 'lean'], self.root))
+        self.assertEqual(count, 0)
+        self.assertEqual(len(errors), 1)
+        self.assertIn(f'{path}: cannot read:', errors[0])
+
+    def test_read_error_before_library_detection_is_reported(self):
+        with patch('sys.argv', ['check_examples.py', str(self.root / 'docs/missing.md')]), \
+                patch.object(check_examples.subprocess, 'check_output') as initialize, \
+                redirect_stdout(io.StringIO()) as output:
+            self.assertTrue(check_examples.main())
+        self.assertIn('Cannot read Markdown file:', output.getvalue())
+        initialize.assert_not_called()
 
 
 if __name__ == '__main__':

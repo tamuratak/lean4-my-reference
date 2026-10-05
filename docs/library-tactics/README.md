@@ -48,23 +48,7 @@ mathlib4 は数学の定義・定理と多くのタクティクスを含むラ�
 lake exe cache get
 ```
 
-依存を準備した後は、リポジトリのルートで変更した記事の例を検証できる。
-
-```sh
-python3 scripts/check_examples.py --changed
-```
-
-`HEAD` から変更された `docs/` 内の Markdown ファイルを対象とし、ステージ済み・未ステージ・Git 未登録の新規記事を含む。削除済みの記事とコミット済みの変更は選ばない。検証済みでも未コミットなら再度選ばれる。特定の記事だけを検証する場合は、パスを指定する。
-
-```sh
-python3 scripts/check_examples.py docs/library-tactics/mathlib/ring.md
-```
-
-全カテゴリの検証は、引数なしで明示的に行う。
-
-```sh
-python3 scripts/check_examples.py
-```
+依存を準備した後の検証コマンド、記事の選択条件、全件検証とテストの実行方法は、[README の「例の検証」](../../README.md#例の検証)を参照する。
 
 標準ページは従来どおり `lean` で検証し、`Mathlib` または `Aesop` をインポートする例だけを `lake env lean` に渡す。追加ライブラリの例には共通インポートを補わない。
 
@@ -82,7 +66,7 @@ python3 scripts/check_examples.py --library-project /path/to/project docs/librar
 
 標準ページと追加ライブラリのページは、ともに `lean-toolchain` が指定する Lean 4.35.0-rc3 で検証した。依存のコミットは `lake-manifest.json` に記録されている。検証時の mathlib は `6066db18d42ff20b84a4b29a6ab26cfc2cf4b527`、Aesop は `36cb0105a76ff3de70add8ae91afb6cfc57fafe3` である。
 
-`python3 scripts/check_examples.py` を追加オプションなしで実行し、標準493例・追加ライブラリのタクティク44例の計537例がすべて成功した。[mathlib の数学リファレンス](../mathlib/README.md)は概念と表現の対応を中心とし、現在は完成した証明コードを掲載しない。
+`python3 scripts/check_examples.py` を追加オプションなしで実行し、標準493例・追加ライブラリのタクティク44例・mathlib の数学リファレンス10例の計547例がすべて成功した。[mathlib の数学リファレンス](../mathlib/README.md)は概念と表現の対応を中心とし、記法・型・計算の確認用の `#check`・`#eval` と短い `example` を掲載する。`lean` ブロックは数学リファレンスでも自動検証の対象となる。
 
 異なる Lean バージョンの環境で追加確認を行う場合だけ、`--allow-library-toolchain-mismatch` を明示する。スクリプトはバージョンの違いと、固定バージョンでは未検証であることを表示する。
 
