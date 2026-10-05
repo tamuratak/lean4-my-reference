@@ -57,6 +57,41 @@ $$
 
 同じ成分を別のノルムで扱う仕組みは[WithLp](with_lp.md)、距離から得られる一様構造と完備性は[一様空間と完備性](uniform_spaces.md)を参照。
 
+## 係数体を表す変数名
+
+ベクトル空間のスカラーとして使う体を、数学では $\mathbb{k}$ や $K$ と書く。mathlib の解析では、この**係数体を表す変数名として `𝕜` がよく使われる**。
+
+`𝕜` は命名の慣習であり、特定の体を表すライブラリの定数や専用の記法ではない。`K` などの名前でも同じ役割を表せる。`ℝ` が定義済みの型 `Real`、`ℂ` が `Complex` を指すのに対し、`𝕜` はその箇所で宣言された変数を指す。
+
+| 意味 | 数学 | Lean |
+| --- | --- | --- |
+| 係数体として使う型を宣言する | $\mathbb{k}$ | `𝕜 : Type*` |
+| 体の構造を仮定する | $\mathbb{k}$ は体 | `[Field 𝕜]` |
+| 非自明なノルムを持つ体 | ノルム体 $\mathbb{k}$、ある元のノルムが $1$ を超える | `[NontriviallyNormedField 𝕜]` |
+| 係数体の完備性 | $\mathbb{k}$ は完備 | `[CompleteSpace 𝕜]` |
+| 係数体の標数 | $\operatorname{char}(\mathbb{k})=0$ | `[CharZero 𝕜]` |
+| その体上のノルム空間 | $E$ は $\mathbb{k}$ 上のノルム空間 | `[NormedAddCommGroup E] [NormedSpace 𝕜 E]` |
+
+**名前ではなく、型クラスの仮定から体の条件を読む**。`𝕜 : Type*` だけでは体であることさえ仮定していない。例えば、解析の定理の前に次の宣言があれば、非自明なノルムを持つ完備な標数ゼロの体を扱う。
+
+```text
+variable {𝕜 : Type*} [NontriviallyNormedField 𝕜]
+  [CompleteSpace 𝕜] [CharZero 𝕜]
+```
+
+実数体 $\mathbb{R}$ と複素数体 $\mathbb{C}$ はこの条件を満たす代表例だが、この仮定は二つの体に限定していない。宣言は定理の直前だけでなく、ファイルや `section` の前の方に置かれていることもある。
+
+係数体を明示する式も、この変数名を使って読む。
+
+| 数学の意味 | Lean |
+| --- | --- |
+| $\mathbb{k}$ 上の全微分 | `fderiv 𝕜 f x` |
+| $\mathbb{k}$ をスカラーとする点 $x$ での解析性 | `AnalyticAt 𝕜 f x` |
+
+ここで最初の引数は、微分や解析性をどの体上で考えるかを指定する。具体的に実数を指定する `fderiv ℝ f x` も同じ形であり、`𝕜` と書いたこと自体が新たな数学の操作を表すわけではない。
+
+共通の構文：[公式リファレンス：識別子](https://lean-lang.org/doc/reference/latest/Terms/Identifiers/)、[型クラス](https://lean-lang.org/doc/reference/latest/Type-Classes/)。これらは変数名と仮定の仕組みの説明であり、mathlib の命名慣習や数学の API の説明とは区別する。
+
 ## 一般のノルム空間
 
 mathlib の全微分は有限次元に限定されない。定理に出てくる一般の空間 $E$ は、主に次の型クラスで条件を表す。

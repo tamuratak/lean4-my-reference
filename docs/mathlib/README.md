@@ -11,6 +11,7 @@
 | 数学の概念 | ページ | 主な名前 |
 | --- | --- | --- |
 | 点、座標、スカラー値・ベクトル値関数 | [空間と関数の型](spaces.md) | `Fin n`、`EuclideanSpace` |
+| 係数体の変数名と、体に課される条件 | [係数体を表す変数名](spaces.md#係数体を表す変数名) | `𝕜`、`Field`、`NontriviallyNormedField` |
 | 非負の値、無限大、実数との変換条件 | [非負実数・拡張非負実数](extended_nonnegative.md) | `NNReal`、`ENNReal`、`toReal` |
 | 集合・部分空間・要素の型、性質を備えた写像 | [構造を持つ集合・写像](structured_objects.md) | `Submodule`、`LinearMap`、強制変換 |
 | 非零の係数が有限個の関数、一般の基底の座標 | [有限台関数](finitely_supported.md) | `Finsupp`、`Finsupp.single`、`support` |
