@@ -22,7 +22,21 @@ mathlib の数学の定義・定理と使い方は `docs/mathlib/` に置く。�
 
 文法・タクティクの説明は短い具体例を中心にする。mathlib の数学リファレンスは、数学の概念・数式と Lean の表現の対応を中心にし、証明コードの書き方は別の課題とする。対象の Lean バージョンは `lean-toolchain`（4.35.0-rc3）を参照。追加ライブラリの依存バージョンと検証状況は[専用の一覧](docs/library-tactics/README.md#検証と参照方針)に記載する。
 
-全カテゴリの例をまとめて検証するには、[追加ライブラリの準備](docs/library-tactics/README.md#例の実行と検証)を行ってから、リポジトリのルートで次を実行する。
+例の検証には、[追加ライブラリの準備](docs/library-tactics/README.md#例の実行と検証)を行う。通常の編集では、リポジトリのルートで変更した記事だけを検証する。
+
+```sh
+python3 scripts/check_examples.py --changed
+```
+
+`--changed` は、直近のコミット `HEAD` から変更された `docs/` 内の Markdown ファイルを選ぶ。ステージ済み・未ステージの変更と Git 未登録の新規ファイルを含み、削除済みファイルは除く。コミット済みの記事や `docs/` 外の参考 MD は自動選択しない。これは前回の検証結果を保存する仕組みではなく、未コミットの変更が残っていれば再度選択される。
+
+特定の記事だけを検証する場合は、パスを指定できる。
+
+```sh
+python3 scripts/check_examples.py docs/mathlib/filters.md
+```
+
+全カテゴリを検証する場合は、引数なしで実行する。記事を編集するたびに全件を検証する必要はないが、Lean のバージョンや依存設定、検証スクリプトなど共通の条件を変更した場合は全件を確認する。
 
 ```sh
 python3 scripts/check_examples.py

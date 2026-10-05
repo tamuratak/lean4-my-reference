@@ -48,7 +48,19 @@ mathlib4 は数学の定義・定理と多くのタクティクスを含むラ�
 lake exe cache get
 ```
 
-依存を準備した後は、リポジトリのルートで全カテゴリの例を検証できる。
+依存を準備した後は、リポジトリのルートで変更した記事の例を検証できる。
+
+```sh
+python3 scripts/check_examples.py --changed
+```
+
+`HEAD` から変更された `docs/` 内の Markdown ファイルを対象とし、ステージ済み・未ステージ・Git 未登録の新規記事を含む。削除済みの記事とコミット済みの変更は選ばない。検証済みでも未コミットなら再度選ばれる。特定の記事だけを検証する場合は、パスを指定する。
+
+```sh
+python3 scripts/check_examples.py docs/library-tactics/mathlib/ring.md
+```
+
+全カテゴリの検証は、引数なしで明示的に行う。
 
 ```sh
 python3 scripts/check_examples.py
