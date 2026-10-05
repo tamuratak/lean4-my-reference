@@ -48,6 +48,6 @@ $$
 
 例えば $s=[0,\infty)$ なら、境界 $x=0$ では右側からの連続性を調べる。開領域の内部なら、領域内の近傍と通常の近傍が一致し、通常の点での連続性と対応する。
 
-関連：[領域内の全微分](fderiv.md)、[可測性と積分](measure_integrals.md)。共通の構文：[公式リファレンス：関数](https://lean-lang.org/doc/reference/latest/The-Type-System/Functions/)。
+関連：[開集合・閉集合・コンパクト性](topology_compactness.md)、[数列と級数](sequences_series.md)、[関数列の収束](function_sequences.md)、[領域内の全微分](fderiv.md)、[可測性と積分](measure_integrals.md)。共通の構文：[公式リファレンス：関数](https://lean-lang.org/doc/reference/latest/The-Type-System/Functions/)。
 
 [mathlib の索引に戻る](README.md)

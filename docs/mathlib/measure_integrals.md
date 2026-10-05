@@ -78,4 +78,6 @@ $$
 
 関連：[区間積分](interval_integrals.md)、[多重積分](multiple_integrals.md)、[変数変換](change_variables.md)。共通の構文：[公式リファレンス：命題と証明](https://lean-lang.org/doc/reference/latest/The-Type-System/Propositions/)。
 
+関連：[関数列と優収束定理](function_sequences.md#積分と極限の交換優収束定理)。
+
 [mathlib の索引に戻る](README.md)

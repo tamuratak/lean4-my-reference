@@ -66,6 +66,6 @@ mathlib の全微分は有限次元に限定されない。定理に出てくる
 | 実内積空間 | 上の加法の条件と `InnerProductSpace ℝ E` |
 | 完備な空間 | `CompleteSpace E` |
 
-関連：[線形写像](linear_maps.md)、[偏微分と勾配](partial_gradient.md)。共通の構文：[公式リファレンス：型クラス](https://lean-lang.org/doc/reference/latest/Type-Classes/)。
+関連：[ノルム・内積・直交性](norms_inner_products.md)、[行列と基底](matrices_basis.md)、[線形写像](linear_maps.md)、[偏微分と勾配](partial_gradient.md)。共通の構文：[公式リファレンス：型クラス](https://lean-lang.org/doc/reference/latest/Type-Classes/)。
 
 [mathlib の索引に戻る](README.md)

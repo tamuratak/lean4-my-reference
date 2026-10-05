@@ -67,6 +67,6 @@ $$
 
 行は出力の座標、列は入力の座標である。表の最後の式は成分を並べる表現であって、新しい mathlib の宣言名ではない。一般の基底で線形写像を行列表示する道具には `LinearMap.toMatrix` がある。
 
-関連：[全微分](fderiv.md)、[変数変換](change_variables.md)。共通の構文：[公式リファレンス：構造体](https://lean-lang.org/doc/reference/latest/The-Type-System/Inductive-Types/)。
+関連：[行列と基底](matrices_basis.md)、[作用素ノルム](norms_inner_products.md#作用素ノルム)、[全微分](fderiv.md)、[変数変換](change_variables.md)。共通の構文：[公式リファレンス：構造体](https://lean-lang.org/doc/reference/latest/The-Type-System/Inductive-Types/)。
 
 [mathlib の索引に戻る](README.md)
