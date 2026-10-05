@@ -6,3 +6,5 @@
 - 例は短く、コピーして実行できる形にする。必要なインポートを明示し、`lean-toolchain` のバージョンで `python3 scripts/check_examples.py` を実行して確認する。
 - 完成した例は `lean`、状態表示や説明用の断片は `text`、仮の穴を含む例は `lean-incomplete` のコードブロックに分ける。未完成の例を完成した証明として扱わない。
 - チャットと解説は日本語、コード内のコメントは英語で書く。提案は無条件に肯定せず、実現可能性と効率を客観的に評価する。
+- 数学記号は Unicode の字形を直接出さず、LaTeX コマンドで表す。例：`\alpha`、`\beta`、`\forall`、`\in`。
+- 数学字体も Unicode の字形を直接出さず、LaTeX コマンドで表す。例：`\mathbb{R}`、`\mathbf{x}`、`\mathcal{F}`。
