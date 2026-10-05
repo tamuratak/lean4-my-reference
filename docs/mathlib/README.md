@@ -12,6 +12,7 @@
 | --- | --- | --- |
 | 点、座標、スカラー値・ベクトル値関数 | [空間と関数の型](spaces.md) | `Fin n`、`EuclideanSpace` |
 | ベクトルの長さ、内積、直交、作用素ノルム | [ノルム・内積・直交性](norms_inner_products.md) | `norm`、`inner`、`OrthonormalBasis` |
+| 十分先・十分近くで成立する条件、極限の入力側と出力側 | [フィルターと極限](filters.md) | `Filter`、`Eventually`、`Tendsto`、`NeBot` |
 | 領域、近傍、極限、連続性 | [領域・極限・連続性](limits_continuity.md) | `Set`、`Tendsto`、`ContinuousOn` |
 | 内部、閉包、境界、コンパクト性、最大値・最小値 | [開集合・閉集合・コンパクト性](topology_compactness.md) | `IsOpen`、`IsClosed`、`IsCompact` |
 | 数列、部分和、無限和、級数の収束 | [数列・有限和・級数](sequences_series.md) | `Finset.sum`、`HasSum`、`Summable`、`tsum` |

@@ -76,6 +76,8 @@
 
 ## 近傍・極限・漸近的な条件
 
+フィルターが何を表すか、入力側と出力側をどう読むかは[フィルターと極限](filters.md)を参照。
+
 | 記号・形 | 呼び名・数学の意味 | 使用形・正式名 | 詳細 |
 | --- | --- | --- | --- |
 | `𝓝 x` | 点 $x$ の近傍フィルター | `nhds x` | [極限と近傍](limits_continuity.md#極限と近傍) |
@@ -83,8 +85,10 @@
 | `𝓝[≠] x` | 点自身を除いた穴あき近傍 | `nhdsWithin x {x}ᶜ` | [一変数微分](deriv.md) |
 | `atTop` | 添字が限りなく大きくなるフィルター | `Filter.atTop`。列の $k\to\infty$ など | [数列](sequences_series.md#数列と部分和) |
 | `TendstoUniformlyOn F f l s` | 領域上の一様収束 | 点によらず共通の添字で誤差を抑える | [関数列](function_sequences.md#各点収束と一様収束) |
-| `∀ᶠ x in l, P x` | フィルターに沿って eventually 成立 | `Filter.Eventually P l` | 近傍なら十分近くで成立、列なら十分大きい添字で成立 |
-| `f =ᶠ[l] g` | フィルターに沿って eventually 等しい | `Filter.EventuallyEq l f g` | 各点での恒等式とは異なる |
+| `∀ᶠ x in l, P x` | フィルターに沿って eventually 成立 | `Filter.Eventually P l` | [十分先・十分近くで成立](filters.md#十分先十分近くで成立するeventually) |
+| `f =ᶠ[l] g` | フィルターに沿って eventually 等しい | `Filter.EventuallyEq l f g` | [Eventually](filters.md#十分先十分近くで成立するeventually)。各点での恒等式とは異なる |
+| `𝓟 s` | 固定した集合の主フィルター | `Filter.principal s` | [フィルターと集合](filters.md#十分先十分近くで成立するeventually) |
+| `l₁ ≤ l₂`（フィルター） | 集合の所属の包含と逆向きの順序 | `l₂` の集合はすべて `l₁` にも属する | [フィルターの順序](filters.md#フィルターの順序と空の条件) |
 | `f =o[l] g` | little-o、$f=o(g)$。$g$ に比べて小さい | `Asymptotics.IsLittleO l f g` | [全微分の一次近似](fderiv.md#fréchet-微分) |
 | `f =O[l] g` | big-O、$f=O(g)$。ノルムを定数倍で抑えられる | `Asymptotics.IsBigO l f g` | ノルムによる漸近的な評価 |
 
@@ -146,6 +150,7 @@
 | 記法 | 関係するスコープ |
 | --- | --- |
 | `𝓝` とその領域内の記法 | `Topology` |
+| 主フィルターの `𝓟` | `Filter` |
 | `⟪x, y⟫_ℝ` | `InnerProductSpace` |
 | 実内積の `⟪x, y⟫` | `RealInnerProductSpace` |
 | `∇` | `Gradient` |
