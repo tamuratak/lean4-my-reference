@@ -162,6 +162,8 @@ Lean ではライブラリやユーザーが記法を追加できるため、こ
 
 数学ライブラリ固有の記法を調べる際は、Lean 本体の構文と区別する。追加タクティクスについては[mathlib・Aesop の一覧](library-tactics/README.md)を参照。
 
+線形写像、ノルム、内積、近傍、勾配、積分など、数学で使う記法は [mathlib の記号索引](mathlib/symbols.md)にまとめている。
+
 参照：[公式リファレンス：Terms](https://lean-lang.org/doc/reference/latest/Terms/)、[公式リファレンス：タクティクスの構文](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/The-Tactic-Language/)、[公式リファレンス：Notations and Macros](https://lean-lang.org/doc/reference/latest/Notations-and-Macros/)。
 
 [リファレンスの入口に戻る](../README.md)
