@@ -50,6 +50,8 @@ def x : Fin 2 → ℤ := ![5, 6]
 
 `b.repr x` の値は有限台関数 `ι →₀ ℝ`。一般の基底では添字が無限でも、各ベクトルの展開に現れる非零の係数は有限個になる。単にベクトル族を与える `v : ι → E` と、独立性・生成性を備えた基底は区別する。
 
+有限台の意味と係数の操作は[有限台関数](finitely_supported.md)を参照。
+
 ## 行列と線形写像の対応
 
 入力の基底を `bE`、出力の基底を `bF` とすると、行列の第 $j$ 列は $A(bE_j)$ の出力座標になる。
@@ -63,6 +65,8 @@ def x : Fin 2 → ℤ := ![5, 6]
 | 像 | $\{A(x)\mid x\in E\}$ | `LinearMap.range A` |
 
 `LinearMap.ker A` と `LinearMap.range A` は `Submodule`、つまり部分空間の構造を持つ。普通の集合としての像 `A '' s` とは型が異なる。行列表示は基底によって変わるが、写像そのものは変わらない。
+
+部分空間を集合や要素の型として使う仕組みは[構造を持つ集合・写像](structured_objects.md)を参照。
 
 ```lean
 import Mathlib.LinearAlgebra.Matrix.ToLin

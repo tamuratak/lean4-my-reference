@@ -154,6 +154,8 @@ mathlib では `l₁ ≤ l₂` を「`l₂` に属する集合はすべて `l₁
 
 この場合の eventually は「十分大きい添字」ではなく「ほとんど至る所」を意味する。どちらも、条件を満たす集合が指定したフィルターに属するという同じ仕組みで表される。
 
+近い点の組に関するフィルター `uniformity E` は[一様空間と完備性](uniform_spaces.md)、ほとんど至る所で等しい関数を同じ要素として扱う空間は[強可測性と同一視](strong_measurability.md)を参照。
+
 級数の `SummationFilter ℕ` は、`Filter ℕ` そのものではない。どの有限部分集合に沿って和を取るかを指定する構造であり、その `.filter` の型は `Filter (Finset ℕ)`。入力が自然数の点ではなく、部分和の添字となる有限集合であることに注意する。
 
 関連：[領域・極限・連続性](limits_continuity.md)、[数列と級数](sequences_series.md)、[関数列の収束](function_sequences.md)、[測度と積分](measure_integrals.md)。共通の構文：[公式リファレンス：型クラス](https://lean-lang.org/doc/reference/latest/Type-Classes/)、[記法の定義](https://lean-lang.org/doc/reference/latest/Notations-and-Macros/)。

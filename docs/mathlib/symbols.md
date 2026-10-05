@@ -15,9 +15,10 @@
 | `ℚ` | 有理数 $\mathbb{Q}$ | `Rat` | [有理数](../basic-types/rat.md) |
 | `ℝ` | 実数 $\mathbb{R}$ | `Real` | [空間と関数の型](spaces.md) |
 | `ℂ` | 複素数 $\mathbb{C}$ | `Complex` | 実数上の微分と複素数上の微分は区別する |
-| `ℝ≥0` | 非負実数 $[0,\infty)$ | `NNReal` | [測度と積分](measure_integrals.md) |
-| `ℝ≥0∞` | 拡張非負実数 $[0,\infty]$ | `ENNReal` | [非負積分](measure_integrals.md#非負関数の積分) |
-| `∞`（`ENNReal` の値） | 無限大 | その型の最大の値 `⊤` | [測度と積分](measure_integrals.md) |
+| `ℝ≥0` | 非負実数 $[0,\infty)$ | `NNReal` | [非負実数](extended_nonnegative.md) |
+| `ℝ≥0∞` | 拡張非負実数 $[0,\infty]$ | `ENNReal` | [拡張非負実数](extended_nonnegative.md) |
+| `∞`（`ENNReal` の値） | 無限大 | その型の最大の値 `⊤` | [変換と演算の条件](extended_nonnegative.md) |
+| `a.toReal`（`a : ENNReal`） | 実数への変換 | 無限大は $0$ に変換される | [実数との変換](extended_nonnegative.md#実数との変換) |
 | `∞`（`ContDiff` の階数） | すべての有限階、$C^\infty$ | `ContDiff ℝ ∞ f` | [滑らかさ](higher_derivatives.md#連続微分可能性) |
 | `ω`（`ContDiff` の階数） | 解析的な正則性、$C^\omega$ | `ContDiff ℝ ω f` | [滑らかさ](higher_derivatives.md#連続微分可能性) |
 
@@ -45,6 +46,15 @@
 
 `×` は二つの型から積型を作る記号、`×ˢ` は二つの集合から積集合を作る記号。`ℝ × ℝ` は点の型、`s ×ˢ t` は領域を表す。
 
+## 構造を持つ集合・写像
+
+| 記号・形 | 呼び名・数学の意味 | 使用形・正式名 | 詳細 |
+| --- | --- | --- | --- |
+| `↥S` | 集合や部分空間の要素の型 | `x : S` は所属の証明も持つ | [集合と要素の型](structured_objects.md#集合と部分空間と要素の型) |
+| `(S : Set E)` | 部分空間を集合として見る | `S : Submodule ℝ E` の強制変換 | [部分空間](structured_objects.md#集合と部分空間と要素の型) |
+| `(x : E)`（`x : S`） | 部分空間の点を周囲の空間で使う | 部分型の値を取り出す | [部分空間の点](structured_objects.md#集合と部分空間と要素の型) |
+| `(A : E → F)` | 性質を備えた写像を関数として使う | 線形写像などの強制変換 | [性質を備えた写像](structured_objects.md#関数と性質を備えた写像) |
+
 ## ベクトル・線形写像・行列
 
 | 記号・形 | 呼び名・数学の意味 | 使用形・正式名 | 詳細 |
@@ -65,7 +75,9 @@
 | `!![…; …]` | 行を並べた行列の記法 | `!![1, 2; 3, 4]` | [行列の具体例](matrices_basis.md#行列とベクトルの積) |
 | `M *ᵥ x` | 行列と列ベクトルの積 $Mx$ | `Matrix.mulVec M x` | [行列積](matrices_basis.md#行列とベクトルの積) |
 | `M * N`（行列） | 行列積 $MN$ | 内側の添字について有限和を取る | [行列積](matrices_basis.md#行列とベクトルの積) |
-| `ι →₀ ℝ` | 有限台関数。非零の値を取る添字が有限個 | `Finsupp ι ℝ` | [基底の座標](matrices_basis.md#基底と座標) |
+| `ι →₀ ℝ` | 有限台関数。非零の値を取る添字が有限個 | `Finsupp ι ℝ` | [有限台関数](finitely_supported.md) |
+| `c.support`（有限台関数） | 非零の係数を持つ添字の有限集合 | `c : ι →₀ ℝ` なら `Finset ι` の値 | [台](finitely_supported.md#関数と有限台関数の違い) |
+| `WithLp.toLp p x`・`WithLp.ofLp y` | 別のノルムを付ける型への変換・元の値の取り出し | 成分の値を変更しない | [WithLp](with_lp.md) |
 | `b.repr x i` | 基底 $b$ に関する第 $i$ 座標 | 一般の基底と正規直交基底で座標の型が異なる | [基底](matrices_basis.md#基底と座標)、[正規直交基底](norms_inner_products.md#正規直交族と正規直交基底) |
 | `Mᵀ` | 転置行列 $M^{\mathsf T}$ | `Matrix.transpose M` | [Hessian](higher_derivatives.md#hessian-行列) |
 | `A.det` | 行列式 $\det A$ | 連続線形自己写像、または行列の `.det` | [変数変換](change_variables.md#領域微分体積の倍率) |
@@ -83,6 +95,7 @@
 | `𝓝 x` | 点 $x$ の近傍フィルター | `nhds x` | [極限と近傍](limits_continuity.md#極限と近傍) |
 | `𝓝[s] x` | 領域 $s$ 内から近づく近傍 | `nhdsWithin x s` | [領域内の微分](fderiv.md#領域内の全微分) |
 | `𝓝[≠] x` | 点自身を除いた穴あき近傍 | `nhdsWithin x {x}ᶜ` | [一変数微分](deriv.md) |
+| `𝓤 E` | 近い点の組の条件を集めたフィルター | `uniformity E : Filter (E × E)` | [一様空間](uniform_spaces.md#位相距離一様構造) |
 | `atTop` | 添字が限りなく大きくなるフィルター | `Filter.atTop`。列の $k\to\infty$ など | [数列](sequences_series.md#数列と部分和) |
 | `TendstoUniformlyOn F f l s` | 領域上の一様収束 | 点によらず共通の添字で誤差を抑える | [関数列](function_sequences.md#各点収束と一様収束) |
 | `∀ᶠ x in l, P x` | フィルターに沿って eventually 成立 | `Filter.Eventually P l` | [十分先・十分近くで成立](filters.md#十分先十分近くで成立するeventually) |
@@ -123,7 +136,9 @@
 | `∫ x, ∫ y, f (x, y)` | 累次積分 | 内側の第二変数を先に積分 | [多重積分](multiple_integrals.md) |
 | `μ.prod ν` | 積測度 $\mu\otimes\nu$ | `MeasureTheory.Measure.prod μ ν` | [二重積分](multiple_integrals.md#積測度と二重積分) |
 | `∀ᵐ x ∂μ, P x` | $\mu$ に関してほとんど至る所で成立 | `Filter.Eventually P (MeasureTheory.ae μ)` | [可測性と可積分性](measure_integrals.md#可測性と可積分性) |
-| `f =ᵐ[μ] g` | ほとんど至る所で等しい | `Filter.EventuallyEq (MeasureTheory.ae μ) f g` | 零測度の例外を許す等しさ |
+| `f =ᵐ[μ] g` | ほとんど至る所で等しい | `Filter.EventuallyEq (MeasureTheory.ae μ) f g` | [零測度の例外](strong_measurability.md#零測度の例外を許す) |
+| `E →ₘ[μ] F` | ほとんど至る所で等しい関数の同値類 | `MeasureTheory.AEEqFun E F μ` | [関数を同一視した空間](strong_measurability.md#関数を同一視した空間) |
+| `E →₁[μ] F`・`E →₂[μ] F` | $L^1$・$L^2$ の要素の型 | `MeasureTheory.Lp F 1 μ`・`MeasureTheory.Lp F 2 μ`（定義域は `E`） | [Lp の要素](strong_measurability.md#関数を同一視した空間) |
 
 `∀ᶠ` は一般のフィルターに沿う条件、`∀ᵐ` は測度に関して零測度の例外を許す条件である。すべての点で成立する `∀` と区別する。
 
@@ -150,6 +165,7 @@
 | 記法 | 関係するスコープ |
 | --- | --- |
 | `𝓝` とその領域内の記法 | `Topology` |
+| 一様構造の `𝓤` | `Uniformity` |
 | 主フィルターの `𝓟` | `Filter` |
 | `⟪x, y⟫_ℝ` | `InnerProductSpace` |
 | 実内積の `⟪x, y⟫` | `RealInnerProductSpace` |
@@ -159,6 +175,7 @@
 | `ℝ≥0` | `NNReal` |
 | 行列の `ᵀ`・`*ᵥ` | `Matrix` |
 | `ENNReal` の `∞` | `ENNReal` |
+| $L^1$・$L^2$ の矢印 `→₁[μ]`・`→₂[μ]` | `MeasureTheory` |
 
 例えば `open scoped Gradient` は勾配の記法を有効にする指定であり、勾配の存在を仮定する命令ではない。正式名や式の型を確認すると、記号の見た目だけでは分からない意味を区別できる。
 
