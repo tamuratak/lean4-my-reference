@@ -5,6 +5,7 @@
 目的に応じて、次の一覧から読む。
 
 - [数学の概念を型で組み立て、性質を証明する](docs/mathematical_constructions.md)：自然数から実数までの構成を通して、型・データ・命題・証明の関係を理解する。
+- [mathlib の数学リファレンス](docs/mathlib/README.md)：多変数・多次元の微分積分を中心に、空間、全微分、勾配、可積分性、多重積分、変数変換を調べる。
 - [記号索引](docs/symbols.md)：`⟨…⟩`、`?_`、`·`、`<;>` など、記号の形や呼び名から説明を探す。
 - [文法要素の一覧](docs/syntax/README.md)：宣言、式、型、名前空間など、Lean のコードの読み方と書き方。
 - [基本データ型の一覧](docs/basic-types/README.md)：数値・文字列・コレクション・商型などの作り方と基本操作。ハッシュマップや順序付き集合も扱う。
@@ -16,7 +17,9 @@
 
 文法要素は `docs/syntax/`、基本データ型は `docs/basic-types/`、確認用の `#` コマンドは `docs/commands/`、属性は `docs/attributes/`、標準タクティクスは `docs/tactics/` に分ける。追加ライブラリのタクティクスは `docs/library-tactics/` に分離し、その中でも `mathlib/` と `aesop/` を分ける。各分類のページはそれぞれのディレクトリ直下に置く。
 
-説明は短い具体例を中心にする。対象の Lean バージョンは `lean-toolchain`（4.35.0-rc3）を参照。追加ライブラリの依存バージョンと検証状況は[専用の一覧](docs/library-tactics/README.md#検証と参照方針)に記載する。
+mathlib の数学の定義・定理と使い方は `docs/mathlib/` に置く。関連するタクティクスは `docs/library-tactics/mathlib/` の記事へリンクする。
+
+文法・タクティクの説明は短い具体例を中心にする。mathlib の数学リファレンスは、数学の概念・数式と Lean の表現の対応を中心にし、証明コードの書き方は別の課題とする。対象の Lean バージョンは `lean-toolchain`（4.35.0-rc3）を参照。追加ライブラリの依存バージョンと検証状況は[専用の一覧](docs/library-tactics/README.md#検証と参照方針)に記載する。
 
 全カテゴリの例をまとめて検証するには、[追加ライブラリの準備](docs/library-tactics/README.md#例の実行と検証)を行ってから、リポジトリのルートで次を実行する。
 

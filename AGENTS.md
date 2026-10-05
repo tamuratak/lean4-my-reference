@@ -8,3 +8,7 @@
 - チャットと解説は日本語、コード内のコメントは英語で書く。提案は無条件に肯定せず、実現可能性と効率を客観的に評価する。
 - 数学記号は Unicode の字形を直接出さず、LaTeX コマンドで表す。例：`\alpha`、`\beta`、`\forall`、`\in`。
 - 数学字体も Unicode の字形を直接出さず、LaTeX コマンドで表す。例：`\mathbb{R}`、`\mathbf{x}`、`\mathcal{F}`。
+
+## その他
+
+- When searching in `.lake/`, exclude `*.ilean` and `*.olean` files from search. They are compiled files and not human-readable. They are noise for your context window. Focus on `.lean` files for source code.
