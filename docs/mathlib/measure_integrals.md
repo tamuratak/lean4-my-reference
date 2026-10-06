@@ -15,17 +15,29 @@ $$
 | 意味 | 数学 | Lean |
 | --- | --- | --- |
 | 測度 | $\mu$ | `μ : Measure E` |
-| 標準の体積測度 | Lebesgue 測度・体積測度 | `volume` |
 | 全空間の積分 | $\int_E f\,d\mu$ | `∫ x, f x ∂μ` |
 | 領域上の積分 | $\int_s f\,d\mu$ | `∫ x in s, f x ∂μ` |
-| 標準の体積測度による領域上の積分 | $\int_s f(x)\,dx$ | `∫ x in s, f x` |
+| 実数空間上の Lebesgue 積分 | $\int_{\mathbb{R}^n} f(x)\,dx$ | `∫ x, f x` |
+| 実数空間の領域上の Lebesgue 積分 | $\int_s f(x)\,dx$ | `∫ x in s, f x` |
 | 測度を領域に制限 | $\mu\vert_s$ | `μ.restrict s` |
 
-`volume` は型に応じた既定の測度。実数では Lebesgue 測度、標準のユークリッド空間では体積測度になる。型に対応する測度の構造が必要であり、任意の型に体積測度が自動で存在するわけではない。
+測度の指定を省略すると `volume` を使う。例えば `∫ x, f x` は `∫ x, f x ∂volume`、`∫ x in s, f x` は `∫ x in s, f x ∂volume` と同じ式である。実数空間上の `volume` は Lebesgue 測度であり、表の $dx$ はこの測度による積分を表す。
+
+## volume
+
+`volume` は 実数空間上の Lebesgue 測度である。
+
+| 数学の対象 | 数学 | Lean |
+| --- | --- | --- |
+| 実数上の集合の長さ | $\operatorname{vol}(s)$、$s\subseteq\mathbb{R}$ | `volume s`（`s : Set ℝ`） |
+| 平面の領域の面積 | $\operatorname{vol}(D)$、$D\subseteq\mathbb{R}^2$ | `volume D`（`D : Set (ℝ × ℝ)`） |
+| $n$ 次元の領域の体積 | $\operatorname{vol}(D)$、$D\subseteq\mathbb{R}^n$ | `volume D`（`D : Set (Fin n → ℝ)`） |
+
+集合$s$を測った `volume s` の型は無限大を含む非負の数の型 `ENNReal`、すなわち $[0,\infty]$ になる。実数への変換と有限性の条件は[非負実数・拡張非負実数](extended_nonnegative.md#実数との変換)を参照。
 
 ## 可測構造と既定の測度
 
-測度が測る集合の族と、測度そのものは別の構造である。
+測度が測る集合の族と、測度そのものは別の構造である。実数では標準の位相と Borel 可測構造が用意されている。
 
 | 数学の対象・条件 | Lean | 役割 |
 | --- | --- | --- |
@@ -34,9 +46,9 @@ $$
 | 位相から生成した可測構造 | `borel E : MeasurableSpace E` | `[TopologicalSpace E]` の開集合から生成される $\sigma$ 代数 |
 | 選ばれた可測構造が Borel 可測構造と一致する | `[BorelSpace E]` | 位相と可測構造を結び付ける条件。測度は指定しない |
 
-例えば一般の型で `volume` を使うには `[MeasureTheory.MeasureSpace E]` が必要である。これに対し、測度を `μ : Measure E` と明示して使う場合は、可測構造 `[MeasurableSpace E]` があれば型を記述でき、既定の測度は不要である。`BorelSpace E` は、すでにある `[TopologicalSpace E]` と `[MeasurableSpace E]` の間の一致を主張する型クラスである。
+一般の型で `volume` を使うには `[MeasureTheory.MeasureSpace E]` が必要であり、任意の型に体積測度が自動で存在するわけではない。測度を `μ : Measure E` と明示して使う場合は、可測構造 `[MeasurableSpace E]` があれば型を記述でき、既定の測度は不要である。`BorelSpace E` は、すでにある `[TopologicalSpace E]` と `[MeasurableSpace E]` の間の一致を主張する型クラスである。
 
-実数では標準の位相・Borel 可測構造・Lebesgue 測度のインスタンスが用意されている。一般の `MeasureSpace E` の `volume` が Lebesgue 測度や Haar 測度であるとは限らず、どのインスタンスを使うかで決まる。型クラスの仮定が補われる仕組みは[公式リファレンス：型クラス](https://lean-lang.org/doc/reference/latest/Type-Classes/)を参照。
+`MeasureSpace E` 自体は、指定された測度が Lebesgue 測度や Haar 測度であることを要求しない。一般の型では、`MeasureSpace E` に指定された `volume` がどの測度かを確認する。型クラスの仮定が補われる仕組みは[公式リファレンス：型クラス](https://lean-lang.org/doc/reference/latest/Type-Classes/)を参照。
 
 ## 領域に測度を制限する
 

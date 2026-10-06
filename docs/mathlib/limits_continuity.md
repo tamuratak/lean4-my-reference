@@ -12,7 +12,7 @@
 | 開区間 | $(a,b)$ | `Set.Ioo a b` |
 | 半開区間 | $(a,b]$ | `Set.Ioc a b` |
 | 端点の順序によらない閉区間 | $[\min(a,b),\max(a,b)]$ | `Set.uIcc a b` |
-| 長方形・積領域 | $s\times t$ | `s ×ˢ t` または `Set.prod s t` |
+| 長方形・積領域 | $s\times t$, $\quad$ $s, t \subset E$ | `s ×ˢ t` または `Set.prod s t` |
 | 開球 | $\{y\mid\operatorname{dist}(y,x)<r\}$ | `Metric.ball x r` |
 | 閉球 | $\{y\mid\operatorname{dist}(y,x)\le r\}$ | `Metric.closedBall x r` |
 

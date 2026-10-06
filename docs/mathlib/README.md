@@ -29,7 +29,7 @@
 | 偏微分、方向微分、勾配 | [偏微分・方向微分・勾配](partial_gradient.md) | `Function.update`、`gradient` |
 | 高階微分、Hessian、滑らかさ | [高階微分と滑らかさ](higher_derivatives.md) | `iteratedFDeriv`、`ContDiff` |
 | 向き付き区間積分、原始関数 | [区間積分と基本定理](interval_integrals.md) | `intervalIntegral`、`IntervalIntegrable` |
-| 測度、可積分性、領域上の積分 | [測度と領域上の積分](measure_integrals.md) | `Measure`、`IntegrableOn` |
+| 集合の長さ・面積・体積、測度、可積分性、領域上の積分 | [測度と領域上の積分](measure_integrals.md) | `volume`、`Measure`、`IntegrableOn` |
 | 単関数による近似、零測度の例外、関数の同値類 | [強可測性と、ほとんど至る所での同一視](strong_measurability.md) | `AEStronglyMeasurable`、`AEEqFun`、`Lp` |
 | 多重積分、累次積分、順序交換 | [多重積分と Fubini の定理](multiple_integrals.md) | `Measure.prod`、`integral_prod` |
 | 変数変換、体積の倍率 | [変数変換とヤコビアンの行列式](change_variables.md) | `Set.InjOn`、`ContinuousLinearMap.det` |

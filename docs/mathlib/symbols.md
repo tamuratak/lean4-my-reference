@@ -152,7 +152,8 @@ little-o では、条件が成立する入力の範囲は $\varepsilon$ ごと�
 
 | 記号・形 | 呼び名・数学の意味 | 使用形・正式名 | 詳細 |
 | --- | --- | --- | --- |
-| `∫ x, f x` | 標準の体積測度による積分 | $\int f(x)\,dx$。測度は `volume` | [測度と積分](measure_integrals.md#測度と積分の表現) |
+| `volume s` | 集合 $s$ の長さ・面積・体積（実数空間の場合） | Lebesgue 測度で測った集合の大きさ。型は `ENNReal` | [`volume`](measure_integrals.md#volume) |
+| `∫ x, f x` | Lebesgue 積分（実数空間の場合） | `∫ x, f x ∂volume`、数学では $\int f(x)\,dx$ | [測度と積分](measure_integrals.md#測度と積分の表現) |
 | `∫ x, f x ∂μ` | 指定した測度による積分 | `MeasureTheory.integral μ f` | [測度と積分](measure_integrals.md#測度と積分の表現) |
 | `∫ x in s, f x ∂μ` | 領域上の積分 $\int_s f\,d\mu$ | `MeasureTheory.integral (μ.restrict s) f` | [領域上の積分](measure_integrals.md) |
 | `∫ x in a..b, f x` | 向き付き区間積分 $\int_a^b f(x)\,dx$ | `intervalIntegral f a b volume` | [区間積分](interval_integrals.md) |
