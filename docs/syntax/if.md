@@ -34,7 +34,7 @@ def label (b : Bool) : String := if b then "yes" else "no"
 example : label true = "yes" := rfl
 ```
 
-値のコンストラクターごとに分けるなら [`match`](match.md)、`by` 内で証明の分岐を選ぶ場合は[タクティクスの `if`](../tactics/if.md)を参照。
+値のコンストラクターごとに分けるなら [`match`](match.md)、`by` 内で命題の真偽に場合分けして両方を証明する場合は[タクティクスの `if`](../tactics/if.md)を参照。
 
 パターンに一致するかで分岐し、その成分も取り出す場合は [`if let`](if_let.md) を使える。
 

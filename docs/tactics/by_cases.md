@@ -10,14 +10,15 @@ h : ¬ P     ⊢ 元のゴール
 ```
 
 ```lean
+import Std.Tactic
+
 example (P : Prop) : P ∨ ¬ P := by
-  classical
   by_cases h : P
   · exact Or.inl h
   · exact Or.inr h
 ```
 
-任意の命題を場合分けするため、この例では `classical` を使う。自然数の等式など、判定可能な命題なら不要である。
+指定バージョンの `by_cases` は、必要な古典的判定を内部で利用する。そのため、任意の `P : Prop` に使え、この例に `classical` や `[Decidable P]` を追加する必要はない。式の `if` など、後続の操作にも古典的判定を使いたい場合は [`classical`](classical.md) を指定する。
 
 `cases h` は既にある値をコンストラクターで分解するが、`by_cases h : P` は命題の真偽を新しく場合分けする。
 

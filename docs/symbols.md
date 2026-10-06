@@ -112,8 +112,8 @@
 | `↑` | コーシオン。型変換を表す表示・記法 | `(↑n : Int)` | [norm_cast](tactics/norm_cast.md) |
 | `;` | セミコロン。次のタクティクスへ進む | `constructor; exact hp` | [複数ゴールの構文](tactics/semicolon.md) |
 | `<;>` | 左の操作で作られたすべてのゴールに右の操作を行う | `constructor <;> assumption` | [複数ゴールの構文](tactics/semicolon.md) |
-| `*` | 対象をまとめて指定する。具体的な対象はタクティクスによる | `simp at *`、`simp [*]` | [simp](tactics/simp.md) |
-| `∎` | 証明終了記号。Lean では証明提案を利用するタクティクスの書き方 | `∎` | [try? と証明提案](tactics/try_search.md) |
+| `*` | `simp [*]` は仮定を簡単化の材料に追加し、`simp at *` は仮定とゴールを操作対象にする | `simp [*]`、`simp at *` | [simp](tactics/simp.md) |
+| `∎` | 証明終了記号。タクティクス位置では `try?`、式の位置では `by try? (wrapWithBy := true)` に展開して証明を探す | `by ∎`、`example : True := ∎` | [try? と証明提案](tactics/try_search.md) |
 
 ## 計算・構文拡張を組み合わせる記法
 

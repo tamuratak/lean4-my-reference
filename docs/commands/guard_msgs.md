@@ -27,7 +27,40 @@
 example : (3 : Nat) = 3 := rfl
 ```
 
-検査する種類は、括弧内の設定で指定できる。`info`・`warning`・`error` を選び、`drop` はその種類を比較から除く指定である。空白の扱いには `whitespace := exact`・`normalized`・`lax`、順序には `ordering := exact`・`sorted` がある。
+検査する種類や比較方法は、`#guard_msgs (...) in` の括弧内にカンマで区切って指定する。`info`・`warning`・`error` はその種類を比較する指定、`drop warning` などはその種類のメッセージを捨てて比較から除く指定である。種類の指定がなければ、すべてのメッセージを比較する。
+
+空白の比較では、どの設定でも文面の先頭と末尾の空白類を除く。その後の扱いが次のように違う。
+
+| 設定 | 比較方法 |
+| --- | --- |
+| `whitespace := exact` | 内部の空白・改行もそのまま比較する |
+| `whitespace := normalized` | 改行を空白に変えて比較する。連続する空白はまとめない。既定値 |
+| `whitespace := lax` | 空白・改行・タブなどの連続を一つの空白にまとめて比較する |
+| `ordering := exact` | メッセージの出た順番で比較する。既定値 |
+| `ordering := sorted` | メッセージを文字列の辞書順に並べて比較する |
+
+```lean
+/-- info: alpha
+beta -/
+#guard_msgs (info, whitespace := normalized) in
+#eval IO.println "alpha beta"
+
+/-- info: alpha beta -/
+#guard_msgs (info, whitespace := lax, ordering := exact) in
+#eval IO.println "alpha  \n\tbeta"
+```
+
+一つ目は期待する文面の改行を空白に変えて比較する。二つ目は実際の出力にある連続した空白・改行・タブを一つの空白にまとめる。二つ目を `normalized` にすると、連続した空白やタブは残るので一致しない。
+
+```lean
+/-- error: ❌️ Docstring on `#guard_msgs` does not match generated message: -/
+#guard_msgs (error, substring := true) in
+/-- info: alpha beta -/
+#guard_msgs (info, whitespace := normalized) in
+#eval IO.println "alpha  \n\tbeta"
+```
+
+内側の `#guard_msgs` は、上の二つ目と同じ出力を `normalized` で比較し、不一致のエラーを出す。外側は `substring := true` により、そのエラーメッセージにコメントの文面が含まれることを検査する。意図した不一致を外側で確認するので、例全体は検査に通る。
 
 エラーが起きることだけを見る場合は [`#check_failure`](check_failure.md)、出力の文面まで確かめる場合は `#guard_msgs` が向いている。出力の表現はバージョンや表示設定で変わるので、このリファレンスの例は固定した Lean バージョンで確認する。
 
