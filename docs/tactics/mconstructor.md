@@ -1,6 +1,6 @@
 # `mconstructor`
 
-`mconstructor` は、**状態を扱うゴールの論理積などを分ける**タクティクスである。
+`mconstructor` は、状態を扱うゴールの論理積などを分けるタクティクスである。
 
 このページは、標準ライブラリのプログラム検証用の操作である。`import Std.Tactic.Do` と `open Std.Do` を使う。
 

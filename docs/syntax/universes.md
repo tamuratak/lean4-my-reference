@@ -1,6 +1,6 @@
 # `Prop`・`Type`・`Sort`・`universe`
 
-`Prop` は、**命題が属する型**である。`P : Prop` が命題で、`h : P` がその証明になる。
+`Prop` は、命題が属する型である。`P : Prop` が命題で、`h : P` がその証明になる。
 
 ```lean
 example (P : Prop) (h : P) : P := h

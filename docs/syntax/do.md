@@ -1,6 +1,6 @@
 # `do`・`←`・`return`
 
-`do` は、**結果を伴う計算を順番につなぎ、次の計算でその結果を使う**構文である。`IO` や `Option` などで使う。
+`do` は、結果を伴う計算を順番につなぎ、次の計算でその結果を使う構文である。`IO` や `Option` などで使う。
 
 ```lean
 def addOptions (x y : Option Nat) : Option Nat := do

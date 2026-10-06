@@ -1,6 +1,6 @@
 # `#print axioms`
 
-`#print axioms 名前` は、**宣言が直接・間接に依存している公理を表示する**コマンドである。
+`#print axioms 名前` は、宣言が直接・間接に依存している公理を表示するコマンドである。
 
 ```lean
 theorem selfEq (n : Nat) : n = n := rfl

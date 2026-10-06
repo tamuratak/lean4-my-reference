@@ -72,7 +72,7 @@ example : ∀ᶠ n : ℕ in Filter.atTop, 3 ≤ n := by
 
 ## Tendsto の二つのフィルター
 
-`Filter.Tendsto f l₁ l₂` は、**入力を `l₁` に沿って動かすと、出力が `l₂` に沿う**という命題である。
+`Filter.Tendsto f l₁ l₂` は、入力を `l₁` に沿って動かすと、出力が `l₂` に沿うという命題である。
 
 | 対象 | Lean の型・役割 |
 | --- | --- |

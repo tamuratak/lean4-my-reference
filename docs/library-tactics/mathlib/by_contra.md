@@ -1,6 +1,6 @@
 # `by_contra`・`by_contra!`
 
-`by_contra h` は、**ゴールの否定を仮定 `h` として導入し、ゴールを `False` に変える**タクティクスである。追加ライブラリの通常の `by` 証明で使う背理法をここで扱う。
+`by_contra h` は、ゴールの否定を仮定 `h` として導入し、ゴールを `False` に変えるタクティクスである。追加ライブラリの通常の `by` 証明で使う背理法をここで扱う。
 
 ```lean
 import Mathlib.Tactic.ByContra

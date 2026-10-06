@@ -1,6 +1,6 @@
 # 式の `match`
 
-`match` は、**値の形をパターンで分け、各場合の結果を返す**構文である。
+`match` は、値の形をパターンで分け、各場合の結果を返す構文である。
 
 ```lean
 def valueOrZero (x : Option Nat) : Nat :=

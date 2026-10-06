@@ -1,6 +1,6 @@
 # `massumption`
 
-`massumption` は、**状態を扱う仮定から、ゴールに合うものを探す**タクティクスである。
+`massumption` は、状態を扱う仮定から、ゴールに合うものを探すタクティクスである。
 
 このページは、標準ライブラリのプログラム検証用の操作である。`import Std.Tactic.Do` と `open Std.Do` を使う。
 

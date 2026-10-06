@@ -1,6 +1,6 @@
 # `structure`・フィールド・更新
 
-`structure` は、**複数の名前付きの成分をまとめる型を定義する**構文である。
+`structure` は、複数の名前付きの成分をまとめる型を定義する構文である。
 
 ```lean
 structure Point where

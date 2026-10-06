@@ -1,6 +1,6 @@
 # `section`・`variable`・`include`
 
-`section` は、**共通の変数や設定を使う範囲を区切る**構文である。`variable` で用意した変数は、その範囲の宣言で使える。
+`section` は、共通の変数や設定を使う範囲を区切る構文である。`variable` で用意した変数は、その範囲の宣言で使える。
 
 ```lean
 section

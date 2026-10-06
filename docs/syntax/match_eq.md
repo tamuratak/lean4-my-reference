@@ -1,6 +1,6 @@
 # `match h : e with …`
 
-`match h : e with …` は、**分岐前の式 `e` と、その分岐のパターンが等しいという証明に、名前 `h` を付ける**構文である。
+`match h : e with …` は、分岐前の式 `e` と、その分岐のパターンが等しいという証明に、名前 `h` を付ける構文である。
 
 ```lean
 def classified (b : Bool) : {x : Bool // x = false ∨ x = true} :=

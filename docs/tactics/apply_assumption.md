@@ -1,6 +1,6 @@
 # `apply_assumption`
 
-`apply_assumption` は、**ゴールに合う仮定を適用し、必要な前提を新しいゴールにする**タクティクスである。
+`apply_assumption` は、ゴールに合う仮定を適用し、必要な前提を新しいゴールにするタクティクスである。
 
 `assumption` はゴールそのものの証明を探す。`apply_assumption` は含意の仮定なども利用できる。
 

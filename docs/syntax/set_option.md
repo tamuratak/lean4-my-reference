@@ -1,6 +1,6 @@
 # `set_option`・設定の `in`
 
-`set_option 名前 値` は、**Lean の表示や処理に関する設定を変更する**コマンドである。
+`set_option 名前 値` は、Lean の表示や処理に関する設定を変更するコマンドである。
 
 ```lean
 set_option pp.universes true in

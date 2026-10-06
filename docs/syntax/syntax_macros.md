@@ -1,6 +1,6 @@
 # `syntax`・`macro`・`macro_rules`
 
-`syntax` は、**新しい書き方を Lean が構文として読めるようにする**コマンドである。`macro_rules` は、その書き方を既存の構文へ展開する規則を与える。
+`syntax` は、新しい書き方を Lean が構文として読めるようにするコマンドである。`macro_rules` は、その書き方を既存の構文へ展開する規則を与える。
 
 ```lean
 import Lean

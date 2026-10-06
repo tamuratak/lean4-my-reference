@@ -1,6 +1,6 @@
 # `structure … extends …`
 
-`extends` は、**既存の構造体のフィールドを引き継ぎ、新しい構造体を定義する**構文である。
+`extends` は、既存の構造体のフィールドを引き継ぎ、新しい構造体を定義する構文である。
 
 ```lean
 structure Point where

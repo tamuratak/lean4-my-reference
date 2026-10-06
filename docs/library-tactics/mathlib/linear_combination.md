@@ -1,6 +1,6 @@
 # `linear_combination`
 
-`linear_combination` は、**等式に掛ける係数と足し引きを指定して、ゴールの等式を導く**タクティクスである。自動で組み合わせを探す `linarith` と違い、どの等式をどう使うかを証明に書く。
+`linear_combination` は、等式に掛ける係数と足し引きを指定して、ゴールの等式を導くタクティクスである。自動で組み合わせを探す `linarith` と違い、どの等式をどう使うかを証明に書く。
 
 ```lean
 import Mathlib.Tactic.LinearCombination

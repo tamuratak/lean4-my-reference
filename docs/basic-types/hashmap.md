@@ -1,6 +1,6 @@
 # `Std.HashMap α β`：ハッシュマップ
 
-`Std.HashMap α β` は、**`α` 型のキーから `β` 型の値を探す対応表**である。例えば `Std.HashMap String Nat` なら、名前から点数を探せる。標準ライブラリの `import Std.Data.HashMap` を使う。
+`Std.HashMap α β` は、`α` 型のキーから `β` 型の値を探す対応表である。例えば `Std.HashMap String Nat` なら、名前から点数を探せる。標準ライブラリの `import Std.Data.HashMap` を使う。
 
 ## 作る・値を探す
 

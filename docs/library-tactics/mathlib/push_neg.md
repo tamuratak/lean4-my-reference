@@ -1,6 +1,6 @@
 # `push_neg`・`push Not`
 
-`push_neg` は、**否定を論理結合子や量化子の内側へ押し込み、使いやすい形にする**タクティクスである。仮定に使うなら `push_neg at h`、ゴールに使うなら `push_neg` と書く。
+`push_neg` は、否定を論理結合子や量化子の内側へ押し込み、使いやすい形にするタクティクスである。仮定に使うなら `push_neg at h`、ゴールに使うなら `push_neg` と書く。
 
 ```lean
 import Mathlib.Tactic.Push

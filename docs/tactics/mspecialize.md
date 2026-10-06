@@ -1,6 +1,6 @@
 # `mspecialize`
 
-`mspecialize` は、**状態を扱う全称命題や含意の仮定を具体化する**タクティクスである。
+`mspecialize` は、状態を扱う全称命題や含意の仮定を具体化するタクティクスである。
 
 このページは、標準ライブラリのプログラム検証用の操作である。`import Std.Tactic.Do` と `open Std.Do` を使う。
 

@@ -1,6 +1,6 @@
 # `#check_failure`
 
-`#check_failure 式` は、**その式の型の確認が失敗することを検査する**コマンドである。
+`#check_failure 式` は、その式の型の確認が失敗することを検査するコマンドである。
 
 ```lean
 #check_failure (true : Nat)

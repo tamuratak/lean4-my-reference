@@ -1,6 +1,6 @@
 # `grind_linarith`
 
-`grind_linarith` は、**`grind` の線形算術の機能に絞って証明する**タクティクスである。
+`grind_linarith` は、`grind` の線形算術の機能に絞って証明するタクティクスである。
 
 変数を一次式として扱える関係に使う。
 

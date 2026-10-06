@@ -1,6 +1,6 @@
 # `contrapose`
 
-`contrapose h` は、**仮定 `h : P` とゴール `Q` を、仮定 `h : ¬ Q` とゴール `¬ P` に入れ替える**タクティクスである。含意を対偶の形で証明したいときに使う。
+`contrapose h` は、仮定 `h : P` とゴール `Q` を、仮定 `h : ¬ Q` とゴール `¬ P` に入れ替えるタクティクスである。含意を対偶の形で証明したいときに使う。
 
 ```lean
 import Mathlib.Tactic.Contrapose

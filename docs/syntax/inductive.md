@@ -1,6 +1,6 @@
 # `inductive`
 
-`inductive` は、**値を作る方法をコンストラクターとして列挙し、新しい型を定義する**構文である。
+`inductive` は、値を作る方法をコンストラクターとして列挙し、新しい型を定義する構文である。
 
 ```lean
 inductive Color where

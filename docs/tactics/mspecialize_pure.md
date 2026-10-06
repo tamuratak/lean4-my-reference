@@ -1,6 +1,6 @@
 # `mspecialize_pure`
 
-`mspecialize_pure` は、**普通の局所仮定にある事実を、状態を扱う仮定などで具体化する**タクティクスである。
+`mspecialize_pure` は、普通の局所仮定にある事実を、状態を扱う仮定などで具体化するタクティクスである。
 
 このページは、標準ライブラリのプログラム検証用の操作である。`import Std.Tactic.Do` と `open Std.Do` を使う。
 

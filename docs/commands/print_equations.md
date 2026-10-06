@@ -1,6 +1,6 @@
 # `#print equations`・`#print eqns`
 
-`#print equations 名前` は、**関数の定義から生成された等式の定理を表示する**コマンドである。`#print eqns` は同じコマンドの短い書き方である。
+`#print equations 名前` は、関数の定義から生成された等式の定理を表示するコマンドである。`#print eqns` は同じコマンドの短い書き方である。
 
 ```lean
 def predecessor : Nat → Nat

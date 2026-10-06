@@ -1,6 +1,6 @@
 # `congr!`
 
-`congr!` は、**等式を対応する部分式の等式へ分解し、反射性などで解ける部分も処理する**タクティクスである。Lean 本体の `congr` を使う場面で、mathlib の強化された分解を利用したいときに使う。
+`congr!` は、等式を対応する部分式の等式へ分解し、反射性などで解ける部分も処理するタクティクスである。Lean 本体の `congr` を使う場面で、mathlib の強化された分解を利用したいときに使う。
 
 ```lean
 import Mathlib.Tactic.CongrExclamation

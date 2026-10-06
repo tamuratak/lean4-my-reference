@@ -1,6 +1,6 @@
 # `namespace`・`open`・`end`
 
-`namespace N` は、**宣言の名前に `N.` を付けてまとめる**構文である。対応する `end N` でその範囲を閉じる。
+`namespace N` は、宣言の名前に `N.` を付けてまとめる構文である。対応する `end N` でその範囲を閉じる。
 
 ```lean
 namespace Counter

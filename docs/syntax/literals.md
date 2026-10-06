@@ -1,6 +1,6 @@
 # 数値・文字列・リスト・配列の記法
 
-リテラルは、**具体的な値を直接書く記法**である。同じ表記でも、周囲の型によって意味が決まるものがある。
+リテラルは、具体的な値を直接書く記法である。同じ表記でも、周囲の型によって意味が決まるものがある。
 
 型の意味と基本操作は、[`Nat`](../basic-types/nat.md)、[`Int`](../basic-types/int.md)、[`String`・`Char`](../basic-types/string_char.md)、[`Array`](../basic-types/array.md) の各ページを参照。
 
