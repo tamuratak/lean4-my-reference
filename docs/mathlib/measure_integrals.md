@@ -23,6 +23,23 @@ $$
 
 `volume` は型に応じた既定の測度。実数では Lebesgue 測度、標準のユークリッド空間では体積測度になる。型に対応する測度の構造が必要であり、任意の型に体積測度が自動で存在するわけではない。
 
+## 可測構造と既定の測度
+
+測度が測る集合の族と、測度そのものは別の構造である。
+
+| 数学の対象・条件 | Lean | 役割 |
+| --- | --- | --- |
+| 可測集合の族（$\sigma$ 代数） | `[MeasurableSpace E]` | `MeasurableSet s` の意味を決め、`Measure E` の前提になる |
+| 可測構造と既定の測度 | `[MeasureTheory.MeasureSpace E]` | `MeasurableSpace E` を含み、測度 `volume : Measure E` を指定する |
+| 位相から生成した可測構造 | `borel E : MeasurableSpace E` | `[TopologicalSpace E]` の開集合から生成される $\sigma$ 代数 |
+| 選ばれた可測構造が Borel 可測構造と一致する | `[BorelSpace E]` | 位相と可測構造を結び付ける条件。測度は指定しない |
+
+例えば一般の型で `volume` を使うには `[MeasureTheory.MeasureSpace E]` が必要である。これに対し、測度を `μ : Measure E` と明示して使う場合は、可測構造 `[MeasurableSpace E]` があれば型を記述でき、既定の測度は不要である。`BorelSpace E` は、すでにある `[TopologicalSpace E]` と `[MeasurableSpace E]` の間の一致を主張する型クラスである。
+
+実数では標準の位相・Borel 可測構造・Lebesgue 測度のインスタンスが用意されている。一般の `MeasureSpace E` の `volume` が Lebesgue 測度や Haar 測度であるとは限らず、どのインスタンスを使うかで決まる。型クラスの仮定が補われる仕組みは[公式リファレンス：型クラス](https://lean-lang.org/doc/reference/latest/Type-Classes/)を参照。
+
+## 領域に測度を制限する
+
 領域上の積分は、制限した測度による全空間の積分である。
 
 $$
@@ -69,12 +86,15 @@ $$
 
 ## 非負関数の積分
 
-非負関数の積分では無限大を許す値域 $[0,\infty]$ を使う。
+非負関数の積分では、被積分関数と積分結果の両方に、無限大を許す値域 $[0,\infty]$ を使う。
 
 | 意味 | 数学 | Lean |
 | --- | --- | --- |
 | 拡張非負実数の型 | $[0,\infty]$ | `ENNReal` |
+| 被積分関数 | $f:E\to[0,\infty]$ | `f : E → ENNReal` |
 | 非負積分 | $\int_E f\,d\mu\in[0,\infty]$ | `∫⁻ x, f x ∂μ` |
+
+非負の実数値関数 `g : E → ℝ` を渡すには、`∫⁻ x, ENNReal.ofReal (g x) ∂μ` のように値域を変換する。`ENNReal.ofReal` は負の入力を零にするので、もとの非負関数の積分として読むには $g(x)\ge0$ を確認する。`f : E → ENNReal` の積分は、正式名では `MeasureTheory.lintegral μ f` である。
 
 無限大を含む演算と実数への変換条件は[非負実数・拡張非負実数](extended_nonnegative.md)を参照。
 

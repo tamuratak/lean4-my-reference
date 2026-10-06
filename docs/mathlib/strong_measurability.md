@@ -10,7 +10,7 @@
 | --- | --- | --- |
 | 可測集合 | 指定した可測集合の族に属する | `MeasurableSet s` |
 | 可測関数 | 可測集合の逆像が可測 | `Measurable f` |
-| 単関数 | 有限個の値を取る可測関数 | `MeasureTheory.SimpleFunc E F` |
+| 単関数 | 各値の逆像が可測で、値域が有限 | `MeasureTheory.SimpleFunc E F` |
 | 強可測関数 | 単関数列が各点で $f$ に収束する | `StronglyMeasurable f` |
 | ほとんど至る所で可測 | 可測な関数とほとんど至る所で等しい | `AEMeasurable f μ` |
 | ほとんど至る所で強可測 | 強可測な関数とほとんど至る所で等しい | `AEStronglyMeasurable f μ` |
@@ -21,9 +21,15 @@ $$
 \exists(s_n),\ \forall x,\quad s_n(x)\longrightarrow f(x).
 $$
 
-ここで単関数の「単」は滑らかさなどではなく、有限個の値しか取らないことを指す。強可測性には入力の可測空間と出力の位相が必要であり、`StronglyMeasurable f` 自体は測度を指定しない。`AEStronglyMeasurable f μ` は、例外の大きさを測るために `μ` も指定する。
+ここで単関数の「単」は滑らかさなどではなく、有限個の値しか取らないことを指す。`SimpleFunc E F` は関数 `E → F` に、各 $b\in F$ の逆像 $\{x\mid f(x)=b\}$ が可測であるという証明と、値域が有限であるという証明をまとめた型である。`s : SimpleFunc E F` からは `s.measurableSet_fiber b` と `s.finite_range` でこれらの性質を使える。
+
+`SimpleFunc E F` の型には入力側の `[MeasurableSpace E]` が必要だが、出力側の `[MeasurableSpace F]` は要求しない。各値の逆像を直接調べることで、出力の可測構造を選ばずに単関数を定義できる。例えば実数上で、可測集合 $s$ の中では $1$、外では $0$ を取る関数は単関数である。
+
+強可測性には入力の可測空間 `[MeasurableSpace E]` と出力の位相 `[TopologicalSpace F]` が必要であり、`StronglyMeasurable f` 自体は測度を指定しない。`AEStronglyMeasurable f μ` は、例外の大きさを測るために `μ` も指定する。
 
 実数値では標準の Borel 可測構造のもとで、`StronglyMeasurable f` と `Measurable f` は同値になる。ほとんど至る所での二つの条件も同値である。一般の値域では同一視できず、例えば距離に対応する位相、第二可算性、Borel 可測構造など、対応定理の条件を確認する。
+
+`Measurable f` は入力と出力の可測構造を使う。位相を持つ出力 `F` で `[BorelSpace F]` を仮定すると、選ばれた可測構造が開集合から生成される Borel 可測構造と一致する。これらの型クラスと既定の測度の関係は[可測構造と既定の測度](measure_integrals.md#可測構造と既定の測度)を参照。
 
 ```lean
 import Mathlib.MeasureTheory.Function.StronglyMeasurable.AEStronglyMeasurable

@@ -84,6 +84,16 @@ $$
 
 $\nabla_s f(x)$ は説明上の記号である。`gradient` の値は入力と同じ空間のベクトルであり、`fderiv` の値は連続線形写像。この二つは内積を通じて対応する。`gradient` も全微分不可能な点では零ベクトルを返す。
 
+一般の完備な実内積空間 `E` では、`InnerProductSpace.toDual ℝ E` が、ベクトルと連続線形汎関数の空間 `E →L[ℝ] ℝ`（`StrongDual ℝ E`）との同値を与える。ベクトル $g$ を $v\mapsto\langle g,v\rangle$ に送り、逆向きには連続線形汎関数を、その内積表示を与える一意なベクトルに戻す。逆向きの写像は `.symm` で表す。
+
+このため、勾配は全微分を逆向きの写像に渡して得られる。
+
+```text
+gradient f x = (InnerProductSpace.toDual ℝ E).symm (fderiv ℝ f x)
+```
+
+これは Riesz の表現定理による対応であり、この固定版の `toDual`・`gradient`・`HasGradientAt` は `[CompleteSpace E]` を要求する。不完備な内積空間では、すべての連続線形汎関数が空間内のベクトルとの内積で表せるとは限らない。ここで使う有限次元のユークリッド空間は完備なので、この条件を満たす。
+
 例えばユークリッド空間で $f(x,y)=x^2+y^2$ なら、
 
 $$

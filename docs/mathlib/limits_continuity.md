@@ -24,18 +24,21 @@ $$
 \lim_{z\to x}f(z)=y
 $$
 
-は `Filter.Tendsto f (nhds x) (nhds y)` で表す。`nhds x` は点 $x$ の近傍フィルターであり、「$x$ に近づく」という条件をまとめたもの。
+という点を除く通常の関数の極限は、`Filter.Tendsto f (nhdsWithin x {x}ᶜ) (nhds y)` で表す。`nhds x` は点 $x$ の近傍フィルターであり、`nhdsWithin x {x}ᶜ` はそこから点 $x$ 自身を除いた穴あき近傍である。
 
-フィルター自体の意味と、`Tendsto` の入力側・出力側の読み方は[フィルターと極限](filters.md)を参照。上の表現では点 $x$ 自身も含むため、点を除く通常の関数の極限には、下の穴あき近傍を使う。
+フィルター自体の意味と、`Tendsto` の入力側・出力側の読み方は[フィルターと極限](filters.md)を参照。`Filter.Tendsto f (nhds x) (nhds y)` は、点 $x$ 自身も含む近傍からの極限を表す。
 
 | 意味 | 数学 | Lean |
 | --- | --- | --- |
-| 点への極限 | $\lim_{z\to x}f(z)=y$ | `Filter.Tendsto f (nhds x) (nhds y)` |
+| 点を除く通常の関数の極限 | $\lim_{z\to x}f(z)=y$ | `Filter.Tendsto f (nhdsWithin x {x}ᶜ) (nhds y)` |
+| 点自身も含む近傍からの極限 | $x$ を含む近傍に沿って $f(z)$ が $y$ に近づく | `Filter.Tendsto f (nhds x) (nhds y)` |
 | 列の極限 | $\lim_{k\to\infty}u_k=y$ | `Filter.Tendsto u Filter.atTop (nhds y)` |
 | 領域内から近づく | $z\to x,\ z\in s$ | `nhdsWithin x s` |
 | 点自身を除いて近づく | $z\to x,\ z\ne x$ | `nhdsWithin x {x}ᶜ` |
 
-近傍の記法 `𝓝 x`、`𝓝[s] x` は、それぞれ正式名 `nhds x`、`nhdsWithin x s` に対応する。通常の極限と穴あき近傍での極限は区別する。微分の差商では点自身を除く。
+近傍の記法 `𝓝 x`、`𝓝[s] x` は、それぞれ正式名 `nhds x`、`nhdsWithin x s` に対応する。穴あき近傍の記法は `𝓝[≠] x`。微分の差商でも点自身を除く。
+
+例えば実数上で $f(0)=1$、$t\ne0$ なら $f(t)=0$ とすると、通常の極限は $\lim_{t\to0}f(t)=0$ である。一方、`Filter.Tendsto f (nhds 0) (nhds 0)` は点 $0$ の値も調べるため成立しない。実数値関数では、点自身を含む近傍から $y$ に収束すれば $f(x)=y$ も必要になる。
 
 ## 連続性
 

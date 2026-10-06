@@ -92,6 +92,18 @@ variable {𝕜 : Type*} [NontriviallyNormedField 𝕜]
 
 共通の構文：[公式リファレンス：識別子](https://lean-lang.org/doc/reference/latest/Terms/Identifiers/)、[型クラス](https://lean-lang.org/doc/reference/latest/Type-Classes/)。これらは変数名と仮定の仕組みの説明であり、mathlib の命名慣習や数学の API の説明とは区別する。
 
+## 解析性
+
+`AnalyticAt 𝕜 f x` は、関数 `f : E → F` が点 $x$ の近傍で、$\mathbb{k}$ 上の収束する冪級数展開を持つという命題である。一変数のスカラー値関数なら、ある正の半径の範囲で
+
+$$
+f(x+h)=\sum_{k=0}^{\infty}a_k h^k
+$$
+
+と表せることに対応する。一般のノルム空間では、係数を連続多重線形写像の列 `p : FormalMultilinearSeries 𝕜 E F` として持ち、第 $k$ 項は `p k (fun _ : Fin k => h)` となる。
+
+`HasFPowerSeriesAt f p x` は指定した級数 `p` が近傍で `f` に収束する条件、`AnalyticAt 𝕜 f x` はそのような `p` の存在を表す。すべての有限階で微分可能というだけでは、元の関数に収束する冪級数展開を持つとは限らない。`ContDiff … ω …` との対応と、一点での同値に必要な値域の完備性は[高階微分と滑らかさ](higher_derivatives.md#連続微分可能性)を参照。
+
 ## 一般のノルム空間
 
 mathlib の全微分は有限次元に限定されない。定理に出てくる一般の空間 $E$ は、主に次の型クラスで条件を表す。

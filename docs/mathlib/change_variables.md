@@ -35,14 +35,18 @@ $$
 | 領域の各点で指定した微分を持つ | $\forall x\in s,\ D_s\Phi(x)=A(x)$ | `∀ x ∈ s, HasFDerivWithinAt phi (A x) s x` |
 | 領域上で単射 | $\Phi(x)=\Phi(y)\Rightarrow x=y$（$x,y\in s$） | `Set.InjOn phi s` |
 
-微分の条件には存在も含む。一般形では適切な加法 Haar 測度を使い、標準のユークリッド空間では体積測度 `volume` を使う。
+微分の条件には存在も含む。一般形では Borel 可測構造 `[MeasurableSpace E] [BorelSpace E]` と、測度 `μ : Measure E` に対する `[μ.IsAddHaarMeasure]` を仮定する。正式名は `MeasureTheory.Measure.IsAddHaarMeasure μ` である。
+
+この加法 Haar 測度の条件は、平行移動で測度が変わらないこと、コンパクト集合の測度が有限であること、空でない開集合の測度が正であることをまとめている。例えば $s$ を $a$ だけ平行移動しても $\mu(a+s)=\mu(s)$ となる。有限次元の実空間で使う体積測度がこの条件に対応し、標準のユークリッド空間では `volume` がそのインスタンスを持つ。可測構造と `volume` の指定は[測度の型クラス](measure_integrals.md#可測構造と既定の測度)を参照。
 
 結論の積分値の等式は、Lean の表現では次の形になる。
 
 ```text
-(∫ y in phi '' s, g y) =
-  ∫ x in s, abs ((A x).det) • g (phi x)
+(∫ y in phi '' s, g y ∂μ) =
+  ∫ x in s, abs ((A x).det) • g (phi x) ∂μ
 ```
+
+`μ` に `volume` を使うときは、両辺の `∂μ` を省略した表記になる。
 
 この定理には可積分性の仮定が直接現れない。非可積分な場合にも積分が定義されるためである。有限な積分値の評価に使う場合は、可積分性を別に確認する。単射性は、領域を重複して数えないための条件である。
 

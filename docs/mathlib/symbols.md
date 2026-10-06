@@ -115,6 +115,24 @@
 
 `=ᶠ[l]`、`=o[l]`、`=O[l]` の `=` は、通常の等式の見た目に似ているが、それぞれ専用の条件を表す。little-o の `o` は小文字、big-O の `O` は大文字である。
 
+`f : E → F` と `g : E → G` の出力にノルムがあるとき、big-O と little-o は次の不等式で表す。出力の型 `F` と `G` は異なっていてもよい。
+
+| 条件 | フィルターに沿うノルムの評価 |
+| --- | --- |
+| `Asymptotics.IsBigO l f g` | ある実定数 $C$ について、eventually $\lVert f(x)\rVert\le C\lVert g(x)\rVert$ |
+| `Asymptotics.IsLittleO l f g` | すべての $\varepsilon>0$ について、eventually $\lVert f(x)\rVert\le\varepsilon\lVert g(x)\rVert$ |
+
+Lean で量化を明示すると、それぞれ次の条件になる。
+
+```text
+∃ C : ℝ, ∀ᶠ x in l, ‖f x‖ ≤ C * ‖g x‖
+∀ ε : ℝ, 0 < ε → ∀ᶠ x in l, ‖f x‖ ≤ ε * ‖g x‖
+```
+
+little-o では、条件が成立する入力の範囲は $\varepsilon$ ごとに変わってよい。例えば実数の $h\to0$ で $h^2=o(h)$ となるのは、$\lvert h\rvert\le\varepsilon$ なら $\lvert h^2\rvert\le\varepsilon\lvert h\rvert$ だからである。
+
+定義は $\lVert f(x)\rVert/\lVert g(x)\rVert$ という商を使わない。したがって $g(x)=0$ でも読み取れ、その点で上の不等式が成立するには $\lVert f(x)\rVert=0$ が必要になる。商の極限や有界性に言い換える場合には、分母が零でないことなどの条件を確認する。
+
 ## 微分・勾配・滑らかさ
 
 | 記号・形 | 呼び名・数学の意味 | Lean での対応 | 詳細 |
@@ -128,7 +146,7 @@
 
 数学の $f'$、$\partial_i f$、$Df$ が、そのまま Lean の演算子になるわけではない。Lean の `f'` は通常、アポストロフィを含む別の名前である。`f '' s` は集合の像であり、二階微分ではない。
 
-`∇ f x` はベクトル、`fderiv ℝ f x` は連続線形写像。実内積空間では $Df(x)(v)=\langle\nabla f(x),v\rangle$ により対応する。どちらも値の表現であり、存在の主張には `HasGradientAt` や `HasFDerivAt` を使う。
+`∇ f x` はベクトル、`fderiv ℝ f x` は連続線形写像。完備な実内積空間では $Df(x)(v)=\langle\nabla f(x),v\rangle$ により対応する。この固定版の `gradient`・`HasGradientAt` は、内積空間の構造に加えて `[CompleteSpace E]` を要求する。ユークリッド空間はこの条件を満たす。どちらも値の表現であり、存在の主張には `HasGradientAt` や `HasFDerivAt` を使う。
 
 ## 積分・測度・ほとんど至る所
 

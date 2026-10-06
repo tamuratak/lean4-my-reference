@@ -62,6 +62,8 @@ example (f : ℝ → ℝ) (hf : ContinuousOn f (Set.Icc 0 1)) :
 
 この例は、最大値を計算するのではなく、閉区間上の連続性から最大点の存在を表している。
 
+例中の [`norm_num`](../library-tactics/mathlib/norm_num.md) は、具体的な数の等式・不等式を証明するタクティクスである。ここでは $0\in[0,1]$ に必要な数値の不等式を処理している。
+
 関連：[領域と連続性](limits_continuity.md)、[領域内の全微分](fderiv.md#領域内の全微分)。共通の構文：[公式リファレンス：型クラス](https://lean-lang.org/doc/reference/latest/Type-Classes/)。
 
 [mathlib の索引に戻る](README.md)
