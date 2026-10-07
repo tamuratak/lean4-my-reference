@@ -1,0 +1,3 @@
+- 文法要素は `docs/syntax/`、基本データ型は `docs/basic-types/`、確認用の `#` コマンドは `docs/commands/`、属性は `docs/attributes/`、標準タクティクスは `docs/tactics/` に分ける。追加ライブラリのタクティクスは `docs/library-tactics/` に分離し、その中でも `mathlib/` と `aesop/` を分ける。各分類のページはそれぞれのディレクトリ直下に置く。
+- mathlib の数学の定義・定理と使い方は `docs/mathlib/` に置く。関連するタクティクスは `docs/library-tactics/mathlib/` の記事へリンクする。
+- 文法・タクティクの説明は短い具体例を中心にする。mathlib の数学リファレンスは、数学の概念・数式と Lean の表現の対応を中心にし、証明コードの書き方は別の課題とする。対象の Lean バージョンは `lean-toolchain`（4.35.0-rc3）を参照。追加ライブラリの依存バージョンと検証状況は[専用の一覧](docs/library-tactics/README.md#検証と参照方針)に記載する。
