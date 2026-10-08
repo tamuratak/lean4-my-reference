@@ -1,10 +1,10 @@
-# 数学の概念を型で組み立て、性質を証明する
+# 型による数学的対象の構成と性質の証明
 
 Lean では、数学の対象を型と値で表し、命題を `Prop` に属する型で表し、その型の値を証明として扱う。対象を構成する定義と、その性質を示す証明を、基本的な部品から積み重ねていく。
 
 ここでは、自然数から実数を構成する数学的な方法は既知として、各段階を Lean のどの仕組みで書くかを説明する。実数の構成全体を実装するのではなく、仕組みが見える短い例を使う。
 
-## 1. 型と値：数学の対象を表す
+## 1. 型による実数の構成
 
 `n : Nat` は「`n` は自然数」、`s : Nat → Rat` は「`s` は自然数を添字とする有理数の列」を表す。`Nat` や `Rat` 自体は `Type` に属する型である。
 
@@ -22,65 +22,9 @@ Lean では、数学の対象を型と値で表し、命題を `Prop` に属す�
 
 自然数・整数・有理数は Lean に用意されている。ここで述べるコーシー列と実数の実装は mathlib のものである。
 
-## 2. 帰納型：値の作り方を指定する
+以下では、表の「有理数の列」以降の段階を順に詳しく説明する。有理数の列を関数で表し、コーシー条件の証明を添え、同値な列を商型で同一視することで、実数の型へ進む。
 
-`inductive` は、その型の値を作る方法（コンストラクター）を指定する。`Nat` の値はゼロか、ある自然数の後者である。`Int` の値は、自然数 `n` を非負整数とする `Int.ofNat n` か、`-(n + 1)` を表す `Int.negSucc n` である。
-
-定義の形だけを抜き出すと、次のようになる。これは既存の型を説明する断片であり、再定義するコードではない。
-
-```text
-inductive Nat where
-  | zero : Nat
-  | succ : Nat → Nat
-
-inductive Int where
-  | ofNat : Nat → Int
-  | negSucc : Nat → Int
-```
-
-帰納型を宣言すると、その構造に沿った場合分けや帰納法の原理も得られる。自然数についての証明なら、ゼロの場合と、後者の場合に分けられる。
-
-```lean
-example (n : Nat) : 0 + n = n := by
-  induction n with
-  | zero => rfl
-  | succ n ih =>
-    change Nat.succ (0 + n) = Nat.succ n
-    exact congrArg Nat.succ ih
-```
-
-後者の場合では、仮定 `ih : 0 + n = n` が使える。ゴールを後者どうしの等式に変え、等式の両辺に `Nat.succ` を適用する `congrArg` で証明する。値の構成に沿って、性質も証明するのである。
-
-## 3. 構造体：データと条件の証明をまとめる
-
-`structure` は複数のフィールドをまとめる。有理数 `Rat` は、実際には分数の商型ではなく、既約分数の形で実装されている。主なフィールドは次のとおりである。
-
-```text
-num     : Int
-den     : Nat
-den_nz  : den ≠ 0
-reduced : num.natAbs.Coprime den
-```
-
-`num` と `den` はデータ、`den_nz` と `reduced` は条件の証明である。例えば `den_nz` の型は、同じ構造体に入っている `den` の値によって変わる。このように、型が値に依存できる仕組みが依存型である。
-
-```lean
-import Init.Data.Rat.Basic
-
-def half : Rat where
-  num := 1
-  den := 2
-  den_nz := by decide
-  reduced := by decide
-
-example : half.den ≠ 0 := half.den_nz
-```
-
-`half` を作る時点で必要な条件を証明しているので、使う側は `.den_nz` からその証明を取り出せる。毎回ゼロでないことを証明し直す必要はない。
-
-有理数の足し算などを定義する際には、計算結果を既約化し、結果もこれらの条件を満たすことを証明する。型を作ることと、演算を定義してその法則を証明することは、それぞれ必要な作業である。
-
-## 4. 関数型と部分型：列に条件を付ける
+### 1.1. 関数による有理数列の表現
 
 有理数の列は関数 `ℕ → ℚ` である。有限個の項を保存するリストではなく、任意の添字に対して項を与える。
 
@@ -92,13 +36,17 @@ def constantSequence (q : Rat) : Nat → Rat := fun _ => q
 example (q : Rat) (n : Nat) : constantSequence q n = q := rfl
 ```
 
-次に、コーシー列であるという条件を `Prop` として定義する。mathlib の `IsCauSeq abs s` は、`s` がコーシー列であることを表す。この条件を列の型に付ける。
+### 1.2. 部分型によるコーシー列の構成
+
+実数の構成に使うのは、有理数の列のうちコーシー条件を満たすものである。mathlib の `IsCauSeq abs s` は、列 `s` がコーシー列であることを表す命題である。列と、その列が条件を満たす証明をまとめて、コーシー列の型を作る。
 
 ```text
 CauSeq ℚ abs = {s : ℕ → ℚ // IsCauSeq abs s}
 ```
 
-`{x : α // P x}` は部分型であり、値 `x` と証明 `h : P x` を `⟨x, h⟩` にまとめる。`.val` で値、`.property` で証明を取り出せる。より簡単な条件なら、次のように書ける。
+`{x : α // P x}` は部分型であり、値 `x` と証明 `h : P x` を `⟨x, h⟩` にまとめる。証明の型 `P x` は、組にする値 `x` に依存する。このように、型が値に依存できる仕組みが依存型である。
+
+`.val` で値、`.property` で証明を取り出せる。より簡単な条件なら、次のように書ける。
 
 ```lean
 def PositiveNat := {n : Nat // 0 < n}
@@ -108,9 +56,11 @@ def three : PositiveNat := ⟨3, by decide⟩
 example (x : PositiveNat) : 0 < x.val := x.property
 ```
 
-コーシー列も同じ仕組みで作る。ただし、`by decide` で具体的な数の条件を確かめる代わりに、その列についてコーシー条件の証明を渡す。
+`three` を作る時点で条件を証明しているので、使う側は `.property` からその証明を取り出せる。毎回条件を証明し直す必要はない。
 
-## 5. 商型：同値な列を同じ値にする
+コーシー列も同じ仕組みで作る。ただし、`by decide` で具体的な数の条件を確かめる代わりに、その列についてコーシー条件の証明を渡す。これにより、コーシー列を受け取る演算や定理では、列と条件の証明を一つの引数として扱える。
+
+### 1.3. 商型によるコーシー列の同一視
 
 まず、コーシー列どうしの関係「差が 0 に近づく」を定義し、その反射性・対称性・推移性を証明する。関係と同値関係であることの証明をまとめたものが `Setoid`、それによって値を同一視する型が `Quotient` である。
 
@@ -138,9 +88,9 @@ example : remainder (parityClass 3) = 1 := rfl
 
 商型からの関数は `Quotient.lift` で定義する。その際、同値な代表元なら結果も等しいという証明が必要になる。上の `remainder` では、その条件が同値関係そのものなので、仮定 `h` を渡せる。商型の値について性質を証明する際には、`Quotient.inductionOn` により、代表元から作った値についての証明に帰着できる。
 
-実数でも同様に、コーシー列の商を作る。実数の足し算を定義するには、列の各項を足した結果がコーシー列になることに加え、代表する列を取り替えても結果が同値になることを証明する。mathlib の `Real` は、こうして構成した商型を `cauchy` フィールドに持つ構造体である。
+実数でも同様に、コーシー列の商を作る。実数の足し算を定義するには、列の各項を足した結果がコーシー列になることに加え、代表する列を取り替えても結果が同値になることを証明する。実装上、mathlib の `Real` は、こうして構成した商型の値を `cauchy` フィールドに持つ構造体である。
 
-## 6. 命題と証明：必要な型の値を組み立てる
+## 2. 命題の型と証明の値
 
 対象の型を作った後、その性質を命題として記述する。`P : Prop` に対する `h : P` は、命題 `P` の型に属する値、つまり `P` の証明である。
 
@@ -170,7 +120,7 @@ example {P Q R : Prop} (hp : P) (hpq : P → Q) (hqr : Q → R) : R := by
 
 タクティクは、この証明の値を作るための支援機能である。`intro` で引数を受け取り、`apply` で定理に必要な前提へゴールを分け、`exact` で要求された型の証明を渡す。最終的に Lean のカーネルが、できあがった値が目的の命題の型を持つか検査する。
 
-## 7. 構成した後は、証明済みの性質を使う
+## 3. 構成後の性質の証明と利用
 
 実数を構成して演算を定義しただけでは、交換法則や完備性まで自動的に得られるわけではない。これらも構成に基づいて証明する。例えば加法の交換法則は、有理数の列の各項についての交換法則から、列、商型、実数へと引き継ぐ。
 
@@ -193,9 +143,8 @@ example (x y : ℝ) : (x + y) + 0 = y + x := by
 
 ## 関連ページと参照
 
-- 個別の文法：[帰納型](syntax/inductive.md)、[構造体](syntax/structure.md)、[関数型](syntax/function_types.md)、[部分型](syntax/subtype.md)、[型クラス](syntax/class.md)。
+- 個別の文法：[関数型](syntax/function_types.md)、[部分型](syntax/subtype.md)、[型クラス](syntax/class.md)。
 - 個別の型：[自然数](basic-types/nat.md)、[整数](basic-types/int.md)、[有理数](basic-types/rat.md)、[商型](basic-types/quotient.md)。
-- 公式リファレンス：[帰納型と構造体](https://lean-lang.org/doc/reference/latest/The-Type-System/Inductive-Types/)、[部分型](https://lean-lang.org/doc/reference/latest/Basic-Types/Subtypes/)、[商型](https://lean-lang.org/doc/reference/latest/The-Type-System/Quotients/)、[命題と証明](https://lean-lang.org/doc/reference/latest/The-Type-System/Propositions/)。
-- 公式 API：[有理数 `Rat` の定義](https://lean-lang.org/doc/api/Init/Data/Rat/Basic.html#Rat)。
+- 公式リファレンス：[部分型](https://lean-lang.org/doc/reference/latest/Basic-Types/Subtypes/)、[商型](https://lean-lang.org/doc/reference/latest/The-Type-System/Quotients/)、[命題と証明](https://lean-lang.org/doc/reference/latest/The-Type-System/Propositions/)。
 
 [リファレンスのトップに戻る](../README.md)

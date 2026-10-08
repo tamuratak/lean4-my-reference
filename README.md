@@ -3,7 +3,7 @@
 ## Disclaimer
 
 GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは一切保証されません。
-[記号索引](docs/symbols.md) および  [Mathlib の記号索引](docs/mathlib/symbols.md) が便利です。
+[記号索引](docs/symbols.md) および  [mathlib の記号索引](docs/mathlib/symbols.md) が便利です。
 
 ## 概要
 
@@ -12,9 +12,9 @@ GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは�
 目的に応じて、次の一覧から読む。
 
 - [数学の概念を型で組み立て、性質を証明する](docs/mathematical_constructions.md)：自然数から実数までの構成を通して、型・データ・命題・証明の関係を理解する。
-- [Mathlib の数学リファレンス](docs/mathlib/README.md)：多変数・多次元の微分積分を中心に、級数、行列・基底、ノルム・内積、コンパクト性、関数列と極限の交換も調べる。
+- [mathlib の数学リファレンス](docs/mathlib/README.md)：多変数・多次元の微分積分を中心に、級数、行列・基底、ノルム・内積、コンパクト性、関数列と極限の交換も調べる。
 - [記号索引](docs/symbols.md)：`⟨…⟩`、`?_`、`·`、`<;>` など、記号の形や呼び名から説明を探す。
-- [Mathlib の記号索引](docs/mathlib/symbols.md)：線形写像、ノルム、内積、近傍、勾配、積分、有限和など、数学の記法から意味を探す。
+- [mathlib の記号索引](docs/mathlib/symbols.md)：線形写像、ノルム、内積、近傍、勾配、積分、有限和など、数学の記法から意味を探す。
 - [文法要素の一覧](docs/syntax/README.md)：宣言、式、型、名前空間など、Lean のコードの読み方と書き方。
 - [基本データ型の一覧](docs/basic-types/README.md)：数値・文字列・コレクション・商型などの作り方と基本操作。ハッシュマップや順序付き集合も扱う。
 - [確認・実行・検査用の `#` コマンド](docs/commands/README.md)：型、計算結果、宣言内容、期待した動作の確認。
