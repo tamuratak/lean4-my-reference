@@ -2,7 +2,7 @@
 
 ## Disclaimer
 
-GPT-6.1 (Medium〜Extra High) に生成させたものです。正しさは一切保証されません。
+GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは一切保証されません。
 [記号索引](docs/symbols.md) および  [Mathlib の記号索引](docs/mathlib/symbols.md) が便利です。
 
 ## 概要
