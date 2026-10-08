@@ -44,7 +44,7 @@ example (f : ℝ → ℝ) (μ : Measure ℝ) (hf : AEMeasurable f μ) :
     AEStronglyMeasurable f μ := hf.aestronglyMeasurable
 ```
 
-## 零測度の例外を許す
+## 零測度の例外とほとんど至る所での強可測性
 
 `AEStronglyMeasurable f μ` は、ある強可測関数 $g$ について $f=g$ がほとんど至る所で成り立つという命題である。
 

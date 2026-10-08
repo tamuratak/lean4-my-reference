@@ -2,7 +2,7 @@
 
 `reducible` などの属性は、型の照合や自動処理で、定義の本体をどこまで展開できるかを指定する。定理を登録する `simp` 属性とは違う働きである。
 
-## `reducible`：別名として展開しやすくする
+## `reducible`：インスタンス探索での型の別名の展開
 
 ```lean
 @[reducible] def Label := String
@@ -28,7 +28,7 @@ def greeting : Label := "hello"
 
 `#check_failure` は、その式の型の確認が失敗することを検査するコマンドである。
 
-## `irreducible`：通常の照合では展開させない
+## `irreducible`：通常の照合での展開の抑制
 
 ```lean
 @[irreducible] def Secret := String

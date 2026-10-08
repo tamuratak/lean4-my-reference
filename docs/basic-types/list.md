@@ -4,7 +4,7 @@
 
 `List` 自体は型クラスではない。要素の型を渡した `List α` が、リストの値の型になる。追加の `import` は不要である。
 
-## 値を作る
+## リストの構築・先頭への追加・連結
 
 ```lean
 def numbers : List Nat := [1, 2, 3]
@@ -33,7 +33,7 @@ example : 0 :: [1, 2] = [0, 1, 2] := rfl
 example : ([1, 2] : List Nat) ++ [3, 4] = [1, 2, 3, 4] := rfl
 ```
 
-## 空かどうかで分ける
+## 空リストと非空リストによる場合分け
 
 ```lean
 def first? (xs : List Nat) : Option Nat :=

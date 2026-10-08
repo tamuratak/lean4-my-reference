@@ -19,7 +19,7 @@ example (n : Nat) : 0 + n = n := by
 
 `cases` との違いは、この `ih` が手に入ることである。
 
-## `generalizing`：他の引数にも使える帰納法の仮定を作る
+## `generalizing`：帰納法の仮定の一般化
 
 `induction n generalizing m` は、ローカル変数 `m` を固定せず、すべての `m` についての命題に帰納法を適用する。例えば、再帰呼び出しのたびに第二引数を増やす加算を考える。
 

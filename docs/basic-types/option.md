@@ -1,4 +1,4 @@
-# `Option α`：値があるかないか
+# `Option α`：値の有無
 
 `Option α` は、`α` 型の値が１つある場合と、値がない場合を表すデータ型である。見つからない可能性のある検索や、要素のない可能性がある取り出しなどに使う。
 
@@ -22,7 +22,7 @@ example : (some 0 : Option Nat) ≠ none := by
 
 値がない理由も保持したい場合は、[`Except ε α`](except.md) を使う。
 
-## 中身を使う
+## 場合分けと既定値による値の取得
 
 `Option Nat` と `Nat` は別の型なので、`some 3` をそのまま自然数として足すことはできない。まず値の形で分ける。
 
@@ -47,7 +47,7 @@ example : (none : Option Nat).getD 0 = 0 := rfl
 
 `.getD d` は、`some x` なら `x`、`none` なら指定した既定値 `d` を返す。「値がなかった」という情報を残したいときは、`Option` のまま扱う。
 
-## 値がある場合だけ変換する
+## `.map` による変換と `.bind` による計算の連結
 
 ```lean
 example : (some 3 : Option Nat).map (fun n => n + 1) = some 4 := rfl

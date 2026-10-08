@@ -2,7 +2,7 @@
 
 `Bool` は、`true` と `false` の２つの値を持つデータ型である。計算による判定結果やフラグを表す。追加の `import` は不要である。
 
-## 値で分岐する
+## 真偽値による分岐
 
 ```lean
 def label (enabled : Bool) : String :=

@@ -39,7 +39,7 @@ example (P : Prop) : P → P := by
 5. [cases](cases.md)・[induction](induction.md)：場合分け・帰納法を使う。
 6. [複数ゴールの構文](semicolon.md)：`·`、`;`、`<;>` を読む。
 
-## やりたいことから選ぶ
+## 証明の目的別のタクティクス候補
 
 | やりたいこと | 候補 |
 | --- | --- |
@@ -255,7 +255,7 @@ example (P : Prop) : P → P := by
 | [mvcgen](mvcgen.md) | プログラムの仕様を証明するための条件を、実行の構造に従って生成する | `mvcgen?` |
 | [mspec](mspec.md) | プログラムの仕様を表す定理を適用し、前提や事後条件の確認をゴールにする | — |
 
-## 標準に含まれるか迷ったとき
+## 標準タクティクスと追加ライブラリの区別
 
 `rcases`、`rintro`、`obtain`、`omega`、`grind`、`norm_cast` はこのバージョンの Lean 本体に含まれる。一方、一般の証明モードで使う `aesop`、`linarith`、`nlinarith`、`ring`、`norm_num`、`by_contra`、`push_neg` などは、このリファレンスの対象の標準インポートだけでは使えない。
 

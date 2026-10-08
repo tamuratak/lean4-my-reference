@@ -2,7 +2,7 @@
 
 `Sum α β` は、`α` 型の値か `β` 型の値のどちらか一方を、その区別とともに保持する型である。`α ⊕ β` とも書き、直和型と呼ぶ。追加の `import` は不要である。
 
-## 左右の値を作る
+## 左右の値の作成
 
 ```lean
 def byNumber : Nat ⊕ String := Sum.inl 3
@@ -15,7 +15,7 @@ example : byName = Sum.inr "three" := rfl
 
 `Sum.inl` は左側の型 `α` の値、`Sum.inr` は右側の型 `β` の値を渡すコンストラクターである。上の例では、番号で指定する場合と名前で指定する場合を１つの型にまとめている。
 
-## どちらの値かで分ける
+## 左右の値による場合分け
 
 ```lean
 def describe (x : Nat ⊕ String) : String :=

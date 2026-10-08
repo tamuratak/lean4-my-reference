@@ -2,7 +2,7 @@
 
 `Std.HashSet α` は、`α` 型の要素が含まれるかどうかを管理する集合である。同じ要素を複数回入れても重複して数えない。標準ライブラリの `import Std.Data.HashSet` を使う。
 
-## 要素を入れる・有無を調べる
+## 要素の追加・削除と有無の確認
 
 ```lean
 import Std.Data.HashSet

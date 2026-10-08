@@ -2,7 +2,7 @@
 
 `ByteArray` は、`UInt8` の値を並べたバイト列の型である。ファイルの内容や通信データなど、文字列とは限らないデータを扱う。追加の `import` は不要である。
 
-## 作る・読み取る
+## バイト列の作成と読み取り
 
 ```lean
 def bytes : ByteArray := ByteArray.empty.push 65 |>.push 66

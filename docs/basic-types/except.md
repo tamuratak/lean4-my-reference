@@ -2,7 +2,7 @@
 
 `Except ε α` は、成功した場合の `α` 型の値か、失敗した場合の `ε` 型の情報を保持する型である。第１引数がエラーの型、第２引数が成功の型になる。追加の `import` は不要である。
 
-## 成功と失敗を返す
+## 成功・失敗の結果の作成
 
 ```lean
 def parseCount (text : String) : Except String Nat :=
@@ -16,7 +16,7 @@ def parseCount (text : String) : Except String Nat :=
 
 出力は順に `Except.ok 12`、`Except.error "not a natural number"` になる。`Except.ok value` は成功の値、`Except.error reason` は失敗の情報を渡すコンストラクターである。[`Option`](option.md) の `none` は理由を持たないが、`Except` は失敗理由をデータとして保持できる。
 
-## 結果を使う
+## 成功値とエラーのパターンによる場合分け
 
 ```lean
 def describe (result : Except String Nat) : String :=
@@ -30,7 +30,7 @@ example : describe (Except.error "missing") = "error: missing" := by decide
 
 成功の枝では `n : Nat`、失敗の枝では `message : String` が使える。単なる文字列に限らず、自作のエラー型を `ε` に使うこともできる。
 
-## `do` で成功した値を次へ渡す
+## `do` による成功値の受け渡しとエラーの伝播
 
 ```lean
 def addOne (input : Except String Nat) : Except String Nat := do

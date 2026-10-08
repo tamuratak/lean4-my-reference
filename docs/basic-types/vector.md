@@ -2,7 +2,7 @@
 
 `Vector α n` は、要素の型が `α`、長さがちょうど `n` の配列である。長さを型に含めることで、決まった個数の要素を要求できる。標準の `import Init.Data.Vector` を使う。
 
-## 決まった長さで作る
+## 長さを指定したベクトルの作成
 
 ```lean
 import Init.Data.Vector
@@ -18,7 +18,7 @@ example : triple.toArray.size = 3 := triple.size_toArray
 
 `Array Nat` は任意の長さを保持するが、`Vector Nat 3` は３要素を要求する。`#v[10, 20]` を `Vector Nat 3` として渡すことはできない。
 
-## `Fin n` で要素を取り出す
+## `Fin n` による要素の取得
 
 ```lean
 import Init.Data.Vector
@@ -30,7 +30,7 @@ example : readAt #v[10, 20, 30] ⟨1, by decide⟩ = 20 := rfl
 
 `.get` は [`Fin n`](fin.md) の添字を受け取るため、範囲内であることが添字の型に含まれる。添字は０から数えるので、`1` は２番目の要素を指す。
 
-## 配列から作る
+## 配列からの変換と長さの等式による構築
 
 ```lean
 import Init.Data.Vector

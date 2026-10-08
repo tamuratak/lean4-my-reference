@@ -15,7 +15,7 @@ example (n : Nat) : n + 0 = n := by
 
 候補探しの後は、提案された `rfl` や `exact ...` を採用すると、使った方法が明示される。
 
-## `suggestions`：関連する定理の候補を表示する
+## `suggestions`：提案エンジンの登録と定理候補の表示
 
 `suggestions` は、現在のゴールに関連するライブラリの定理を表示する。候補を表示しただけではゴールを閉じない。提案エンジンの登録が必要であり、`import Std.Tactic` だけではエラーになる。Lean の標準エンジンを使うには `import Lean.LibrarySuggestions.Default` を追加する。
 

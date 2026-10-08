@@ -25,7 +25,7 @@ def greeting : String := "hello"
 #eval greeting
 ```
 
-## `where` の後ろにフィールドを並べる
+## `where` による構造体の値の定義
 
 構造体の値を定義するときは、`:= 本体` の代わりに `where` を書き、その後ろにフィールドごとの値を並べられる。
 

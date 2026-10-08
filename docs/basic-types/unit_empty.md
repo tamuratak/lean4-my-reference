@@ -2,7 +2,7 @@
 
 `Unit` は値が１つだけあるデータ型、`Empty` は値が１つもないデータ型である。「情報を持たない値がある」ことと「値がない」ことを区別する。追加の `import` は不要である。
 
-## `Unit` は `()` を持つ
+## `Unit` の唯一の値 `()`
 
 ```lean
 def result : Unit := ()
@@ -26,7 +26,7 @@ example : (some () : Option Unit) ≠ none := by decide
 
 `ignore` の返す値に入力の情報は残らない。`some ()` は「値がある」状態なので、`none` とは異なる。入出力を行う関数の `IO Unit` も、実行後の戻り値に具体的な情報を持たせないときによく使われる。
 
-## `Empty` にはコンストラクターがない
+## `Empty` の値の不在と `nomatch` による除去
 
 ```lean
 def impossibleValue {α : Type} (e : Empty) : α := nomatch e

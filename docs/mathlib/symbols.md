@@ -106,9 +106,9 @@ mathlib を使う数学の式に出てきた記号から、意味と関連する
 | `𝓤 E` | 近い点の組の条件を集めたフィルター | `uniformity E : Filter (E × E)` | [一様空間](uniform_spaces.md#位相距離一様構造) |
 | `atTop` | 添字が限りなく大きくなるフィルター | `Filter.atTop`。列の $k\to\infty$ など | [数列](sequences_series.md#数列と部分和) |
 | `TendstoUniformlyOn F f l s` | 領域上の一様収束 | 点によらず共通の添字で誤差を抑える | [関数列](function_sequences.md#各点収束と一様収束) |
-| `∀ᶠ x in l, P x` | フィルターに沿って eventually 成立 | `Filter.Eventually P l` | [十分先・十分近くで成立](filters.md#十分先十分近くで成立するeventually) |
-| `f =ᶠ[l] g` | フィルターに沿って eventually 等しい | `Filter.EventuallyEq l f g` | [Eventually](filters.md#十分先十分近くで成立するeventually)。各点での恒等式とは異なる |
-| `𝓟 s` | 固定した集合の主フィルター | `Filter.principal s` | [フィルターと集合](filters.md#十分先十分近くで成立するeventually) |
+| `∀ᶠ x in l, P x` | フィルターに沿って eventually 成立 | `Filter.Eventually P l` | [十分先・十分近くで成立](filters.md#eventually十分先十分近くでの成立条件) |
+| `f =ᶠ[l] g` | フィルターに沿って eventually 等しい | `Filter.EventuallyEq l f g` | [Eventually](filters.md#eventually十分先十分近くでの成立条件)。各点での恒等式とは異なる |
+| `𝓟 s` | 固定した集合の主フィルター | `Filter.principal s` | [フィルターと集合](filters.md#eventually十分先十分近くでの成立条件) |
 | `l₁ ≤ l₂`（フィルター） | 集合の所属の包含と逆向きの順序 | `l₂` の集合はすべて `l₁` にも属する | [フィルターの順序](filters.md#フィルターの順序と空の条件) |
 | `f =o[l] g` | little-o、$f=o(g)$。$g$ に比べて小さい | `Asymptotics.IsLittleO l f g` | [全微分の一次近似](fderiv.md#fréchet-微分) |
 | `f =O[l] g` | big-O、$f=O(g)$。ノルムを定数倍で抑えられる | `Asymptotics.IsBigO l f g` | ノルムによる漸近的な評価 |
@@ -163,7 +163,7 @@ little-o では、条件が成立する入力の範囲は $\varepsilon$ ごと�
 | `∫ x, ∫ y, f (x, y)` | 累次積分 | 内側の第二変数を先に積分 | [多重積分](multiple_integrals.md) |
 | `μ.prod ν` | 積測度 $\mu\otimes\nu$ | `MeasureTheory.Measure.prod μ ν` | [二重積分](multiple_integrals.md#積測度と二重積分) |
 | `∀ᵐ x ∂μ, P x` | $\mu$ に関してほとんど至る所で成立 | `Filter.Eventually P (MeasureTheory.ae μ)` | [可測性と可積分性](measure_integrals.md#可測性と可積分性) |
-| `f =ᵐ[μ] g` | ほとんど至る所で等しい | `Filter.EventuallyEq (MeasureTheory.ae μ) f g` | [零測度の例外](strong_measurability.md#零測度の例外を許す) |
+| `f =ᵐ[μ] g` | ほとんど至る所で等しい | `Filter.EventuallyEq (MeasureTheory.ae μ) f g` | [零測度の例外](strong_measurability.md#零測度の例外とほとんど至る所での強可測性) |
 | `E →ₘ[μ] F` | ほとんど至る所で等しい関数の同値類 | `MeasureTheory.AEEqFun E F μ` | [関数を同一視した空間](strong_measurability.md#関数を同一視した空間) |
 | `E →₁[μ] F`・`E →₂[μ] F` | $L^1$・$L^2$ の要素の型 | `MeasureTheory.Lp F 1 μ`・`MeasureTheory.Lp F 2 μ`（定義域は `E`） | [Lp の要素](strong_measurability.md#関数を同一視した空間) |
 

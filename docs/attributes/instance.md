@@ -1,4 +1,4 @@
-# `@[instance]`：型クラスの候補に登録する
+# `@[instance]`：インスタンス探索への候補の登録
 
 `@[instance]` は、型クラスの値を返す宣言を、インスタンス探索の候補として登録する属性である。登録すると、`[Inhabited α]` などのインスタンス引数に、その宣言を自動で使える。
 
@@ -17,7 +17,7 @@ def tokenDefault : Inhabited Token := ⟨⟨7⟩⟩
 
 `instance_reducible` は、この定義の本体をインスタンス探索などで展開できるようにする属性である。型クラスの値を `def` で定義する場合にも適切な展開設定が必要になるため、この例では併記している。
 
-## 通常は `instance` 宣言を使う
+## `instance` 宣言による登録
 
 ```lean
 structure Token where
@@ -32,7 +32,7 @@ instance tokenDefault : Inhabited Token := ⟨⟨7⟩⟩
 
 `@[instance]` は登録の指定、`instance` は宣言の構文、`[Inhabited Token]` はインスタンス引数なので、役割を区別する。
 
-## 既存の定義を局所的に登録する
+## `local instance` による既存の定義の局所的な登録
 
 ```lean
 structure Token where

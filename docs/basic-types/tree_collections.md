@@ -2,7 +2,7 @@
 
 `Std.TreeMap α β` はキーの順序を使う対応表、`Std.TreeSet α` は要素の順序を使う集合である。ハッシュ値ではなく比較関数を使い、木構造で保持する。標準ライブラリの各モジュールをインポートする。
 
-## `TreeMap`：キー順に値を管理する
+## `TreeMap`：キーによる検索とキー順での列挙
 
 ```lean
 import Std.Data.TreeMap
@@ -19,7 +19,7 @@ def entries : Std.TreeMap Nat String :=
 
 `.insert`・`.get?`・`.erase` の基本用途は [`HashMap`](hashmap.md) と同じである。`.toList` はキー順に列挙し、`.minEntry?` は最小のキーと値のペアを返す。同じキーへの `.insert` は対応する値を置き換える。
 
-## `TreeSet`：要素を順序付きで管理する
+## `TreeSet`：重複の除去と要素の順序付き列挙
 
 ```lean
 import Std.Data.TreeSet
@@ -35,7 +35,7 @@ def numbers : Std.TreeSet Nat :=
 
 重複する要素を入れても増えず、`.toList` は比較関数に従う順序で返す。要素の有無だけを管理する点は [`HashSet`](hashset.md) と同じである。
 
-## 順序は比較関数で決まる
+## 比較関数による順序の指定
 
 通常の `Std.TreeMap α β`・`Std.TreeSet α` は、`Ord α` 型クラスの `compare` を既定の比較関数として使う。`Nat` なら数の小さい順、`String` なら文字列の比較順になる。明示的な比較関数も指定できる。
 

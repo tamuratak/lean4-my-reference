@@ -50,7 +50,7 @@ $$
 
 `MeasureSpace E` 自体は、指定された測度が Lebesgue 測度や Haar 測度であることを要求しない。一般の型では、`MeasureSpace E` に指定された `volume` がどの測度かを確認する。型クラスの仮定が補われる仕組みは[公式リファレンス：型クラス](https://lean-lang.org/doc/reference/latest/Type-Classes/)を参照。
 
-## 領域に測度を制限する
+## 制限測度による領域上の積分
 
 領域上の積分は、制限した測度による全空間の積分である。
 

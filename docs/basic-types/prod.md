@@ -2,7 +2,7 @@
 
 `Prod α β` は、`α` 型の値と `β` 型の値を両方保持するペアの型である。通常は `α × β` と書く。追加の `import` は不要である。
 
-## 作る・取り出す
+## ペアの作成と成分の取得
 
 ```lean
 def entry : Nat × String := (3, "three")
@@ -15,7 +15,7 @@ example : (3, "three") = Prod.mk 3 "three" := rfl
 
 `(x, y)` は `Prod.mk x y` の記法である。`.1`（`.fst`）で１番目、`.2`（`.snd`）で２番目を取り出す。期待される型が分かるときは `⟨x, y⟩` でも作れる。
 
-## 分解する・３つ以上をまとめる
+## ペアの分解と３つ以上の値の組み合わせ
 
 ```lean
 def describe (p : Nat × String) : String :=
