@@ -145,6 +145,7 @@ example (x y : ℝ) : (x + y) + 0 = y + x := by
 
 ## 関連ページと参照
 
+- 型理論の基礎：[Lean 4 の型システムの基礎](type_system.md)。依存型・帰納型、命題と型の対応、宇宙階層、証明の無関連性、再帰の停止性、商型、追加公理を概観する。
 - 個別の文法：[関数型](syntax/function_types.md)、[部分型](syntax/subtype.md)、[型クラス](syntax/class.md)。
 - 個別の型：[自然数](basic-types/nat.md)、[整数](basic-types/int.md)、[有理数](basic-types/rat.md)、[商型](basic-types/quotient.md)。
 - 公式リファレンス：[部分型](https://lean-lang.org/doc/reference/latest/Basic-Types/Subtypes/)、[商型](https://lean-lang.org/doc/reference/latest/The-Type-System/Quotients/)、[命題と証明](https://lean-lang.org/doc/reference/latest/The-Type-System/Propositions/)。

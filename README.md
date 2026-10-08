@@ -1,4 +1,4 @@
-# Lean 4 日本語リファレンス
+# 自分用 Lean 4 リファレンス
 
 ## Disclaimer
 
