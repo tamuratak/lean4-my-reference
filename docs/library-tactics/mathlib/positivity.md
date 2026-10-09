@@ -22,6 +22,6 @@ example (x y : Int) (hx : 0 < x) (hy : 0 < y) : x * y ≠ 0 := by
 
 任意の不等式の大小を比較するタクティクスではない。`x ≤ y` のような関係には [linarith](linarith.md) などを使う。どの演算を扱えるかは、その型や演算についての規則が登録されているかによる。
 
-参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用。追加ライブラリの仕様資料については[一覧の検証・参照方針](../README.md#検証と参照方針)を参照）。
+参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用）。
 
 [mathlib タクティクス一覧に戻る](README.md)

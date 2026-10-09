@@ -7,6 +7,7 @@
 `⌜False⌝` は、状態によらず偽である命題を表す。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P : SPred σs) : ⌜False⌝ ⊢ₛ P := by

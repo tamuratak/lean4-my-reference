@@ -41,6 +41,6 @@ Lean 本体の `simp` は主に登録された書き換え規則で簡単化す�
 
 算術や多項式の問題には [linarith](../mathlib/linarith.md)・[ring](../mathlib/ring.md) などの専用タクティクスも使う。独自の補題を探索に加える方法は [規則の追加](rules.md) を参照。
 
-参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（標準タクティクスとの比較用）。Aesop の仕様資料については[検証・参照方針](../README.md#検証と参照方針)を参照。
+参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（標準タクティクスとの比較用）。
 
 [Aesop タクティクス一覧に戻る](README.md)

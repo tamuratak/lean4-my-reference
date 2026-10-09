@@ -5,6 +5,8 @@
 `BitVec 8` は 8 ビットの値であり、加算などはビット幅で折り返す。
 
 ```lean
+import Std.Tactic
+
 example (x y : BitVec 8) : x + y = y + x := by
   bv_decide
 

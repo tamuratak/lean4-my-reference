@@ -7,6 +7,7 @@
 `⌜True⌝` は、状態によらず `True` が成り立つことを表す。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) : ⊢ₛ (⌜True⌝ : SPred σs) := by

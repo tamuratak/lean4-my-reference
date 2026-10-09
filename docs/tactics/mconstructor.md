@@ -7,6 +7,7 @@
 同じ前提を使って、二つの成分を証明する。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P : SPred σs) : P ⊢ₛ P ∧ P := by

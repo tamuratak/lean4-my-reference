@@ -7,6 +7,7 @@
 `P ⊢ₛ Q → P` から、状態を扱う仮定 `hP` と `hQ` を導入する。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P Q : SPred σs) : P ⊢ₛ Q → P := by

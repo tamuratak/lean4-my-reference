@@ -2,19 +2,19 @@
 
 例えば、
 
-```lean
+```text
 h : ∃ x, P x
 ```
 
 に対して、
 
-```lean
+```text
 rcases h with ⟨x, hx⟩
 ```
 
 と書くと、
 
-```lean
+```text
 x  : α
 hx : P x
 ```
@@ -23,19 +23,19 @@ hx : P x
 
 入れ子の構造も一度に分解できる。
 
-```lean
+```text
 h : ∃ x, P x ∧ Q x
 ```
 
 なら、
 
-```lean
+```text
 rcases h with ⟨x, hp, hq⟩
 ```
 
 として、
 
-```lean
+```text
 x  : α
 hp : P x
 hq : Q x
@@ -45,7 +45,7 @@ hq : Q x
 
 論理和のように複数のコンストラクターがある場合は `|` で場合分けする。
 
-```lean
+```text
 h : (P ∧ Q) ∨ (R ∧ S)
 
 rcases h with ⟨hp, hq⟩ | ⟨hr, hs⟩
@@ -55,7 +55,7 @@ rcases h with ⟨hp, hq⟩ | ⟨hr, hs⟩
 
 つまり、
 
-```lean
+```text
 rcases h with ⟨x₁, x₂, ...⟩ | ⟨y₁, y₂, ...⟩ | ...
 ```
 

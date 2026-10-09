@@ -7,6 +7,7 @@
 含意の仮定に、その前提の証明を渡す。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P Q : SPred σs) : P ⊢ₛ (P → Q) → Q := by

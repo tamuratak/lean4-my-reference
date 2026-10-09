@@ -7,6 +7,7 @@
 使う仮定の名前を指定せずに、ゴールを閉じる。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P Q : SPred σs) : P ⊢ₛ Q → P := by

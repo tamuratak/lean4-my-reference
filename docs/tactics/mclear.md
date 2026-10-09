@@ -7,6 +7,7 @@
 使わない前提を消し、必要な仮定だけで証明する。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P Q : SPred σs) : P ⊢ₛ Q → Q := by

@@ -26,6 +26,6 @@ example (x : Real) (hx : x ≠ 0) : x / x = 1 := by
 
 Lean では `0` による除算も定義されているため、分母を無条件に払ってよいわけではない。非零を確認できない場合は、その条件の証明が必要になる。`field_simp at h` は仮定の中の分数を整理する。[ring](ring.md) 単独では変数を含む分母を払えない。
 
-参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用。追加ライブラリの仕様資料については[一覧の検証・参照方針](../README.md#検証と参照方針)を参照）。
+参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用）。
 
 [mathlib タクティクス一覧に戻る](README.md)

@@ -5,6 +5,7 @@
 `import Std.Tactic.Do` と `open Std.Do` を使う。プログラムの仕様に対する `apply` のような操作である。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example : ⦃⌜True⌝⦄ (pure 3 : Id Nat) ⦃⇓ n => ⌜n = 3⌝⦄ := by

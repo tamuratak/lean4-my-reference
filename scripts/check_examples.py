@@ -41,13 +41,10 @@ def check(path, library_command):
     for number, match in enumerate(blocks, 1):
         code = match.group(1)
         imports = re.findall(r'^import .+$', code, re.MULTILINE)
-        code = re.sub(r'^import .+\n', '', code, flags=re.MULTILINE)
         if re.search(r'\b(sorry|admit)\b', code):
             errors.append(f'{path.relative_to(ROOT)}: example {number}: unfinished proof')
             continue
-        # Preserve the common import for existing tactic pages only.
-        common_import = 'import Std.Tactic\n' if path.parent == ROOT / 'docs/tactics' else ''
-        source = common_import + '\n'.join(imports) + '\n' + code
+        source = code
         external = any(re.match(r'import (Mathlib|Aesop)(\.|\s|$)', line) for line in imports)
         command, working_directory = library_command if external else (['lean'], ROOT)
         with tempfile.TemporaryDirectory(prefix='lean-reference-') as directory:

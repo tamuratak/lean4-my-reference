@@ -7,6 +7,7 @@
 通常の仮定 `h` に、証明モード内の `hP` を渡す。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P Q : SPred σs) (h : ⊢ₛ P → Q) : P ⊢ₛ Q := by

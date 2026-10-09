@@ -7,6 +7,7 @@
 通常の論理のタクティクスで証明を続けたいときに使う。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P : SPred σs) : P ⊢ₛ P := by

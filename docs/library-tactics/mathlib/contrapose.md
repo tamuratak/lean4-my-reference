@@ -27,6 +27,6 @@ example (x y : Int) : (¬ y < x) → x ≤ y := by
 
 ここでは `h : y < x` とゴール `y < x` が得られる。`contrapose h with hn` と書けば、入れ替えた仮定に別の名前を付けられる。否定の整理は [push_neg](push_neg.md) と同じ目的の処理である。
 
-参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用。追加ライブラリの仕様資料については[一覧の検証・参照方針](../README.md#検証と参照方針)を参照）。
+参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用）。
 
 [mathlib タクティクス一覧に戻る](README.md)

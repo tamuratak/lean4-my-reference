@@ -7,6 +7,7 @@
 論理積の左側だけを埋め、右側を後で証明する。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P Q : SPred σs) : P ∧ Q ⊢ₛ P ∧ Q := by

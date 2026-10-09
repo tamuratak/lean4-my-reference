@@ -7,6 +7,7 @@
 開始と停止によって表示や名前の扱いが変わることを確認できる。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P : SPred σs) : P ⊢ₛ P := by

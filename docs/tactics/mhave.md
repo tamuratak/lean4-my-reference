@@ -7,6 +7,7 @@
 途中で得られる事実を、別の名前で保存する。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P Q : SPred σs) : P ⊢ₛ (P → Q) → Q := by

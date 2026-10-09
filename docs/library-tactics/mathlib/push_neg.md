@@ -31,6 +31,6 @@ example (x y : Int) (h : ¬ x ≤ y) : y < x := by
 
 ここでは `h : y < x` になる。否定の位置や形を変える操作であり、仮定から算術の結論を探す操作ではない。背理法で否定を導入するときには [by_contra!](by_contra.md) と組み合わせられる。
 
-参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用。追加ライブラリの仕様資料については[一覧の検証・参照方針](../README.md#検証と参照方針)を参照）。
+参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用）。
 
 [mathlib タクティクス一覧に戻る](README.md)

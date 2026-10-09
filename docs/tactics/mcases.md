@@ -7,6 +7,7 @@
 仮定の論理積から、それぞれの成分を取り出す。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P Q : SPred σs) : P ∧ Q ⊢ₛ Q := by

@@ -40,6 +40,6 @@ example (P Q : Prop) (h : P ∧ Q) : Q ∧ P := by
 
 `safe` を単に「よく使う補題」という意味で指定すると、必要な別の証明方針を試せなくなる場合がある。補題の適用が選択を含むなら、まず `unsafe` を検討する。規則を増やしすぎると探索量も増えるため、狭い用途なら `add` から始めるとよい。
 
-参照：[Lean 公式リファレンス：属性](https://lean-lang.org/doc/reference/latest/Attributes/)（属性一般の説明）。Aesop 固有の登録仕様については[検証・参照方針](../README.md#検証と参照方針)を参照。
+参照：[Lean 公式リファレンス：属性](https://lean-lang.org/doc/reference/latest/Attributes/)（属性一般の説明）。
 
 [Aesop タクティクス一覧に戻る](README.md)

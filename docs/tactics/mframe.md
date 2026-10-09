@@ -7,6 +7,7 @@
 純粋な仮定を通常の証明に引き継ぎたいときに使う。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P : Prop) : (⌜P⌝ : SPred σs) ⊢ₛ ⌜P⌝ := by

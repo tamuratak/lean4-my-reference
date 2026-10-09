@@ -52,6 +52,6 @@
 
 例えば数学の $\mathbb{R}$ は Lean では `ℝ` または `Real` と書く。数学の矢印と Lean の型の記法も区別する。線形写像の読みにくい下付き記法については、[正式名による表記](linear_maps.md#線形写像の型と正式名)も併記する。
 
-このリファレンスは `lean-toolchain` と `lake-manifest.json` の固定バージョンを対象にする。mathlib の表現は固定した依存の宣言を確認して記載する。共通の Lean 構文については[公式リファレンス](https://lean-lang.org/doc/reference/latest/)を参照。mathlib 固有の数学の API を Lean 本体の資料で説明したことにはしない。
+このリファレンスは `lean-toolchain` と `lake-manifest.json` の固定バージョンを対象にする。共通の Lean 構文については[公式リファレンス](https://lean-lang.org/doc/reference/latest/)を参照。
 
 [リファレンスのトップに戻る](../../README.md)

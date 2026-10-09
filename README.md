@@ -21,7 +21,7 @@ GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは�
 
 ## コード例の検証方法
 
-例の検証には、[追加ライブラリの準備](docs/library-tactics/README.md#例の実行と検証)を行う。通常の編集では、リポジトリのルートで変更した記事だけを検証する。
+mathlib・Aesop の例には、このリポジトリで宣言した追加ライブラリが必要である。通常の編集では、リポジトリのルートで変更した記事だけを検証する。
 
 ```sh
 python3 scripts/check_examples.py --changed

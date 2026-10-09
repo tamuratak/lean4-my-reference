@@ -22,6 +22,6 @@ example (x y : Int) (h₁ : 2*x + y = 7) (h₂ : y = 3) : x = 2 := by
 
 `x*y` や `x^2` のような項の算術的な関係までは、線形推論だけではわからない。[nlinarith](nlinarith.md) は非線形の補助条件も作る。自然数・整数の離散的な条件には Lean 本体の [omega](../../tactics/omega.md) も候補になる。Lean 本体の `grind_linarith` と mathlib の `linarith` は別のタクティクスである。
 
-参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用。追加ライブラリの仕様資料については[一覧の検証・参照方針](../README.md#検証と参照方針)を参照）。
+参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用）。
 
 [mathlib タクティクス一覧に戻る](README.md)

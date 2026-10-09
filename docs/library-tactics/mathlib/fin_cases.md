@@ -24,6 +24,6 @@ example (i : Fin 3) : i.val ≤ 2 := by
 
 範囲が大きいとゴールが大量に増える。自然数や整数の上下限から値を列挙するなら [interval_cases](interval_cases.md)、列挙せず算術で証明できるなら [omega](../../tactics/omega.md) が向いている。
 
-参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用。追加ライブラリの仕様資料については[一覧の検証・参照方針](../README.md#検証と参照方針)を参照）。
+参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用）。
 
 [mathlib タクティクス一覧に戻る](README.md)

@@ -7,6 +7,7 @@
 名前を指定せずに導入した仮定を、後から参照できるようにする。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P : SPred σs) : P ⊢ₛ P := by

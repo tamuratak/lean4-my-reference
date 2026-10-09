@@ -7,6 +7,7 @@
 一般的な含意を、その前提を使って具体化した結果で置き換える。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P Q : SPred σs) : P ⊢ₛ (P → Q) → Q := by

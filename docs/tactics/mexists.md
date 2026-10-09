@@ -7,6 +7,7 @@
 具体的な自然数を証人として指定する。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P : Nat → SPred σs) : P 7 ⊢ₛ ∃ n, P n := by

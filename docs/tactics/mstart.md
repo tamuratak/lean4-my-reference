@@ -9,6 +9,7 @@
 状態についての命題を `SPred` と書く。`P ⊢ₛ Q` は、各状態で `P` が成り立てば `Q` が成り立つことを表す。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P : SPred σs) : P ⊢ₛ P := by

@@ -1,4 +1,4 @@
-"""Check changed-file selection using temporary Git repositories."""
+"""Check example source preservation and changed-file selection."""
 
 from contextlib import redirect_stdout, redirect_stderr
 import io
@@ -99,6 +99,21 @@ class ChangedPathsTest(unittest.TestCase):
         self.assertEqual(count, 0)
         self.assertEqual(len(errors), 1)
         self.assertIn(f'{path}: cannot read:', errors[0])
+
+    def test_tactic_example_reaches_lean_without_implicit_imports(self):
+        code = 'example : True := by trivial\n'
+        path = self.write('docs/tactics/example.md', f'```lean\n{code}```\n')
+
+        def run_lean(command, **kwargs):
+            self.assertEqual(command[0], 'lean')
+            self.assertEqual(Path(command[-1]).read_text(), code)
+            return subprocess.CompletedProcess(command, 0, stdout='')
+
+        with patch.object(check_examples.subprocess, 'run', side_effect=run_lean) as run:
+            count, errors = check_examples.check(path, (['lake', 'env', 'lean'], self.root))
+        run.assert_called_once()
+        self.assertEqual(count, 1)
+        self.assertEqual(errors, [])
 
     def test_read_error_before_library_detection_is_reported(self):
         with patch('sys.argv', ['check_examples.py', str(self.root / 'docs/missing.md')]), \

@@ -45,6 +45,6 @@
 | [interval_cases](interval_cases.md) | 自然数・整数の上下限から値を列挙する |
 | [choose](choose.md) | 入力ごとの存在証人を、関数とその性質として取り出す |
 
-[依存の準備・検証状況](../README.md#例の実行と検証)を確認してから例を実行する。
+例の実行には mathlib を利用できる Lake プロジェクトが必要である。
 
 [追加ライブラリの一覧に戻る](../README.md) · [Lean 本体の一覧](../../tactics/README.md)

@@ -22,6 +22,6 @@ example (n : Nat) (h : n < 3) : n^2 ≤ 4 := by
 
 整数なら有限な上下限、自然数なら有限な上限が必要になる。大きな区間の列挙は非効率なので、線形な条件だけで証明できる場合は Lean 本体の [omega](../../tactics/omega.md) を先に考える。有限型を列挙する [fin_cases](fin_cases.md) とは入力の形が異なる。
 
-参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用。追加ライブラリの仕様資料については[一覧の検証・参照方針](../README.md#検証と参照方針)を参照）。
+参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用）。
 
 [mathlib タクティクス一覧に戻る](README.md)

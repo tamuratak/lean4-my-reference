@@ -7,6 +7,7 @@
 `import Std.Tactic.Do` と `open Std.Do` を使う。通常の命題の自動証明とは異なり、プログラム検証のための操作である。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example : ⦃⌜True⌝⦄ (pure 3 : Id Nat) ⦃⇓ n => ⌜n = 3⌝⦄ := by

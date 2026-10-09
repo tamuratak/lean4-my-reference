@@ -7,6 +7,7 @@
 `⌜P⌝` から `hp : P` を取り出して、普通の `exact` で使う。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P : Prop) : (⌜P⌝ : SPred σs) ⊢ₛ ⌜P⌝ := by

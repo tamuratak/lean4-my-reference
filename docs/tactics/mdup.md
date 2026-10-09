@@ -7,6 +7,7 @@
 元の仮定を加工する前に、同じ内容を別名で残せる。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P : SPred σs) : P ⊢ₛ P := by

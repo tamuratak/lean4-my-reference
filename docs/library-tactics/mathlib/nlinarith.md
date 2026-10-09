@@ -22,6 +22,6 @@ example (x : Int) (h : x^2 ≤ 0) : x = 0 := by
 
 任意の非線形問題を解く完全な手続きではない。必要な積や平方についての事実を別途渡す方がよい場合もある。多項式の等式そのものを整理するだけなら [ring](ring.md)、式の正・非負を構造から調べるなら [positivity](positivity.md) が向いている。
 
-参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用。追加ライブラリの仕様資料については[一覧の検証・参照方針](../README.md#検証と参照方針)を参照）。
+参照：[Lean 公式リファレンス：タクティクス](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)（Lean 本体との比較用）。
 
 [mathlib タクティクス一覧に戻る](README.md)

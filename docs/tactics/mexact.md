@@ -7,6 +7,7 @@
 導入した状態を扱う仮定をそのまま使ってゴールを閉じる。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P : SPred σs) : P ⊢ₛ P := by

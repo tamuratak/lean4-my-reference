@@ -227,7 +227,7 @@
 
 ## 参照資料
 
-説明と例は、インストール済み Lean 4.35.0-rc3 の構文・実装とコンパイル結果を確認して作成した。公式リファレンスの `latest` は将来の変更を含み得るため、このリファレンスの動作確認は固定したバージョンを基準にする。
+対象バージョンは Lean 4.35.0-rc3 である。公式リファレンスの `latest` は対象バージョンと異なる内容を含む場合がある。
 
 - [Lean 公式リファレンス：Tactic Reference](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/Tactic-Reference/)
 - [Lean 公式リファレンス：The Tactic Language](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/The-Tactic-Language/)

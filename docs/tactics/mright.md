@@ -7,6 +7,7 @@
 `Q ∨ P` を証明するため、`P` の側を選ぶ。
 
 ```lean
+import Std.Tactic.Do
 open Std.Do
 
 example (σs : List Type) (P Q : SPred σs) : P ⊢ₛ Q ∨ P := by
