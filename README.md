@@ -19,7 +19,7 @@ GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは�
 - [追加ライブラリのタクティクス](docs/library-tactics/README.md)：mathlib の算術・論理・式変形と、Aesop の証明探索。
 - [mathlib のリファレンス](docs/mathlib/README.md)：多変数・多次元の微分積分を中心に、級数、行列・基底、ノルム・内積、コンパクト性、関数列と極限の交換など。
 - [mathlib の記号索引](docs/mathlib/symbols.md)：線形写像、ノルム、内積、近傍、勾配、積分、有限和など。
-- [型による数学的対象の構成と性質の証明](docs/mathematical_constructions.md)：自然数から実数までの構成を通して、型・データ・命題・証明の関係を説明している。
+- [型による数学的対象の構成と証明](docs/mathematical_constructions.md)：自然数から実数までの構成を通して、型・データ・命題・証明の関係を説明している。
 
 ## コード例の検証方法
 
