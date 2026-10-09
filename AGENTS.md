@@ -14,6 +14,9 @@
 - 数学字体も Unicode の字形を直接出さず、LaTeX コマンドで表す。例：`\mathbb{R}`、`\mathbf{x}`、`\mathcal{F}`。
 - 特別な理由がない限り 強調 ** を使わない。
 
+- README や解説記事には、読者が Lean を理解・利用するための情報を書く。
+- 作業報告や検証結果はチャットで伝えるか memo.md に書く。README や解説記事に追加しない。
+
 ## その他
 
 - When searching in `.lake/`, exclude `*.ilean` and `*.olean` files from search. They are compiled files and not human-readable. They are noise for your context window. Focus on `.lean` files for source code.
