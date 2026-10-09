@@ -222,7 +222,7 @@
 
 名前が似ていても、`grind_linarith` と `linarith` は別の操作である。また、`grind` の内部言語にある `by_contra` と、一般の `by` 証明で使うタクティクスも区別する。
 
-これらの追加タクティクスは、[追加ライブラリの一覧](../library-tactics/README.md)から読む。[mathlib4](../library-tactics/mathlib/README.md) と [Aesop](../library-tactics/aesop/README.md) の解説は別ディレクトリに置いている。
+これらの追加タクティクスは、[追加ライブラリの一覧](../library-tactics/README.md)から読む。[mathlib](../library-tactics/mathlib/README.md) と [Aesop](../library-tactics/aesop/README.md) の解説は別ディレクトリに置いている。
 
 
 ## 参照資料
