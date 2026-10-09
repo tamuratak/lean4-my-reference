@@ -54,14 +54,6 @@ Lean に標準で用意されているデータ型について、何を表すか
 | `Std.TreeMap α β` | キーごとの値 | 同じキーへの登録は更新、比較関数に従う順序 |
 | `Std.TreeSet α` | 要素の有無 | 重複を数えず、比較関数に従う順序 |
 
-## 対象と検証
-
-対象は `lean-toolchain` が指定する Lean 4.35.0-rc3 である。各 `lean` コードブロックは独立した完成例で、そのまま実行できる。標準ライブラリのインポートが必要な例では、ブロック内に `import` を明記する。mathlib などの追加ライブラリは不要である。
-
-```sh
-python3 scripts/check_examples.py docs/basic-types/*.md
-```
-
 記法そのものは[文法要素の一覧](../syntax/README.md)、記号からの検索は[記号索引](../symbols.md)を参照。
 
 参照：[公式リファレンス：Basic Types](https://lean-lang.org/doc/reference/latest/Basic-Types/)。

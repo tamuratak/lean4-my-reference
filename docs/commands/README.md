@@ -60,28 +60,6 @@ def double (n : Nat) : Nat := n + n
 | [`#time`](time.md) | 一つのコマンドの処理時間を測る |
 | [`#exit`](exit.md) | その位置でファイルの後続の処理を打ち切る |
 
-## 対象と例の検証
-
-対象は Lean 4.35.0-rc3 の主な確認・実行・検査用コマンドである。内部実装を調べる専用コマンド、依存関係の制約を検査する全コマンド、追加ライブラリ独自のコマンドまでは網羅しない。
-
-`lean` のコードブロックはそれぞれ独立して実行できる。必要な追加インポートはブロック内に明記し、共通インポートは補わない。表示だけの断片は `text` として区別する。
-
-`#check_failure` や `#guard_msgs` では、内側の失敗が期待どおりであることを確認する完成例もある。型の合わない式を、型が通る例として扱っているわけではない。
-
-リポジトリのルートで、全カテゴリの完成例をまとめて検証する。
-
-```sh
-python3 scripts/check_examples.py
-```
-
-一つのページだけを指定することもできる。
-
-```sh
-python3 scripts/check_examples.py docs/commands/check.md
-```
-
-`#eval` や `#guard` による実行結果の確認と、命題の証明の作成は区別する。コマンドが通ったことから、任意の定理の証明が登録されるわけではない。また、`#exit` より後は検証されないので、実行例ではその後に完成した証明を置かない。
-
 参照：[公式リファレンス：Interacting with Lean](https://lean-lang.org/doc/reference/latest/Interacting-with-Lean/)、[公式 API：Command](https://lean-lang.org/doc/api/Lean/Parser/Command.html)。
 
 [リポジトリの案内に戻る](../../README.md)

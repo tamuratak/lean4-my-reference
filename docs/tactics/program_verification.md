@@ -133,14 +133,6 @@ example : ⦃⌜True⌝⦄ (pure 3 : Id Nat) ⦃⇓ n => ⌜n = 3⌝⦄ := by
 
 この一覧は、このリファレンスに専用ページがある `Std.Do` 関連の操作をまとめたものである。`match` など、単に名前が `m` で始まるタクティクスすべてが、この証明モード用というわけではない。
 
-## 例の検証と参照資料
-
-対象は `lean-toolchain` が指定する Lean 4.35.0-rc3 である。各 `lean` ブロックは独立した完成例として実行できる。
-
-```sh
-python3 scripts/check_examples.py docs/tactics/program_verification.md
-```
-
 参照：[公式 API：Std.Tactic.Do.Syntax](https://lean-lang.org/doc/api/Std/Tactic/Do/Syntax.html)、[公式 API：mstart](https://lean-lang.org/doc/api/Std/Tactic/Do/Syntax.html#Lean.Parser.Tactic.mstart)、[公式 API：mvcgen](https://lean-lang.org/doc/api/Std/Tactic/Do/Syntax.html#Lean.Parser.Tactic.mvcgen)。
 
 [タクティクス一覧に戻る](README.md) · [リファレンスの入口に戻る](../../README.md)
