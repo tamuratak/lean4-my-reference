@@ -79,6 +79,59 @@ $$
 
 一般の空間・領域での厳密な条件は `ContDiff` の定義に従い、単に各点で微分を反復できるという条件より強い。
 
+## 点での連続微分可能性と近傍
+
+有限階 `n : ℕ` について、`ContDiffAt 𝕜 n f x` は、ある $x$ の近傍で $f$ が $C^n$ であるという条件である。`ContDiffAt.contDiffOn` で近傍と領域上の条件を取り出せる。
+
+```lean
+import Mathlib.Analysis.Calculus.ContDiff.Defs
+
+open scoped Topology
+
+example {f : ℝ → ℝ} {x : ℝ} {n : ℕ}
+    (h : ContDiffAt ℝ n f x) :
+    ∃ u ∈ 𝓝 x, ContDiffOn ℝ n f u := by
+  exact h.contDiffOn le_rfl (by simp)
+```
+
+階数 $0$ でも近傍での連続性を要求する。`contDiffAt_zero` により次の同値が成り立つ。
+
+```lean
+import Mathlib.Analysis.Calculus.ContDiff.Defs
+
+open scoped Topology
+
+example {f : ℝ → ℝ} {x : ℝ} :
+    ContDiffAt ℝ 0 f x ↔ ∃ u ∈ 𝓝 x, ContinuousOn f u := by
+  exact contDiffAt_zero
+```
+
+`ContDiffAt` の `At` は、近傍条件を含む局所的な版にも使われる。連続性・微分可能性と共通する命名パターンは、[解析系の `At` と点・近傍の条件](at_and_neighborhoods.md)を参照。
+
+### 無限階での量化の順序
+
+`ContDiffAt 𝕜 ∞ f x` は、各有限階について `ContDiffAt 𝕜 n f x` が成立するという意味である。
+
+```lean
+import Mathlib.Analysis.Calculus.ContDiff.Defs
+
+open scoped ContDiff
+
+example {f : ℝ → ℝ} {x : ℝ} :
+    ContDiffAt ℝ ∞ f x ↔ ∀ n : ℕ, ContDiffAt ℝ n f x := by
+  exact contDiffAt_infty
+```
+
+近傍を明示すると、量化の順序は
+
+$$
+\forall n\in\mathbb{N},\ \exists U_n\text{：$x$ の近傍},\ f\in C^n(U_n)
+$$
+
+となる。近傍 $U_n$ は階数に依存してよい。すべての階数に共通する近傍 $U$ で $f\in C^\infty(U)$ という条件は、これより強い。
+
+`ContDiffAt.eventually` は、同じ階数で近傍の各点にも `ContDiffAt` を移す定理だが、仮定 `n ≠ ∞` が必要である。有限階や `ω` には使えても、`∞` にそのまま適用することはできない。
+
 関連：[全微分](fderiv.md)、[勾配](partial_gradient.md)、[ヤコビアン](linear_maps.md)。
 
 [mathlib の索引に戻る](README.md)

@@ -104,6 +104,8 @@ $$
 
 `HasFPowerSeriesAt f p x` は指定した級数 `p` が近傍で `f` に収束する条件、`AnalyticAt 𝕜 f x` はそのような `p` の存在を表す。すべての有限階で微分可能というだけでは、元の関数に収束する冪級数展開を持つとは限らない。`ContDiff … ω …` との対応と、一点での同値に必要な値域の完備性は[高階微分と滑らかさ](higher_derivatives.md#連続微分可能性)を参照。
 
+`AnalyticAt` の `At` は、冪級数展開の中心を指定する。展開の成立範囲は中心を含む近傍であり、一点での微分の存在より強い条件である。領域を制限する `AnalyticWithinAt`、`AnalyticOn`、`AnalyticOnNhd` の違いは、[解析系の `At` と点・近傍の条件](at_and_neighborhoods.md)を参照。
+
 ## 一般のノルム空間
 
 mathlib の全微分は有限次元に限定されない。定理に出てくる一般の空間 $E$ は、主に次の型クラスで条件を表す。
