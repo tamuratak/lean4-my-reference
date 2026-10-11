@@ -4,7 +4,7 @@
 
 ## 1. 命題・証明・`Prop` の関係
 
-`P : Prop` は「`P` が命題である」、`h : P` は「`h` が `P` の証明である」という意味である。コロンの左側が項、右側がその項の型という関係は、データでも証明でも共通している。
+`P : Prop` は「`P` が命題である」、`h : P` は「`h` が `P` の証明である」という意味である。命題を型として持つ項を、証明項（proof term）と呼ぶ。コロンの左側が項、右側がその項の型という関係は、データでも証明でも共通している。
 
 | Lean の表現 | 項 | 項の型 | 意味 |
 | --- | --- | --- | --- |
@@ -22,7 +22,7 @@
 theorem two_add_three : 2 + 3 = 5 := rfl
 ```
 
-`rfl` は、等式の両辺が型検査の計算で同じになることを利用して証明の項を作る。`two_add_three` という名前で登録される項の型は `2 + 3 = 5` である。
+`:= rfl` の `rfl` は、等式の反射性を表す証明項である。`2 + 3` は計算すると `5` になるため、反射性によって証明できる。`two_add_three` という名前で登録される項の型は `2 + 3 = 5` である。用意されている基本的な証明の一覧と、証明項・タクティクスとしての `rfl` の違いは、[証明項と基本的な証明の一覧](proof_terms.md)を参照。
 
 ### 命題の形成と真偽の判定
 
@@ -152,6 +152,7 @@ Lean では、同じ命題の証明どうしを定義上等しいものとして
 - [Lean の型による数学的対象の構成と証明](mathematical_constructions.md)：証明を添えた数学的対象の構成と、その性質の利用。
 - [`theorem`・`example`](../syntax/theorem.md)、[関数の型](../syntax/function_types.md)、[`by`](../syntax/by.md)：宣言と式の記法。
 - [公式リファレンス：Propositions](https://lean-lang.org/doc/reference/latest/The-Type-System/Propositions/)
+- [公式 API：`rfl`](https://lean-lang.org/doc/api/Init/Prelude.html#rfl)
 - [公式リファレンス：Functions](https://lean-lang.org/doc/reference/latest/The-Type-System/Functions/)
 - [公式リファレンス：Basic Propositions](https://lean-lang.org/doc/reference/latest/Basic-Propositions/)
 - [公式リファレンス：Tactic Proofs](https://lean-lang.org/doc/reference/latest/Tactic-Proofs/)
