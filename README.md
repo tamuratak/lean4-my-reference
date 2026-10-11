@@ -15,6 +15,9 @@ GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは�
 - [標準タクティクスの一覧](docs/tactics/README.md)：仮定やゴールを操作する証明の命令。
 - [Leanでのプログラム検証の概要](docs/tactics/program_verification.md)：`mstart`・`mintro`・`mvcgen` などの用途、記法、関連タクティクスへの索引。
 - [追加ライブラリのタクティクス](docs/library-tactics/README.md)：mathlib の算術・論理・式変形と、Aesop の証明探索。
+
+### mathlib
+
 - [mathlib のリファレンス](docs/mathlib/README.md)：多変数・多次元の微分積分を中心に、級数、行列・基底、ノルム・内積、コンパクト性、関数列と極限の交換など。
 - [mathlib の記号索引](docs/mathlib/symbols.md)：線形写像、ノルム、内積、近傍、勾配、積分、有限和など。
 
