@@ -19,10 +19,12 @@ GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは�
 - [mathlib の記号索引](docs/mathlib/symbols.md)：線形写像、ノルム、内積、近傍、勾配、積分、有限和など。
 
 ### Lean 4 の型と証明の基礎
-  - [Lean 4 の型システムの基礎](docs/foundations/type_system.md)：依存型、帰納型、宇宙階層、証明の無関連性、停止性、商型、公理の概観。
-  - [カリー・ハワード対応と Lean の命題・証明](docs/foundations/curry_howard.md)：命題と証明の型、証明の関数としての表現、タクティクスと型検査の関係。
-  - [Lean の型による数学的対象の構成と証明](docs/foundations/mathematical_constructions.md)：自然数から実数までの構成、条件の証明を持つ値、構成後の性質の利用。
-  - [証明項と基本的な証明の一覧](docs/foundations/proof_terms.md)：証明項の定義、標準の論理・等式の基本宣言、既存定理の利用と型の確認。
+
+- [Lean 4 の型システムの基礎](docs/foundations/type_system.md)：依存型、帰納型、宇宙階層、証明の無関連性、停止性、商型、公理の概観。
+- [カリー・ハワード対応と Lean の命題・証明](docs/foundations/curry_howard.md)：命題と証明の型、証明の関数としての表現、タクティクスと型検査の関係。
+- [Lean の型による数学的対象の構成と証明](docs/foundations/mathematical_constructions.md)：自然数から実数までの構成、条件の証明を持つ値、構成後の性質の利用。
+- [証明項と基本的な証明の一覧](docs/foundations/proof_terms.md)：証明項の定義、標準の論理・等式の基本宣言、既存定理の利用と型の確認。
+- [タクティクスの仕組みと利点](docs/foundations/tactics.md)：ゴールからの証明項の構成、メタ変数、メタプログラミング、型の書き換えと検査。
 
 ## コード例の検証方法
 

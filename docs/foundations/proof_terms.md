@@ -40,6 +40,30 @@ example (m n : Nat) : m + n = n + m := Nat.add_comm m n
 | [`Iff.intro`](https://lean-lang.org/doc/api/Init/Core.html#Iff.intro) | `Iff.intro hpq hqp` | `P ↔ Q` |
 | [`Exists.intro`](https://lean-lang.org/doc/api/Init/Core.html#Exists.intro) | `Exists.intro x hx` | `∃ x : α, R x` |
 
+### 論理結合子の証明の構成
+
+`And.intro hp hq` は、両方の証明をまとめて `P ∧ Q` の証明を作る。例えば、`hp : P` と `hpq : P → Q` があれば、関数適用 `hpq hp` で `Q` の証明を得てから組み合わせられる。
+
+```lean
+example (P Q : Prop) (hp : P) (hpq : P → Q) : P ∧ Q :=
+  And.intro hp (hpq hp)
+```
+
+`Or.inl hp` は左側の命題 `P` の証明から、`Or.inr hq` は右側の命題 `Q` の証明から、`P ∨ Q` の証明を作る。渡していない側の命題は、期待される型から推論される。
+
+```lean
+example (P Q : Prop) (hp : P) : P ∨ Q := Or.inl hp
+
+example (P Q : Prop) (hq : Q) : P ∨ Q := Or.inr hq
+```
+
+`Iff.intro hpq hqp` は、`P → Q` と `Q → P` の両方向の証明をまとめて `P ↔ Q` の証明を作る。`And.intro` と `Iff.intro` は、期待される型が分かっていれば、コンストラクターの省略記法 [`⟨…⟩`](../syntax/anonymous_constructor.md) でも書ける。
+
+```lean
+example (P Q : Prop) (hpq : P → Q) (hqp : Q → P) : P ↔ Q :=
+  Iff.intro hpq hqp
+```
+
 ### `rfl` の暗黙引数と定義的な等しさ
 
 `rfl` は、概略として次のように定義されている。
@@ -79,12 +103,36 @@ example : 2 + 3 = 5 := Eq.refl 5
 
 表の `P`、`Q`、`S` は命題である。`Exists.elim` の結論 `S` は、存在命題から取り出す証人 `x` に依存しない。`funext` は点ごとの等しさから関数の等しさを得る。`propext` は命題の論理的同値から命題の等しさを得る公理であり、定理が使う公理は [`#print axioms`](../commands/print_axioms.md) で確認できる。
 
+### 論理結合子の証明の利用
+
+`h : P ∧ Q` からは、`h.left` で `P` の証明、`h.right` で `Q` の証明を取り出せる。`And.left h`・`And.right h` と書いても同じである。
+
 ```lean
 example (P Q : Prop) (h : P ∧ Q) : P := h.left
 
+example (P Q : Prop) (h : P ∧ Q) : Q := h.right
+```
+
+`h : P ↔ Q` からは、`h.mp : P → Q` と `h.mpr : Q → P` を取り出せる。対応する前提の証明を渡すと、反対側の命題の証明を得られる。
+
+```lean
+example (P Q : Prop) (h : P ↔ Q) (hp : P) : Q := h.mp hp
+
+example (P Q : Prop) (h : P ↔ Q) (hq : Q) : P := h.mpr hq
+```
+
+`Or.elim h f g` は、`h : P ∨ Q` の場合分けによって共通の結論を得る。`f` は左側の証明を受け取る関数、`g` は右側の証明を受け取る関数で、どちらも同じ命題の証明を返す必要がある。次の例では、左側なら `hpq` を使い、右側なら受け取った `Q` の証明をそのまま返す。
+
+```lean
 example (P Q : Prop) (h : P ∨ Q) (hpq : P → Q) : Q :=
   Or.elim h hpq (fun hq => hq)
+```
 
+### 等式の証明の利用
+
+`Eq.trans` は等式をつなぎ、`Eq.subst` は等しい値についての条件の証明を移す。`funext` と `propext` は、それぞれ点ごとの等しさと論理的同値から、関数と命題の等式の証明を得る。
+
+```lean
 example (α : Type) (a b c : α) (hab : a = b) (hbc : b = c) : a = c :=
   Eq.trans hab hbc
 
@@ -121,6 +169,8 @@ example : 2 + 3 = 5 := by
 ```
 
 最初の `rfl` は証明項、二つ目はタクティクス、三つ目はタクティクス `exact` に渡す証明項である。同じ名前でも、項を書く場所かタクティクスを書く場所かによって役割が変わる。
+
+ゴールの型から証明を組み立てる過程は、[タクティクスの仕組みと利点](tactics.md)を参照。
 
 ## 5. 宣言の型の確認と定理の検索
 
