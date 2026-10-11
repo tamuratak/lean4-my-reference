@@ -1,6 +1,6 @@
 # Lean の型による数学的対象の構成と証明
 
-ここでは、自然数から始めて実数を構成する方法を例に取り、各段階を Lean の型でどのように表すかを説明する。
+Lean では、数学的対象を型の値として表し、対象が満たす条件や法則を命題として記述する。自然数から実数までの構成では、関数・部分型・商型を使い、必要な性質の証明を組み合わせて各段階の型を作る。
 
 ## 1. 型による実数の構成
 
@@ -86,37 +86,11 @@ example : remainder (parityClass 3) = 1 := rfl
 
 実数でも同様に、コーシー列の商を作る。実数の足し算を定義するには、列の各項を足した結果がコーシー列になることに加え、代表する列を取り替えても結果が同値になることを証明する。実装上、mathlib の `Real` は、こうして構成した商型の値を `cauchy` フィールドに持つ構造体である。
 
-## 2. 命題の型と証明の値
+## 2. 構成後の性質の証明と利用
 
-対象の型を作った後、その性質を命題として記述する。`P : Prop` に対する `h : P` は、命題 `P` の型に属する値、つまり `P` の証明である。
-
-論理の操作は、証明の作り方と対応する。
-
-| 証明したい命題 | 用意する証明 |
-| --- | --- |
-| `P ∧ Q` | `P` の証明と `Q` の証明をまとめたもの |
-| `P → Q` | `P` の証明を受け取り、`Q` の証明を返す関数 |
-| `∀ x : α, R x` | 任意の `x` を受け取り、`R x` の証明を返す関数 |
-| `∃ x : α, R x` | 具体的な `x` と、`R x` の証明をまとめたもの |
-
-例えば、証明済みの含意をつなぐ操作は関数適用になる。
-
-```lean
-theorem chain {P Q R : Prop} (hp : P) (hpq : P → Q) (hqr : Q → R) : R :=
-  hqr (hpq hp)
-
-example {P Q R : Prop} (hp : P) (hpq : P → Q) (hqr : Q → R) : R := by
-  have hq : Q := hpq hp
-  exact hqr hq
-```
-
-最初は `P` の証明 `hp` を持つ。`hpq hp` で `Q` の証明を作り、`hqr` に渡して `R` の証明を作る。二つ目の例は、その途中の証明に `hq` という名前を付けたものである。
-
-`∀ x : α, R x` では、返す証明の型 `R x` が引数 `x` に依存する。数学の「任意の対象について、その対象の性質を示す」という操作も依存型で表せる。
-
-タクティクは、この証明の値を作るための支援機能である。`intro` で引数を受け取り、`apply` で定理に必要な前提へゴールを分け、`exact` で要求された型の証明を渡す。最終的に Lean のカーネルが、できあがった値が目的の命題の型を持つか検査する。
-
-## 3. 構成後の性質の証明と利用
+数学的対象の性質は `Prop` に属する命題として表し、その命題を型として持つ項が証明になる。
+例えば実数 `x`・`y` に対し、`x + y = y + x` は命題であり、`add_comm x y` はその証明である。
+命題と証明の関係は[カリー・ハワード対応](curry_howard.md)で説明している。
 
 実数を構成して演算を定義しただけでは、交換法則や完備性まで自動的に得られるわけではない。これらも構成に基づいて証明する。例えば加法の交換法則は、有理数の列の各項についての交換法則から、列、商型、実数へと引き継ぐ。
 
@@ -139,9 +113,10 @@ example (x y : ℝ) : (x + y) + 0 = y + x := by
 
 ## 関連ページと参照
 
+- 命題と証明：[カリー・ハワード対応と Lean の命題・証明](curry_howard.md)。証明の項、含意や全称命題の関数としての表現、タクティクスと型検査の関係。
 - 型理論の基礎：[Lean 4 の型システムの基礎](type_system.md)。依存型・帰納型、命題と型の対応、宇宙階層、証明の無関連性、再帰の停止性、商型、追加公理を概観する。
-- 個別の文法：[関数型](syntax/function_types.md)、[部分型](syntax/subtype.md)、[型クラス](syntax/class.md)。
-- 個別の型：[自然数](basic-types/nat.md)、[整数](basic-types/int.md)、[有理数](basic-types/rat.md)、[商型](basic-types/quotient.md)。
+- 個別の文法：[関数型](../syntax/function_types.md)、[部分型](../syntax/subtype.md)、[型クラス](../syntax/class.md)。
+- 個別の型：[自然数](../basic-types/nat.md)、[整数](../basic-types/int.md)、[有理数](../basic-types/rat.md)、[商型](../basic-types/quotient.md)。
 - 公式リファレンス：[部分型](https://lean-lang.org/doc/reference/latest/Basic-Types/Subtypes/)、[商型](https://lean-lang.org/doc/reference/latest/The-Type-System/Quotients/)、[命題と証明](https://lean-lang.org/doc/reference/latest/The-Type-System/Propositions/)。
 
-[リファレンスのトップに戻る](../README.md)
+[リファレンスのトップに戻る](../../README.md)

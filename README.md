@@ -17,7 +17,11 @@ GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは�
 - [追加ライブラリのタクティクス](docs/library-tactics/README.md)：mathlib の算術・論理・式変形と、Aesop の証明探索。
 - [mathlib のリファレンス](docs/mathlib/README.md)：多変数・多次元の微分積分を中心に、級数、行列・基底、ノルム・内積、コンパクト性、関数列と極限の交換など。
 - [mathlib の記号索引](docs/mathlib/symbols.md)：線形写像、ノルム、内積、近傍、勾配、積分、有限和など。
-- [型による数学的対象の構成と証明](docs/mathematical_constructions.md)：自然数から実数までの構成を通して、型・データ・命題・証明の関係を説明している。
+
+### Lean 4 の型と証明の基礎
+  - [Lean 4 の型システムの基礎](docs/foundations/type_system.md)：依存型、帰納型、宇宙階層、証明の無関連性、停止性、商型、公理の概観。
+  - [カリー・ハワード対応と Lean の命題・証明](docs/foundations/curry_howard.md)：命題と証明の型、証明の関数としての表現、タクティクスと型検査の関係。
+  - [Lean の型による数学的対象の構成と証明](docs/foundations/mathematical_constructions.md)：自然数から実数までの構成、条件の証明を持つ値、構成後の性質の利用。
 
 ## コード例の検証方法
 

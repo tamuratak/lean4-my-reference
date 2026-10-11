@@ -65,6 +65,6 @@ example (P : Prop) (proofOfP : P) : P := proofOfP
 
 最初の例では、`α` も `hp` も自然数の値である。役割の確認には、名前に加えて `: Nat`、`: Type`、`: P` などの型の情報が必要になる。普段は、慣習に沿った名前や内容を表す名前を選ぶと、読み手が役割を把握しやすい。
 
-関連：[型システムの基礎](type_system.md)、[引数の括弧](syntax/binders.md)。
+関連：[型システムの基礎](foundations/type_system.md)、[引数の括弧](syntax/binders.md)。
 参照：[公式リファレンス：Functions](https://lean-lang.org/doc/reference/latest/Terms/Functions/)、[公式リファレンス：Propositions](https://lean-lang.org/doc/reference/latest/The-Type-System/Propositions/)。
 

@@ -31,7 +31,7 @@ example : Fin 5 := firstIndex 4
 このように、Lean の型検査では定義を展開した計算も使い、型が一致するかを判定する。
 依存型は、配列の添字や長さの条件を型に組み込むだけでなく、対象ごとに異なる命題の証明を返す関数にも使われる。
 
-関連：[関数型](syntax/function_types.md)、[`Fin`](basic-types/fin.md)。
+関連：[関数型](../syntax/function_types.md)、[`Fin`](../basic-types/fin.md)。
 参照：[公式リファレンス：Functions](https://lean-lang.org/doc/reference/latest/The-Type-System/Functions/)。
 
 ## 2. 帰納型
@@ -57,33 +57,17 @@ example : doubleNat 3 = 6 := rfl
 普段の `match` や `induction` は、この計算・証明の原理を使いやすく記述するための構文やタクティクスである。
 帰納型には再帰的な出現に関する正値性などの条件があり、任意の自己参照を許すわけではない。
 
-関連：[`inductive`](syntax/inductive.md)、[`induction`](tactics/induction.md)。
+関連：[`inductive`](../syntax/inductive.md)、[`induction`](../tactics/induction.md)。
 参照：[公式リファレンス：Inductive Types](https://lean-lang.org/doc/reference/latest/The-Type-System/Inductive-Types/)。
 
 ## 3. 命題と型の対応
 
-命題と型の対応（Curry–Howard correspondence）は、命題を型として、その証明をその型の項として表現する考え方である。
+カリー・ハワード対応（Curry–Howard correspondence）は、命題を型として、その証明をその型の項として表現する考え方である。
 Lean では `P : Prop` が命題を表し、`h : P` がその証明を表す。
-証明するという操作は、目的の命題の型を持つ項を構成することに当たる。
-例えば含意 `P → Q` の証明は、`P` の証明を受け取り、`Q` の証明を返す関数である。
+含意 `P → Q` の証明は、`P` の証明を受け取り、`Q` の証明を返す関数である。
+タクティクスも証明の項を構成し、カーネルがその項の型を検査する。
 
-```lean
-example (P Q : Prop) (hp : P) (hpq : P → Q) : Q :=
-  hpq hp
-
-example (P Q : Prop) (hp : P) (hq : Q) : P ∧ Q :=
-  And.intro hp hq
-```
-
-最初の例では、`hpq` に `hp` を渡すことで `Q` の証明を得る。
-二つ目の例では、論理積 $P \land Q$ のコンストラクター `And.intro` に両方の証明を渡す。
-論理和 $P \lor Q$ はどちらか一方の証明、存在命題 $\exists x,\ P(x)$ は対象とその性質の証明から構成する。
-
-全称命題 $\forall x,\ P(x)$ の証明は、各 `x` に対して `P x` の証明を返す依存関数である。
-タクティクスで書いた証明も、最終的にはこうした項に変換される。
-Lean のカーネルは、その項の型を検査することで、宣言した前提や公理のもとで証明が正しいかを確認する。
-
-関連：[論理の記号](syntax/logical_symbols.md)、[型による数学的対象の構成と性質の証明](mathematical_constructions.md)。
+関連：[カリー・ハワード対応と Lean の命題・証明](curry_howard.md)。命題と証明の型、論理の操作と項の構成、タクティクスのゴールとの対応を説明する。
 参照：[公式リファレンス：Propositions](https://lean-lang.org/doc/reference/latest/The-Type-System/Propositions/)。
 
 ## 4. 宇宙階層
@@ -113,7 +97,7 @@ example : keepValue Nat = Nat := rfl
 一方、Lean の宇宙階層は非累積的であり、`Nat : Type 0` をそのまま `Nat : Type 1` として使うことはできない。
 異なる階層で共通の定義を使う宇宙多相と、型を上位の階層へ包み直す `ULift` は、別の仕組みである。
 
-関連：[`Prop`・`Type`・`Sort`・`universe`](syntax/universes.md)。
+関連：[`Prop`・`Type`・`Sort`・`universe`](../syntax/universes.md)。
 参照：[公式リファレンス：Universes](https://lean-lang.org/doc/reference/latest/The-Type-System/Universes/)。
 
 ## 5. 証明の無関連性
@@ -164,7 +148,7 @@ example : sumTo 3 = 6 := rfl
 停止性の証明を要求しない `partial def` もあるが、戻り値の型に値が存在することが必要で、カーネルはその本体を展開しない。
 `partial def` の実行時の計算はコンパイラが扱い、証明の型検査で使う計算とは区別される。
 
-関連：[再帰定義](syntax/recursive.md)。
+関連：[再帰定義](../syntax/recursive.md)。
 参照：[公式リファレンス：Recursive Definitions](https://lean-lang.org/doc/reference/latest/Definitions/Recursive-Definitions/)。
 
 ## 7. 商型
@@ -199,7 +183,7 @@ example : remainder (residue 4) = 1 := rfl
 `Quotient` はこの仕組みを同値関係向けにまとめたもので、整数や有理数などを代表元によって構成する方法に使える。
 条件を満たす値を選ぶ部分型に対し、商型は元の値どうしを同一視する点が異なる。
 
-関連：[商型](basic-types/quotient.md)、[部分型](syntax/subtype.md)。
+関連：[商型](../basic-types/quotient.md)、[部分型](../syntax/subtype.md)。
 参照：[公式リファレンス：Quotients](https://lean-lang.org/doc/reference/latest/The-Type-System/Quotients/)。
 
 ## 8. 追加公理と古典論理
@@ -231,7 +215,7 @@ theorem excludedMiddle (P : Prop) : P ∨ ¬ P :=
 公理を証明の中で使うだけなら、必ずしもデータを計算できなくなるわけではない。
 公理は証明の前提なので、型検査が保証する正しさもそれらを前提としたものであり、任意に追加した公理の整合性まで Lean が確認するわけではない。
 
-関連：[`opaque`・`axiom`](syntax/opaque_axiom.md)、[`noncomputable`](syntax/noncomputable.md)、[`#print`](commands/print.md)。
+関連：[`opaque`・`axiom`](../syntax/opaque_axiom.md)、[`noncomputable`](../syntax/noncomputable.md)、[`#print`](../commands/print.md)。
 参照：[公式リファレンス：Axioms](https://lean-lang.org/doc/reference/latest/Axioms/)。
 
-[リファレンスのトップに戻る](../README.md)
+[リファレンスのトップに戻る](../../README.md)
