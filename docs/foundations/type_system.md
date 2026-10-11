@@ -158,6 +158,8 @@ example : sumTo 3 = 6 := rfl
 
 `Setoid` の定義や `Quotient` の操作の具体例は、[商型](../basic-types/quotient.md)を参照。
 
+Lean の特徴のひとつは、商型の基礎となる `Quot` と、代表元に対する関数適用へ簡約する `Quot.lift` の計算規則がカーネルに組み込まれている点にある。同値関係で結び付く値の等しさは、公理 `Quot.sound` が保証する。
+
 関連：[部分型](../syntax/subtype.md)。
 参照：[公式リファレンス：Quotients](https://lean-lang.org/doc/reference/latest/The-Type-System/Quotients/)。
 
