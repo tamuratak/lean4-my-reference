@@ -36,8 +36,6 @@ example : remainder (parityClass 3) = 1 := rfl
 
 `Quotient.mk s a` は、代表元 `a` から商型の値を作る。`Quotient.sound` は `s.r a b` の証明を受け取り、商型での等式を返す。上の例では、`1 % 2 = 3 % 2` の証明から `parityClass 1 = parityClass 3` の証明を作っている。
 
-この等式は、代表元の値が同じになるという意味ではない。関係によって等しいとみなすことを証明しているため、一般には `rfl` の代わりに `Quotient.sound` を使う。
-
 ## 商型から値を返す関数の定義と証明条件
 
 `Quotient.lift f h` は、代表元に適用する関数 `f : α → β` を、商型からの関数にする。証明 `h` に求められる形は次のとおりである。
@@ -52,6 +50,8 @@ example : remainder (parityClass 3) = 1 := rfl
 
 ## 商型の性質の証明
 
+`Quotient.inductionOn` によって、任意の商型の値についての証明を、代表元 `a : α` から作った値についての証明に帰着できる。
+
 ```lean
 example {α : Type} (s : Setoid α) (P : Quotient s → Prop)
     (h : ∀ a, P (Quotient.mk s a)) (q : Quotient s) : P q := by
@@ -59,7 +59,7 @@ example {α : Type} (s : Setoid α) (P : Quotient s → Prop)
   | h a => exact h a
 ```
 
-`Quotient.inductionOn` によって、任意の商型の値についての証明を、代表元 `a : α` から作った値についての証明に帰着できる。商型を使う関数の定義には `lift`、性質の証明にはこの帰納原理を使う。
+仮定 `h` がすべての代表元 `a` について `P (Quotient.mk s a)` を証明するので、任意の `q : Quotient s` について `P q` を証明できる。商型を使う関数の定義には `lift`、性質の証明には `inductionOn` を使う。
 
 ## `Setoid α`
 
@@ -113,6 +113,8 @@ example {α : Type} [Setoid α] {a b c : α}
 ## `Quot` と `Quotient` の関係
 
 `Quot r` は同値関係の証明を要求しない基礎となる仕組みである。同値関係で商を作る通常の用途では、関係と証明をまとめた `Setoid` を渡す `Quotient` が使いやすい。[部分型](../syntax/subtype.md)が条件を満たす値を選ぶのに対し、商型は同値関係で結び付く値どうしを同一視する。
+
+カーネルの計算規則と `Quot.sound` 公理の位置付けは、[型システムの基礎：商型](../foundations/type_system.md#7-商型)を参照。
 
 参照：[公式リファレンス：Quotients](https://lean-lang.org/doc/reference/latest/The-Type-System/Quotients/)、[公式 API：`Setoid`](https://lean-lang.org/doc/api/Init/Core.html#Setoid)、[公式 API：`Equivalence`](https://lean-lang.org/doc/api/Init/Core.html#Equivalence)。
 

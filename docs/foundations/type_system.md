@@ -154,36 +154,11 @@ example : sumTo 3 = 6 := rfl
 ## 7. 商型
 
 商型（quotient types）は、指定した同値関係で結び付く値を同じものとして扱うための型である。
-例えば自然数を3で割った余りで分類すると、1と4は同じ類に入り、余り0・1・2に対応する3つの類ができる。
-Lean では、関係とその反射性・対称性・推移性の証明を `Setoid` にまとめ、`Quotient` に渡す。
-`Quotient.mk` は元の値から商型の値を作り、`Quotient.sound` は関係が成り立つことから商型での等式を導く。
+同一視する値の型を `α` とする。その同値関係と同値関係の証明を `s : Setoid α` にまとめ、`Quotient s` によって商型を作る。
 
-```lean
-def sameRemainder : Setoid Nat where
-  r a b := a % 3 = b % 3
-  iseqv := ⟨fun _ => rfl, fun h => h.symm, fun h1 h2 => h1.trans h2⟩
+`Setoid` の定義や `Quotient` の操作の具体例は、[商型](../basic-types/quotient.md)を参照。
 
-def residue (n : Nat) : Quotient sameRemainder :=
-  Quotient.mk sameRemainder n
-
-example : residue 1 = residue 4 :=
-  Quotient.sound (by decide : 1 % 3 = 4 % 3)
-
-def remainder (q : Quotient sameRemainder) : Nat :=
-  Quotient.lift (fun n => n % 3) (fun _ _ h => h) q
-
-example : remainder (residue 4) = 1 := rfl
-```
-
-1と4という代表元が定義上等しくなるわけではなく、商型の値の等しさを命題として証明している。
-商型から関数を定義する `Quotient.lift` には、同じ類の代表元から等しい結果を返すことの証明が必要になる。
-この例の余りはその条件を満たし、代表元から作った値への適用は計算で簡約できる。
-
-基礎となる `Quot` の構成・除去・計算規則はカーネルが扱い、関係から等式を導く `Quot.sound` は標準の公理である。
-`Quotient` はこの仕組みを同値関係向けにまとめたもので、整数や有理数などを代表元によって構成する方法に使える。
-条件を満たす値を選ぶ部分型に対し、商型は元の値どうしを同一視する点が異なる。
-
-関連：[商型](../basic-types/quotient.md)、[部分型](../syntax/subtype.md)。
+関連：[部分型](../syntax/subtype.md)。
 参照：[公式リファレンス：Quotients](https://lean-lang.org/doc/reference/latest/The-Type-System/Quotients/)。
 
 ## 8. 追加公理と古典論理
