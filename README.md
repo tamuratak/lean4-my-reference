@@ -15,6 +15,7 @@ GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは�
 - [標準タクティクスの一覧](docs/tactics/README.md)：仮定やゴールを操作する証明の命令。
 - [Leanでのプログラム検証の概要](docs/tactics/program_verification.md)：`mstart`・`mintro`・`mvcgen` などの用途、記法、関連タクティクスへの索引。
 - [追加ライブラリのタクティクス](docs/library-tactics/README.md)：mathlib の算術・論理・式変形と、Aesop の証明探索。
+- [Lean のツールと周辺知識](docs/ecosystem/README.md)：インストール先、プロジェクト内のファイル、設定の参照順、キャッシュ。
 
 ### mathlib
 
