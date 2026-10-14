@@ -10,7 +10,7 @@ GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは�
 - [記号索引](docs/symbols.md)：`⟨…⟩`、`?_`、`·`、`<;>` など、記号の形や呼び名から説明を探す。
 - [文法要素の一覧](docs/syntax/README.md)：宣言、式、型、名前空間など、Lean のコードの読み方と書き方。
 - [基本データ型の一覧](docs/basic-types/README.md)：数値・文字列・コレクション・商型などの作り方と基本操作。ハッシュマップや順序付き集合も扱う。
-- [確認・実行・検査用の `#` コマンド](docs/commands/README.md)：型、計算結果、宣言内容、期待した動作の確認。
+- [確認・実行・検査用の `#` コマンド](docs/commands/README.md)：型、計算結果、宣言内容、動作の確認。
 - [属性の一覧](docs/attributes/README.md)：`@[simp]` など、宣言の登録や追加の扱い。
 - [標準タクティクスの一覧](docs/tactics/README.md)：仮定やゴールを操作する証明の命令。
 - [Leanでのプログラム検証の概要](docs/tactics/program_verification.md)：`mstart`・`mintro`・`mvcgen` などの用途、記法、関連タクティクスへの索引。
