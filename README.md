@@ -18,16 +18,15 @@ GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは�
 
 ### Lean のツールと周辺知識
 
-- [インストール先と設定ファイル](docs/ecosystem/files_and_directories.md)：elan・Lean・追加ライブラリの保存場所、設定の参照順、キャッシュ、使用中の環境の確認。
-- [elan と Lake の役割と基本操作](docs/ecosystem/elan_lake.md)：二つのツールの使い分け、Lean のバージョン選択、プロジェクト設定、ビルドと依存関係の更新。
+- [インストール先と設定ファイル](docs/ecosystem/files_and_directories.md)：関係するファイルの保存場所、設定の参照順。
+- [elan と Lake の役割と基本操作](docs/ecosystem/elan_lake.md)：Lean のバージョン選択、プロジェクト設定、ビルドと依存関係の更新。
 
 ### コンパイラ・実行時処理・外部コード
 
-- [タスク・スレッドと共有状態の同期](docs/compiler/tasks_threads.md)：タスクの作成、参照カウントと不変な値の共有、`IO.Ref`・Mutex による同期、Rust の所有権・借用との比較。
-
-- [Lean のネイティブコンパイルと最適化](docs/compiler/native_compilation.md)：C を経由するコンパイル、代表的な最適化、LLVM バックエンドの利用条件。
+- [Lean のネイティブコンパイルと最適化](docs/compiler/native_compilation.md)：C を経由するコンパイル、代表的な最適化。
 - [C 関数のバインディング](docs/compiler/c_bindings.md)：`@[extern]`、C 側の型と所有権、Lake によるビルドとリンク。
 - [Lean コンパイラの最適化パスの拡張](docs/compiler/lcnf_optimization.md)：独自の最適化の追加、中間表現、パスの登録、変換の確認。
+- [タスク・スレッドと共有状態の同期](docs/compiler/tasks_threads.md)：タスクの作成、参照カウントと不変な値の共有。
 
 ### mathlib
 
