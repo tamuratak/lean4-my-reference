@@ -90,6 +90,8 @@ Lean のランタイムは参照カウントでメモリを管理する。参照
 
 参照：[公式リファレンス：参照カウント](https://lean-lang.org/doc/reference/latest/Run-Time-Code/Reference-Counting/)、[公式 API：借用の推論](https://lean-lang.org/doc/api/Lean/Compiler/LCNF/InferBorrow.html)、[メモリ再利用の挿入](https://lean-lang.org/doc/api/Lean/Compiler/LCNF/ResetReuse.html)。
 
+複数スレッドからの値の共有と、共有可変状態の同期については、[タスク・スレッドと共有状態の同期](tasks_threads.md)を参照。
+
 ### 証明の消去
 
 コンパイラは、実行時に不要な証明も消去する。たとえば、条件の証明を伴うデータでも、証明項そのものを実行時データとして保持する必要はない。証明の正しさの検査と、実行に必要なデータの生成は役割が異なる。証明の消去と[証明の無関連性](../foundations/type_system.md#5-証明の無関連性)にも関係がある。
