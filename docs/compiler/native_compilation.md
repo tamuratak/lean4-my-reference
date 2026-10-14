@@ -24,6 +24,22 @@ Lean の処理は、ソースの構文を一つずつ C の構文に置き換え
 
 参照：[公式リファレンス：エラボレーションの結果と C コードの生成](https://lean-lang.org/doc/reference/latest/Elaboration-and-Compilation/#elaboration-results)、[Lake](https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/)。
 
+### ネイティブ実行と Lean ランタイム
+
+Lean のランタイムは、コンパイルされたプログラムの実行中に使われる、メモリ管理や基本操作などの実装である。Lean のプログラムは、ネイティブの機械語にコンパイルされた後もランタイムの機能を利用する。
+
+| ランタイムの機能 | 実行中の処理 |
+| --- | --- |
+| メモリ管理 | オブジェクトの領域確保、参照カウントの増減、不要になったオブジェクトの解放 |
+| 基本データ型の操作 | 配列・文字列・自然数などの実行時表現に合わせた効率的な処理 |
+| タスクの実行管理 | タスクを OS スレッドへ割り当てるスケジューリング |
+
+ランタイムはコンパイル済みライブラリとして Lean の配布物に含まれ、実行ファイルの作成時に静的または動的にリンクされる。生成された C コードはランタイムの関数を呼び出し、コンパイル後はプログラム本体とランタイムの両方が機械語として実行される。
+
+非同期 I/O では `libuv` のイベントループも利用する。[非同期 I/O と `libuv`](tasks_threads.md#非同期-io-と-libuv)を参照。
+
+参照：[公式リファレンス：ランタイムの機能](https://lean-lang.org/doc/reference/latest/Run-Time-Code/)、[参照カウント](https://lean-lang.org/doc/reference/latest/Run-Time-Code/Reference-Counting/)、[公式 API：コンパイルとリンク用のフラグ](https://lean-lang.org/doc/api/Lean/Compiler/FFI.html)。
+
 ### インポート用ファイルとネイティブ生成物の違い
 
 `.olean` は、宣言や環境の情報を保存し、別の Lean モジュールからの `import` に使うファイルである。ネイティブ実行ファイルや機械語のオブジェクトファイルとは用途が異なる。Lean ファイルの型検査や証明の検査を行うことと、独立した実行ファイルを作ることも区別する必要がある。

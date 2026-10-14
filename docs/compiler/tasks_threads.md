@@ -54,6 +54,16 @@ def taskResult : IO Nat := do
 
 参照：[公式リファレンス：タスクとスレッド](https://lean-lang.org/doc/reference/latest/IO/Tasks-and-Threads/)、[公式 API：`IO.asTask`](https://lean-lang.org/doc/api/Init/System/IO.html#IO.asTask)。
 
+## 非同期 I/O と `libuv`
+
+`Std.Async` は、通信やタイマーなどの完了を待つ処理を組み立てるための非同期プログラミングの API である。非同期 I/O の基盤には `libuv` を使い、イベントループがソケットの通信やタイマーの満了などのイベントを処理する。操作の完了は `IO.Promise` などを通じて通知され、結果を待っていた後続の計算が実行可能になる。
+
+タスクのスレッドプールは計算を実行するワーカースレッドを管理し、`libuv` のイベントループは I/O などの完了を処理する。Lean のすべての計算を一つのイベントループで実行する構成ではなく、タスクと非同期 I/O を組み合わせる仕組みである。
+
+非同期の待機では、待機ごとに OS スレッドを占有せずに後続の処理を登録できる。一方、`IO.asTask` で通常のブロッキング I/O を実行しただけでは、非同期 I/O には変わらず、実行中のスレッドは I/O の完了まで待機する。多数の通信やタイマーを扱う場合は `Std.Async` の対応する API を使う。
+
+参照：[公式リファレンス：非同期プログラミング](https://lean-lang.org/doc/reference/latest/IO/Async/)、[公式 API：`Std.Async` の基本機能](https://lean-lang.org/doc/api/Std/Async/Basic.html)、[非同期タイマー](https://lean-lang.org/doc/api/Std/Async/Timer.html)、[イベントループの内部 API](https://lean-lang.org/doc/api/Std/Internal/UV/Loop.html)。
+
 ## 不変な値の共有と参照カウント
 
 Lean の [`List`](../basic-types/list.md#変換結果と元のリスト) や [`Array`](../basic-types/array.md#更新結果と元の配列) は、不変な値として複数のタスクで共有できる。一方のタスクが更新結果を作っても、他方が持つ元の値は変わらない。内部の更新やメモリ再利用の条件は、[参照カウントとメモリ再利用](native_compilation.md#参照カウントとメモリ再利用)を参照。
