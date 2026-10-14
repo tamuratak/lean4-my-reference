@@ -20,7 +20,7 @@ Lean ソース (.lean)
 
 Lean の処理は、ソースの構文を一つずつ C の構文に置き換えるだけの変換ではない。C を生成する前に、関数呼び出しやデータの扱いを Lean 側で最適化する。さらに、生成した C コードに対して、C コンパイラ側でも最適化を行う。実際に適用される最適化は、コードの形やコンパイル設定によって変わる。
 
-通常は [Lake](elan_lake.md) が C の生成、コンパイル、リンクを管理する。実行ファイルの標準的な保存先は `.lake/build/bin/`、生成した C コードなどの保存先は `.lake/build/ir/` である。
+通常は [Lake](../ecosystem/elan_lake.md) が C の生成、コンパイル、リンクを管理する。実行ファイルの標準的な保存先は `.lake/build/bin/`、生成した C コードなどの保存先は `.lake/build/ir/` である。
 
 参照：[公式リファレンス：エラボレーションの結果と C コードの生成](https://lean-lang.org/doc/reference/latest/Elaboration-and-Compilation/#elaboration-results)、[Lake](https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/)。
 
@@ -128,4 +128,4 @@ LLVM バックエンドが実装されていることと、標準配布で有効
 
 参照：[公式リファレンス：Lake のバックエンド](https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/Lake/#Lake.Backend)、[Lean のコマンドライン](https://lean-lang.org/doc/reference/latest/Interacting-with-Lean/)、[ビルドツールと配布](https://lean-lang.org/doc/reference/latest/Build-Tools-and-Distribution/)。
 
-[Lean のツールと周辺知識に戻る](README.md)
+[コンパイラと外部コードの一覧に戻る](README.md)

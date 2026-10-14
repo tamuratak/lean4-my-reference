@@ -17,6 +17,8 @@ GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは�
 - [追加ライブラリのタクティクス](docs/library-tactics/README.md)：mathlib の算術・論理・式変形と、Aesop の証明探索。
 - [Lean のツールと周辺知識](docs/ecosystem/README.md)：インストール先、プロジェクト内のファイル、設定の参照順、キャッシュ。
 
+- [コンパイラと外部コード](docs/compiler/README.md)：ネイティブコンパイル、C バインディング、独自の最適化パスの追加。
+
 ### mathlib
 
 - [mathlib のリファレンス](docs/mathlib/README.md)：多変数・多次元の微分積分を中心に、級数、行列・基底、ノルム・内積、コンパクト性、関数列と極限の交換など。
