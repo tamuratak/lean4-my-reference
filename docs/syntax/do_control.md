@@ -54,6 +54,25 @@ def halveDown (n : Nat) : Nat := Id.run do
 
 `break` はループの後の処理へ進む。`return` は、それを囲む `do` の計算から結果を返すので、使う位置によってはループの後の処理も行わず終了する。入れ子のループで `break`・`continue` を使うと、最も内側のループが対象になる。
 
+## 局所変数の再代入と元の値
+
+`let mut` で作った局所変数には、計算の途中で新しい値を代入できる。配列を代入した場合も、変数が指す値を更新する操作として扱う。
+
+```lean
+import Init
+
+def appendThree (xs : Array Nat) : Array Nat × Array Nat := Id.run do
+  let mut ys := xs
+  ys := ys.push 3
+  return (xs, ys)
+
+#eval appendThree #[1, 2]
+```
+
+結果は `(#[1, 2], #[1, 2, 3])` になる。`ys := ys.push 3` は、追加後の配列を局所変数 `ys` に代入する。引数 `xs` の値は変わらない。`ys` に最初に `xs` を代入していても、再代入によって `xs` まで書き換わることはない。
+
+`let mut` は、複数の場所から変更を共有する可変セルを作る指定ではない。共有する可変状態が必要な場合は、[`IO.Ref` など](../compiler/tasks_threads.md#ioref-とアトミックな更新)を使う。配列の内部でメモリを直接更新できる条件は、[配列の直接更新と作業バッファ](../compiler/native_compilation.md#配列の直接更新と作業バッファ)を参照。
+
 基本的な計算のつなぎ方と `←` は [`do`](do.md) を参照。
 
 参照：[公式リファレンス：Syntax / do-Notation](https://lean-lang.org/doc/reference/latest/Functors___-Monads-and--do--Notation/Syntax/)。

@@ -67,6 +67,23 @@ example : ([1, 2, 3] : List Nat).filter (fun n => n > 1) = [2, 3] := rfl
 
 `List` と `Array` は別の型である。`[1, 2, 3]` はリスト、`#[1, 2, 3]` は配列の記法であり、相互に置き換わるわけではない。[リテラルの記法](../syntax/literals.md)と[添字アクセス](../syntax/indexing.md)も参照。
 
+## 変換結果と元のリスト
+
+`List` は不変な値として扱われる。`map` や `filter` は、元のリストの値を保ったまま、変換や選択の結果を返す。
+
+```lean
+import Init
+
+#eval
+  let xs : List Nat := [1, 2, 3]
+  let ys := xs.map (fun n => n + 1)
+  (xs, ys)
+```
+
+結果は `([1, 2, 3], [2, 3, 4])` になる。`ys` は変換後の値であり、元の `xs` の要素は変わらない。`x :: xs` や `xs ++ ys` も、元のリストを書き換える操作ではなく、結果のリストを返す式である。
+
+実行時には、リストの一部を共有したり、不要になった領域を再利用したりできる。元の値を保つことと、毎回すべての要素をコピーすることは区別する必要がある。詳しくは[参照カウントとメモリ再利用](../compiler/native_compilation.md#参照カウントとメモリ再利用)を参照。
+
 参照：[公式リファレンス：Linked Lists](https://lean-lang.org/doc/reference/latest/Basic-Types/Linked-Lists/)。
 
 [基本データ型の一覧に戻る](README.md)
