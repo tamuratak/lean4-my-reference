@@ -27,17 +27,34 @@ $$
 
 である。$d<q$ のとき、指数 $0<\beta<(q-d)/p$ の Hölder 連続な修正が得られる。被覆数の指数 $d$ と距離記号 $d(\cdot,\cdot)$ は役割が異なる。
 
-| 条件・結果 | 宣言名・モジュール |
+#### 提供モジュール：`BrownianMotion.Continuity.HasBoundedInternalCoveringNumber`
+
+| 条件・結果 | 宣言名 |
 | --- | --- |
-| 有限直径と被覆数のべき上界 | `HasBoundedCoveringNumber`：`BrownianMotion.Continuity.HasBoundedInternalCoveringNumber` |
-| 開集合による被覆と被覆数の条件 | `IsCoverWithBoundedCoveringNumber`：`BrownianMotion.Continuity.HasBoundedInternalCoveringNumber` |
-| 非負実数時間への被覆条件の適用 | `isCoverWithBoundedCoveringNumber_Ico_nnreal`：`BrownianMotion.Continuity.HasBoundedInternalCoveringNumber` |
-| 増分のモーメント条件 | `ProbabilityTheory.IsKolmogorovProcess`：mathlib 由来 |
-| 増分のモーメント条件 | `ProbabilityTheory.IsAEKolmogorovProcess`：mathlib 由来 |
-| 有限集合・可算集合上の Hölder 商の評価 | `ProbabilityTheory.finite_kolmogorov_chentsov`：`BrownianMotion.Continuity.KolmogorovChentsovInequality` |
-| 有限集合・可算集合上の Hölder 商の評価 | `ProbabilityTheory.countable_kolmogorov_chentsov`：`BrownianMotion.Continuity.KolmogorovChentsovInequality` |
-| Hölder 商のほとんど確実な有限性 | `ProbabilityTheory.IsKolmogorovProcess.ae_iSup_rpow_edist_div_lt_top`：`BrownianMotion.Continuity.KolmogorovChentsovInequality` |
-| 有限被覆間の chaining | `chainingSequence`：`BrownianMotion.Continuity.Chaining` |
+| 有限直径と被覆数のべき上界 | `HasBoundedCoveringNumber` |
+| 開集合による被覆と被覆数の条件 | `IsCoverWithBoundedCoveringNumber` |
+| 非負実数時間への被覆条件の適用 | `isCoverWithBoundedCoveringNumber_Ico_nnreal` |
+
+#### 提供モジュール：mathlib
+
+| 条件・結果 | 宣言名 |
+| --- | --- |
+| 増分のモーメント条件 | `ProbabilityTheory.IsKolmogorovProcess` |
+| 増分のモーメント条件 | `ProbabilityTheory.IsAEKolmogorovProcess` |
+
+#### 提供モジュール：`BrownianMotion.Continuity.KolmogorovChentsovInequality`
+
+| 条件・結果 | 宣言名 |
+| --- | --- |
+| 有限集合・可算集合上の Hölder 商の評価 | `ProbabilityTheory.finite_kolmogorov_chentsov` |
+| 有限集合・可算集合上の Hölder 商の評価 | `ProbabilityTheory.countable_kolmogorov_chentsov` |
+| Hölder 商のほとんど確実な有限性 | `ProbabilityTheory.IsKolmogorovProcess.ae_iSup_rpow_edist_div_lt_top` |
+
+#### 提供モジュール：`BrownianMotion.Continuity.Chaining`
+
+| 条件・結果 | 宣言名 |
+| --- | --- |
+| 有限被覆間の chaining | `chainingSequence` |
 
 `BrownianMotion.Continuity.IsKolmogorovProcess` は、既存のモーメント条件から有限集合上の評価を導く追加補題をまとめる。ファイル名と、そのファイルが基本定義を新設しているかどうかは別である。
 
@@ -45,12 +62,19 @@ $$
 
 `BrownianMotion.Continuity.KolmogorovChentsov` の `ProbabilityTheory.exists_modification_holder` は、開集合 `U` 上の被覆数条件とモーメント条件から、各時刻で可測で、`U` 上で元の過程の修正となり、指定範囲の指数に対して各経路が Hölder 連続な過程を与える。値域には完備距離空間などの仮定がある。
 
+#### 提供モジュール：`BrownianMotion.Continuity.KolmogorovChentsov`
+
 | 用途 | 宣言名 |
 | --- | --- |
 | 一つの開集合上の修正 | `ProbabilityTheory.exists_modification_holder` |
 | 開集合の被覆を使った局所的な修正 | `ProbabilityTheory.exists_modification_holder'` |
 | モーメント指数の列から得られる正則性 | `ProbabilityTheory.exists_modification_holder_iSup` |
-| 修正を極限として構成する可測性の補助理論 | `ProbabilityTheory.IsLimitOfIndicator` など：`BrownianMotion.Continuity.LimitModification` |
+
+#### 提供モジュール：`BrownianMotion.Continuity.LimitModification`
+
+| 用途 | 宣言名 |
+| --- | --- |
+| 修正を極限として構成する可測性の補助理論 | `ProbabilityTheory.IsLimitOfIndicator` など |
 
 ブラウン運動では $p=2n$、$q=n$、時間空間の被覆数指数 $d=1$ を使うため、$\beta<(n-1)/(2n)$ が得られる。$n$ を大きくすることで、任意の $0<\beta<1/2$ に対応する。適用結果が `ProbabilityTheory.memHolder_brownian` である。
 
@@ -58,20 +82,47 @@ $$
 
 càdlàg は、経路が右連続で、左極限を持つという性質である。ジャンプを許すため、一般のマルチンゲールを扱う際の基本的な経路条件になる。
 
-| 対象・性質 | 宣言名 | モジュール |
-| --- | --- | --- |
-| 右連続な関数 | `IsRightContinuous` | `BrownianMotion.StochasticIntegral.Cadlag` |
-| càdlàg な関数 | `IsCadlag` | `BrownianMotion.StochasticIntegral.Cadlag` |
-| コンパクト集合上の有界性 | `isBounded_image_of_isCadlag_of_isCompact` | `BrownianMotion.StochasticIntegral.Cadlag` |
-| ジャンプの大きさ | `Function.jump` | `BrownianMotion.StochasticIntegral.Jump` |
-| 実数値準マルチンゲール | `ProbabilityTheory.IsRealQuasimartingale` | `BrownianMotion.StochasticIntegral.Quasimartingale.Basic` |
-| 交差回数・最大値の評価 | `ProbabilityTheory.measure_all_infiniteAlt` | `BrownianMotion.StochasticIntegral.Quasimartingale.MaximalInequality` |
-| 交差回数・最大値の評価 | `ProbabilityTheory.measure_exists_abs_gt_le` | `BrownianMotion.StochasticIntegral.Quasimartingale.MaximalInequality` |
-| 実数値の右連続・càdlàg 修正 | `ProbabilityTheory.rightContModifReal` | `BrownianMotion.StochasticIntegral.Quasimartingale.CadlagModification` |
-| 実数値の右連続・càdlàg 修正 | `ProbabilityTheory.cadlagModifReal` | `BrownianMotion.StochasticIntegral.Quasimartingale.CadlagModification` |
-| Banach 空間値の右連続・càdlàg 修正 | `ProbabilityTheory.rightContModif` | `BrownianMotion.StochasticIntegral.Quasimartingale.CadlagModificationBanach` |
-| Banach 空間値の右連続・càdlàg 修正 | `ProbabilityTheory.cadlagModif` | `BrownianMotion.StochasticIntegral.Quasimartingale.CadlagModificationBanach` |
-| 修正後のマルチンゲール性 | `MeasureTheory.Martingale.martingale_cadlagModif` | `BrownianMotion.StochasticIntegral.Quasimartingale.CadlagModificationBanach` |
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.Cadlag`
+
+| 対象・性質 | 宣言名 |
+| --- | --- |
+| 右連続な関数 | `IsRightContinuous` |
+| càdlàg な関数 | `IsCadlag` |
+| コンパクト集合上の有界性 | `isBounded_image_of_isCadlag_of_isCompact` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.Jump`
+
+| 対象・性質 | 宣言名 |
+| --- | --- |
+| ジャンプの大きさ | `Function.jump` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.Quasimartingale.Basic`
+
+| 対象・性質 | 宣言名 |
+| --- | --- |
+| 実数値準マルチンゲール | `ProbabilityTheory.IsRealQuasimartingale` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.Quasimartingale.MaximalInequality`
+
+| 対象・性質 | 宣言名 |
+| --- | --- |
+| 交差回数・最大値の評価 | `ProbabilityTheory.measure_all_infiniteAlt` |
+| 交差回数・最大値の評価 | `ProbabilityTheory.measure_exists_abs_gt_le` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.Quasimartingale.CadlagModification`
+
+| 対象・性質 | 宣言名 |
+| --- | --- |
+| 実数値の右連続・càdlàg 修正 | `ProbabilityTheory.rightContModifReal` |
+| 実数値の右連続・càdlàg 修正 | `ProbabilityTheory.cadlagModifReal` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.Quasimartingale.CadlagModificationBanach`
+
+| 対象・性質 | 宣言名 |
+| --- | --- |
+| Banach 空間値の右連続・càdlàg 修正 | `ProbabilityTheory.rightContModif` |
+| Banach 空間値の右連続・càdlàg 修正 | `ProbabilityTheory.cadlagModif` |
+| 修正後のマルチンゲール性 | `MeasureTheory.Martingale.martingale_cadlagModif` |
 
 修正を関数として定義できることと、各時刻で元の過程にほとんど確実に一致することは別の主張である。後者にはフィルトレーションの右連続性や、測度収束・可積分性など、対応する定理の仮定が必要になる。
 

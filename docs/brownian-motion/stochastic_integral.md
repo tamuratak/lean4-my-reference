@@ -6,14 +6,26 @@
 
 予測可能性は、左連続な適合過程などを可測にする時間と標本点の上の可測構造によって表される。
 
-| 対象・性質 | 宣言名 | 提供元・モジュール |
-| --- | --- | --- |
-| 予測可能な可測構造 | `MeasureTheory.Filtration.predictable` | mathlib |
-| 強予測可能な過程 | `MeasureTheory.IsStronglyPredictable` | mathlib |
-| 左連続な強適合過程の予測可能性 | `MeasureTheory.StronglyAdapted.isStronglyPredictable_of_leftContinuous` | `BrownianMotion.StochasticIntegral.Predictable` |
-| 停止過程の予測可能性 | `MeasureTheory.IsStronglyPredictable.stoppedProcess` | `BrownianMotion.StochasticIntegral.Predictable` |
-| 基本予測可能集合の有限和 | `ProbabilityTheory.ElementaryPredictableSet` | `BrownianMotion.StochasticIntegral.SimpleProcess` |
-| 単純過程 | `ProbabilityTheory.SimpleProcess` | `BrownianMotion.StochasticIntegral.SimpleProcess` |
+#### 提供モジュール：mathlib
+
+| 対象・性質 | 宣言名 |
+| --- | --- |
+| 予測可能な可測構造 | `MeasureTheory.Filtration.predictable` |
+| 強予測可能な過程 | `MeasureTheory.IsStronglyPredictable` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.Predictable`
+
+| 対象・性質 | 宣言名 |
+| --- | --- |
+| 左連続な強適合過程の予測可能性 | `MeasureTheory.StronglyAdapted.isStronglyPredictable_of_leftContinuous` |
+| 停止過程の予測可能性 | `MeasureTheory.IsStronglyPredictable.stoppedProcess` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.SimpleProcess`
+
+| 対象・性質 | 宣言名 |
+| --- | --- |
+| 基本予測可能集合の有限和 | `ProbabilityTheory.ElementaryPredictableSet` |
+| 単純過程 | `ProbabilityTheory.SimpleProcess` |
 
 単純過程は、$\mathcal{F}_{s_k}$ 可測な有界確率変数 $\xi_k$ を係数とする
 
@@ -50,16 +62,23 @@ $$
 
 変動過程は各経路の区間上の全変動を時間の関数として並べたものである。単調な右連続過程からは、各標本点に対する Stieltjes 測度も得られる。
 
-| 内容 | 宣言名・モジュール |
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.VariationProcess`
+
+| 内容 | 宣言名 |
 | --- | --- |
-| 経路の変動過程 | `variationProcess`：`BrownianMotion.StochasticIntegral.VariationProcess` |
-| 変動過程の非負性・単調性 | `variationProcess_nonneg`：`BrownianMotion.StochasticIntegral.VariationProcess` |
-| 変動過程の非負性・単調性 | `monotone_variationProcess`：`BrownianMotion.StochasticIntegral.VariationProcess` |
-| 連続・片側連続な経路の変動の可測性 | `measurable_eVariationOn_of_continuousWithinAt` と左右片側版：`BrownianMotion.StochasticIntegral.VariationProcess` |
-| 変動過程の適合性 | `MeasureTheory.StronglyAdapted.adapted_variationProcess_of_continuous` と片側版：`BrownianMotion.StochasticIntegral.VariationProcess` |
-| 右連続な単調過程からの測度核 | `StieltjesFunction.kernelOfRightContAdaptedMono`：`BrownianMotion.StochasticIntegral.MonotoneProcess` |
-| ベクトル測度の可測性 | `BoundedVariationOn.measurable_vectorMeasure_of_adapted`：`BrownianMotion.StochasticIntegral.MonotoneProcess` |
-| ベクトル測度の可測性 | `BoundedVariationOn.measurable_vectorMeasure_of_stronglyAdapted`：`BrownianMotion.StochasticIntegral.MonotoneProcess` |
+| 経路の変動過程 | `variationProcess` |
+| 変動過程の非負性・単調性 | `variationProcess_nonneg` |
+| 変動過程の非負性・単調性 | `monotone_variationProcess` |
+| 連続・片側連続な経路の変動の可測性 | `measurable_eVariationOn_of_continuousWithinAt` と左右片側版 |
+| 変動過程の適合性 | `MeasureTheory.StronglyAdapted.adapted_variationProcess_of_continuous` と片側版 |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.MonotoneProcess`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 右連続な単調過程からの測度核 | `StieltjesFunction.kernelOfRightContAdaptedMono` |
+| ベクトル測度の可測性 | `BoundedVariationOn.measurable_vectorMeasure_of_adapted` |
+| ベクトル測度の可測性 | `BoundedVariationOn.measurable_vectorMeasure_of_stronglyAdapted` |
 
 `variationProcess` は実数値で、拡張非負実数の変動を `toReal` に変換する。有限変動などの条件を外しても式は定義されるが、無限大の全変動を実数値としてそのまま表せるわけではない。
 

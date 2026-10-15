@@ -20,17 +20,39 @@
 
 ガウス過程は、有限個の時刻での値が同時にガウス分布に従う過程である。ガウス族では、共分散の消滅から独立性を導けるため、ブラウン運動の独立増分の証明に利用できる。
 
-| 内容 | 宣言名 | モジュール |
-| --- | --- | --- |
-| 共分散双線形形式の行列表現 | `ProbabilityTheory.covMatrix` | `BrownianMotion.Gaussian.CovMatrix` |
-| 共分散行列の半正定値性 | `ProbabilityTheory.posSemidef_covMatrix` | `BrownianMotion.Gaussian.CovMatrix` |
-| 標準ガウス分布の共分散行列 | `ProbabilityTheory.covMatrix_stdGaussian` | `BrownianMotion.Gaussian.MultivariateGaussian` |
-| 多変量ガウス分布の一成分の法則 | `ProbabilityTheory.hasLaw_eval_multivariateGaussian` | `BrownianMotion.Gaussian.MultivariateGaussian` |
-| ガウス確率変数の特性関数 | `ProbabilityTheory.HasGaussianLaw.charFun_map_real` | `BrownianMotion.Gaussian.Gaussian` |
-| ガウス分布の偶数次中心モーメント | `ProbabilityTheory.centralMoment_two_mul_gaussianReal` | `BrownianMotion.Gaussian.Moment` |
-| ガウス分布の偶数次中心モーメント | `ProbabilityTheory.centralMoment_fun_two_mul_gaussianReal` | `BrownianMotion.Gaussian.Moment` |
-| ガウス過程の族の独立性 | `ProbabilityTheory.IsGaussianProcess.indepFun''` | `BrownianMotion.Gaussian.GaussianProcess` |
-| ガウス過程の族の独立性 | `ProbabilityTheory.IsGaussianProcess.iIndepFun''` | `BrownianMotion.Gaussian.GaussianProcess` |
+#### 提供モジュール：`BrownianMotion.Gaussian.CovMatrix`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 共分散双線形形式の行列表現 | `ProbabilityTheory.covMatrix` |
+| 共分散行列の半正定値性 | `ProbabilityTheory.posSemidef_covMatrix` |
+
+#### 提供モジュール：`BrownianMotion.Gaussian.MultivariateGaussian`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 標準ガウス分布の共分散行列 | `ProbabilityTheory.covMatrix_stdGaussian` |
+| 多変量ガウス分布の一成分の法則 | `ProbabilityTheory.hasLaw_eval_multivariateGaussian` |
+
+#### 提供モジュール：`BrownianMotion.Gaussian.Gaussian`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| ガウス確率変数の特性関数 | `ProbabilityTheory.HasGaussianLaw.charFun_map_real` |
+
+#### 提供モジュール：`BrownianMotion.Gaussian.Moment`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| ガウス分布の偶数次中心モーメント | `ProbabilityTheory.centralMoment_two_mul_gaussianReal` |
+| ガウス分布の偶数次中心モーメント | `ProbabilityTheory.centralMoment_fun_two_mul_gaussianReal` |
+
+#### 提供モジュール：`BrownianMotion.Gaussian.GaussianProcess`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| ガウス過程の族の独立性 | `ProbabilityTheory.IsGaussianProcess.indepFun''` |
+| ガウス過程の族の独立性 | `ProbabilityTheory.IsGaussianProcess.iIndepFun''` |
 
 独立性の定理は、対象となる過程の組がガウス過程であること、交差する共分散が零であることなどを仮定する。一般の確率変数では無相関だけから独立性は導けない。
 

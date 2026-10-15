@@ -4,16 +4,33 @@
 
 ## フィルトレーションと停止値
 
-| 数学の対象 | Lean | 提供元 |
-| --- | --- | --- |
-| 情報の増大族 $(\mathcal{F}_t)$ | `MeasureTheory.Filtration ι mΩ` | mathlib |
-| 停止時刻 $\tau$ | `τ : Ω → WithTop ι` | mathlib |
-| 停止時刻 $\tau$ | `MeasureTheory.IsStoppingTime 𝓕 τ` | mathlib |
-| 停止値 $X_\tau$ | `MeasureTheory.stoppedValue X τ` | mathlib |
-| 停止過程 $X_{t\wedge\tau}$ | `MeasureTheory.stoppedProcess X τ` | mathlib |
-| 時刻の取り直し | `MeasureTheory.Filtration.indexComap` | `BrownianMotion.Auxiliary.Filtration` |
-| 停止値の追加性質 | `Filtration.stoppedValue'` など | `BrownianMotion.Auxiliary.StoppedValue` |
-| 停止過程の追加性質 | `stoppedProcess` の補題 | `BrownianMotion.Auxiliary.StoppedProcess` |
+#### 提供モジュール：mathlib
+
+| 数学の対象 | Lean |
+| --- | --- |
+| 情報の増大族 $(\mathcal{F}_t)$ | `MeasureTheory.Filtration ι mΩ` |
+| 停止時刻 $\tau$ | `τ : Ω → WithTop ι` |
+| 停止時刻 $\tau$ | `MeasureTheory.IsStoppingTime 𝓕 τ` |
+| 停止値 $X_\tau$ | `MeasureTheory.stoppedValue X τ` |
+| 停止過程 $X_{t\wedge\tau}$ | `MeasureTheory.stoppedProcess X τ` |
+
+#### 提供モジュール：`BrownianMotion.Auxiliary.Filtration`
+
+| 数学の対象 | Lean |
+| --- | --- |
+| 時刻の取り直し | `MeasureTheory.Filtration.indexComap` |
+
+#### 提供モジュール：`BrownianMotion.Auxiliary.StoppedValue`
+
+| 数学の対象 | Lean |
+| --- | --- |
+| 停止値の追加性質 | `Filtration.stoppedValue'` など |
+
+#### 提供モジュール：`BrownianMotion.Auxiliary.StoppedProcess`
+
+| 数学の対象 | Lean |
+| --- | --- |
+| 停止過程の追加性質 | `stoppedProcess` の補題 |
 
 `WithTop ι` は通常の時刻に無限大を加えた型である。有限停止時刻では通常の停止値に対応するが、無限大を取る場合は `stoppedValue` の規約や、極限を用いる `Filtration.stoppedValue'` の定義を区別する必要がある。
 
@@ -21,21 +38,38 @@
 
 時間と標本点の集合 $A\subseteq T\times\Omega$ に対し、début は指定した開始時刻以降で初めて $A$ に入る時刻の下限である。到達時刻が停止時刻になることを示す際、集合の射影の可測性が必要になる。
 
-| 内容 | 宣言名 | モジュール |
-| --- | --- | --- |
-| 集合族を使った解析集合 | `MeasureTheory.IsPavingAnalytic` | `BrownianMotion.Choquet.AnalyticSet` |
-| 集合族を使った解析集合 | `MeasureTheory.IsMeasurableAnalytic` | `BrownianMotion.Choquet.AnalyticSet` |
-| 容量と容量可能性 | `MeasureTheory.Capacity` | `BrownianMotion.Choquet.Capacity` |
-| 容量と容量可能性 | `MeasureTheory.IsCapacitable` | `BrownianMotion.Choquet.Capacity` |
-| 解析集合の容量可能性 | `MeasureTheory.IsPavingAnalytic.isCapacitable` | `BrownianMotion.Choquet.Capacity` |
-| 可測集合の射影の完備化に関する可測性 | `MeasurableSet.nullMeasurableSet_fst` | `BrownianMotion.Choquet.Capacity` |
-| 可測な切断の存在 | `MeasurableSet.exists_measurable_section_left_nnreal` など | `BrownianMotion.Choquet.MeasurableSection` |
-| début | `MeasureTheory.debut` | `BrownianMotion.Choquet.Debut` |
-| 発展的可測な集合 | `MeasureTheory.ProgMeasurableSet` | `BrownianMotion.Choquet.Debut` |
-| début の停止時刻性 | `MeasureTheory.isStoppingTime_debut` | `BrownianMotion.Choquet.Debut` |
-| 到達時刻の停止時刻性 | `MeasureTheory.isStoppingTime_hittingAfter'` | `BrownianMotion.Choquet.Debut` |
-| 到達時刻の停止時刻性 | `MeasureTheory.isStoppingTime_leastGE` | `BrownianMotion.Choquet.Debut` |
-| 到達時刻の停止時刻性 | `MeasureTheory.isStoppingTime_leastGT` | `BrownianMotion.Choquet.Debut` |
+#### 提供モジュール：`BrownianMotion.Choquet.AnalyticSet`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 集合族を使った解析集合 | `MeasureTheory.IsPavingAnalytic` |
+| 集合族を使った解析集合 | `MeasureTheory.IsMeasurableAnalytic` |
+
+#### 提供モジュール：`BrownianMotion.Choquet.Capacity`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 容量と容量可能性 | `MeasureTheory.Capacity` |
+| 容量と容量可能性 | `MeasureTheory.IsCapacitable` |
+| 解析集合の容量可能性 | `MeasureTheory.IsPavingAnalytic.isCapacitable` |
+| 可測集合の射影の完備化に関する可測性 | `MeasurableSet.nullMeasurableSet_fst` |
+
+#### 提供モジュール：`BrownianMotion.Choquet.MeasurableSection`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 可測な切断の存在 | `MeasurableSet.exists_measurable_section_left_nnreal` など |
+
+#### 提供モジュール：`BrownianMotion.Choquet.Debut`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| début | `MeasureTheory.debut` |
+| 発展的可測な集合 | `MeasureTheory.ProgMeasurableSet` |
+| début の停止時刻性 | `MeasureTheory.isStoppingTime_debut` |
+| 到達時刻の停止時刻性 | `MeasureTheory.isStoppingTime_hittingAfter'` |
+| 到達時刻の停止時刻性 | `MeasureTheory.isStoppingTime_leastGE` |
+| 到達時刻の停止時刻性 | `MeasureTheory.isStoppingTime_leastGT` |
 
 début の停止時刻性には、時間空間の位相条件、フィルトレーションの右連続性・測度に関する完備性などの仮定がある。`Choquet.CompactSystem` のコンパクト系に関する補題には直接 `sorry` があり、Choquet 理論を使う定理の証明依存にも注意が必要である。
 
@@ -70,15 +104,22 @@ début の停止時刻性には、時間空間の位相条件、フィルトレ�
 
 任意抽出定理は、停止時刻 $\sigma\le\tau$ に対して、適切な仮定の下で $\mathbb{E}[X_\tau\mid\mathcal{F}_\sigma]=X_\sigma$ を与える。連続時間では、停止時刻を可算値の停止時刻で近似し、可積分性と右連続性を使って極限へ移る。
 
-| 内容 | 宣言名・モジュール |
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.ApproxSeq`
+
+| 内容 | 宣言名 |
 | --- | --- |
-| 離散近似列の構造 | `MeasureTheory.DiscreteApproxSequence`：`BrownianMotion.StochasticIntegral.ApproxSeq` |
-| 停止時刻を近似できる条件 | `MeasureTheory.Approximable`：`BrownianMotion.StochasticIntegral.ApproxSeq` |
-| 非負実数時間の近似列 | `MeasureTheory.nnrealApproxSeq`：`BrownianMotion.StochasticIntegral.ApproxSeq` |
-| 任意抽出の追加定理 | `MeasureTheory.Martingale.stoppedValue_min_ae_eq_condExp'`：`BrownianMotion.StochasticIntegral.OptionalSampling` |
-| 任意抽出の追加定理 | `MeasureTheory.Martingale.stoppedValue_ae_eq_condExp_of_le_const'`：`BrownianMotion.StochasticIntegral.OptionalSampling` |
-| 停止過程のマルチンゲール性 | `MeasureTheory.Martingale.stoppedProcess`：`BrownianMotion.StochasticIntegral.OptionalSampling` |
-| 劣マルチンゲールの任意抽出不等式 | `MeasureTheory.Submartingale.stoppedValue_min_ae_le_condExp`：`BrownianMotion.StochasticIntegral.OptionalSampling`、直接 `sorry` |
+| 離散近似列の構造 | `MeasureTheory.DiscreteApproxSequence` |
+| 停止時刻を近似できる条件 | `MeasureTheory.Approximable` |
+| 非負実数時間の近似列 | `MeasureTheory.nnrealApproxSeq` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.OptionalSampling`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 任意抽出の追加定理 | `MeasureTheory.Martingale.stoppedValue_min_ae_eq_condExp'` |
+| 任意抽出の追加定理 | `MeasureTheory.Martingale.stoppedValue_ae_eq_condExp_of_le_const'` |
+| 停止過程のマルチンゲール性 | `MeasureTheory.Martingale.stoppedProcess` |
+| 劣マルチンゲールの任意抽出不等式 | `MeasureTheory.Submartingale.stoppedValue_min_ae_le_condExp`、直接 `sorry` |
 
 有界性や一様可積分性などの条件は定理ごとに異なる。停止時刻であれば無条件に期待値を保存する、という主張ではない。
 
@@ -86,20 +127,47 @@ début の停止時刻性には、時間空間の位相条件、フィルトレ�
 
 局所化は、無限大に近づく停止時刻の列で過程を止め、各停止過程に性質を要求する方法である。
 
-| 内容 | 宣言名・モジュール |
+#### 提供モジュール：mathlib
+
+| 内容 | 宣言名 |
 | --- | --- |
-| 局所化、停止に対する安定性の基本概念 | `ProbabilityTheory.Locally`：mathlib 由来 |
-| 局所化、停止に対する安定性の基本概念 | `ProbabilityTheory.IsStable`：mathlib 由来 |
-| 局所化、停止に対する安定性の基本概念 | `ProbabilityTheory.IsLocalizingSequence`：mathlib 由来 |
-| 連続性や càdlàg 性の局所化 | `ProbabilityTheory.locally_continuous_iff`：`BrownianMotion.StochasticIntegral.Locally` |
-| 連続性や càdlàg 性の局所化 | `ProbabilityTheory.locally_isCadlag_iff`：`BrownianMotion.StochasticIntegral.Locally` |
-| 単調な局所化列の選択 | `ProbabilityTheory.IsStable.exists_monotone_localSeq`：`BrownianMotion.StochasticIntegral.LocalizingSequence` |
-| ノルムの到達時刻による停止 | `ProbabilityTheory.stoppedAtNorm`：`BrownianMotion.StochasticIntegral.LocalizingLeastGE` |
-| 局所マルチンゲール | `ProbabilityTheory.IsLocalMartingale`：`BrownianMotion.StochasticIntegral.LocalMartingale` |
-| 局所劣マルチンゲール | `ProbabilityTheory.IsLocalSubmartingale`：`BrownianMotion.StochasticIntegral.LocalMartingale` |
-| 局所化の圏論的な構造 | `ProbabilityTheory.StableCat`：`BrownianMotion.StochasticIntegral.LocalMonad` |
-| 局所化の圏論的な構造 | `ProbabilityTheory.Local`：`BrownianMotion.StochasticIntegral.LocalMonad` |
-| 局所化の圏論的な構造 | `ProbabilityTheory.StableMonad`：`BrownianMotion.StochasticIntegral.LocalMonad` |
+| 局所化、停止に対する安定性の基本概念 | `ProbabilityTheory.Locally` |
+| 局所化、停止に対する安定性の基本概念 | `ProbabilityTheory.IsStable` |
+| 局所化、停止に対する安定性の基本概念 | `ProbabilityTheory.IsLocalizingSequence` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.Locally`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 連続性や càdlàg 性の局所化 | `ProbabilityTheory.locally_continuous_iff` |
+| 連続性や càdlàg 性の局所化 | `ProbabilityTheory.locally_isCadlag_iff` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.LocalizingSequence`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 単調な局所化列の選択 | `ProbabilityTheory.IsStable.exists_monotone_localSeq` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.LocalizingLeastGE`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| ノルムの到達時刻による停止 | `ProbabilityTheory.stoppedAtNorm` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.LocalMartingale`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 局所マルチンゲール | `ProbabilityTheory.IsLocalMartingale` |
+| 局所劣マルチンゲール | `ProbabilityTheory.IsLocalSubmartingale` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.LocalMonad`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 局所化の圏論的な構造 | `ProbabilityTheory.StableCat` |
+| 局所化の圏論的な構造 | `ProbabilityTheory.Local` |
+| 局所化の圏論的な構造 | `ProbabilityTheory.StableMonad` |
 
 このライブラリの `IsLocalMartingale` は、マルチンゲール性と全経路の càdlàg 性を併せた性質の局所化として定義される。`isStable_submartingale` には直接 `sorry` がある。
 
@@ -107,20 +175,32 @@ début の停止時刻性には、時間空間の位相条件、フィルトレ�
 
 class D は有限停止時刻での値全体に一様可積分性を要求し、class DL は各有界時間範囲で同様の条件を要求する。対象版の定義には強発展的可測性も含まれる。
 
-| 内容 | 宣言名・モジュール |
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.UniformIntegrable`
+
+| 内容 | 宣言名 |
 | --- | --- |
-| 一様可積分性の裾評価による特徴付け | `MeasureTheory.uniformIntegrable_iff_tendsto_nnReal_iSup_setIntegral_norm`：`BrownianMotion.StochasticIntegral.UniformIntegrable` |
-| 条件付き期待値を取った族の一様可積分性 | `MeasureTheory.UniformIntegrable.condExp`：`BrownianMotion.StochasticIntegral.UniformIntegrable` |
-| class D・DL | `ProbabilityTheory.ClassD`：`BrownianMotion.StochasticIntegral.ClassD` |
-| class D・DL | `ProbabilityTheory.ClassDL`：`BrownianMotion.StochasticIntegral.ClassD` |
-| 時間区間ごとの上限の可積分性 | `ProbabilityTheory.HasIntegrableSup`：`BrownianMotion.StochasticIntegral.ClassD` |
-| 時間区間ごとの上限の可積分性 | `ProbabilityTheory.HasLocallyIntegrableSup`：`BrownianMotion.StochasticIntegral.ClassD` |
-| マルチンゲールの極限過程への収束 | `MeasureTheory.Martingale.ae_tendsto_limitProcess`：`BrownianMotion.StochasticIntegral.UniformIntegrable`、直接 `sorry` |
-| 極限の条件付き期待値による過程の復元 | `MeasureTheory.Martingale.condExp_limitProcess_ae_eq`、同名末尾 `'` の版：`BrownianMotion.StochasticIntegral.UniformIntegrable`、直接 `sorry` |
-| 最大不等式 | `ProbabilityTheory.maximal_ineq`：`BrownianMotion.StochasticIntegral.DoobLp` |
-| 最大不等式 | `ProbabilityTheory.maximal_ineq_norm`：`BrownianMotion.StochasticIntegral.DoobLp` |
-| Doob の $L^p$ 評価 | `ProbabilityTheory.integral_iSup_le_norm_rpow_le`：`BrownianMotion.StochasticIntegral.DoobLp`、直接 `sorry` |
-| Doob の $L^p$ 評価 | `ProbabilityTheory.integral_iSup_norm_rpow_le`：`BrownianMotion.StochasticIntegral.DoobLp`、直接 `sorry` |
+| 一様可積分性の裾評価による特徴付け | `MeasureTheory.uniformIntegrable_iff_tendsto_nnReal_iSup_setIntegral_norm` |
+| 条件付き期待値を取った族の一様可積分性 | `MeasureTheory.UniformIntegrable.condExp` |
+| マルチンゲールの極限過程への収束 | `MeasureTheory.Martingale.ae_tendsto_limitProcess`、直接 `sorry` |
+| 極限の条件付き期待値による過程の復元 | `MeasureTheory.Martingale.condExp_limitProcess_ae_eq`、同名末尾 `'` の版、直接 `sorry` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.ClassD`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| class D・DL | `ProbabilityTheory.ClassD` |
+| class D・DL | `ProbabilityTheory.ClassDL` |
+| 時間区間ごとの上限の可積分性 | `ProbabilityTheory.HasIntegrableSup` |
+| 時間区間ごとの上限の可積分性 | `ProbabilityTheory.HasLocallyIntegrableSup` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.DoobLp`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 最大不等式 | `ProbabilityTheory.maximal_ineq` |
+| 最大不等式 | `ProbabilityTheory.maximal_ineq_norm` |
+| Doob の $L^p$ 評価 | `ProbabilityTheory.integral_iSup_le_norm_rpow_le`、直接 `sorry` |
+| Doob の $L^p$ 評価 | `ProbabilityTheory.integral_iSup_norm_rpow_le`、直接 `sorry` |
 
 一様可積分性のファイルでも、劣マルチンゲールの停止値に関する `Submartingale.uniformIntegrable_stoppedValue` は未証明である。class D の補助理論にも、定数過程の上限に関する未証明補題がある。
 
@@ -149,19 +229,26 @@ $$
 
 各固定時刻で二乗可積分であることだけより強い条件である。
 
-| 内容 | 宣言名・モジュール |
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.SquareIntegrable`
+
+| 内容 | 宣言名 |
 | --- | --- |
-| 二乗可積分性、識別不能な代表による二乗可積分性 | `ProbabilityTheory.IsSquareIntegrable`：`BrownianMotion.StochasticIntegral.SquareIntegrable` |
-| 二乗可積分性、識別不能な代表による二乗可積分性 | `ProbabilityTheory.IsAESquareIntegrable`：`BrownianMotion.StochasticIntegral.SquareIntegrable` |
-| 識別不能性で同一視した空間 | `ProbabilityTheory.SquareIntegrable`：`BrownianMotion.StochasticIntegral.SquareIntegrable` |
-| 終端極限を使う $L^2$ 空間への写像 | `ProbabilityTheory.SquareIntegrable.toL2`：`BrownianMotion.StochasticIntegral.SquareIntegrable` |
-| 終端極限を使う $L^2$ 空間への写像 | `ProbabilityTheory.SquareIntegrable.toL2Isom`：`BrownianMotion.StochasticIntegral.SquareIntegrable` |
-| 局所二乗可積分性 | `ProbabilityTheory.IsLocallySquareIntegrable`：`BrownianMotion.StochasticIntegral.SquareIntegrable` |
-| 純不連続性 | `ProbabilityTheory.IsPurelyDiscontinuous`：`BrownianMotion.StochasticIntegral.SquareIntegrable` |
-| 連続マルチンゲールの部分空間 | `ProbabilityTheory.continuousSquareIntegrable`：`BrownianMotion.StochasticIntegral.ContinuousSquareIntegrable` |
-| 連続部分と純不連続部分 | `ProbabilityTheory.continuousPart`：`BrownianMotion.StochasticIntegral.ContinuousSquareIntegrable` |
-| 連続部分と純不連続部分 | `ProbabilityTheory.discontinuousPart`：`BrownianMotion.StochasticIntegral.ContinuousSquareIntegrable` |
-| 分解の等式 | `ProbabilityTheory.continuousPart_add_discontinuousPart`：`BrownianMotion.StochasticIntegral.ContinuousSquareIntegrable` |
+| 二乗可積分性、識別不能な代表による二乗可積分性 | `ProbabilityTheory.IsSquareIntegrable` |
+| 二乗可積分性、識別不能な代表による二乗可積分性 | `ProbabilityTheory.IsAESquareIntegrable` |
+| 識別不能性で同一視した空間 | `ProbabilityTheory.SquareIntegrable` |
+| 終端極限を使う $L^2$ 空間への写像 | `ProbabilityTheory.SquareIntegrable.toL2` |
+| 終端極限を使う $L^2$ 空間への写像 | `ProbabilityTheory.SquareIntegrable.toL2Isom` |
+| 局所二乗可積分性 | `ProbabilityTheory.IsLocallySquareIntegrable` |
+| 純不連続性 | `ProbabilityTheory.IsPurelyDiscontinuous` |
+
+#### 提供モジュール：`BrownianMotion.StochasticIntegral.ContinuousSquareIntegrable`
+
+| 内容 | 宣言名 |
+| --- | --- |
+| 連続マルチンゲールの部分空間 | `ProbabilityTheory.continuousSquareIntegrable` |
+| 連続部分と純不連続部分 | `ProbabilityTheory.continuousPart` |
+| 連続部分と純不連続部分 | `ProbabilityTheory.discontinuousPart` |
+| 分解の等式 | `ProbabilityTheory.continuousPart_add_discontinuousPart` |
 
 純不連続性は、二乗可積分性と、すべての連続な二乗可積分マルチンゲールとの終端極限の $L^2$ 内積が零であることによって定義される。「すべての経路が不連続」という意味ではない。連続部分は Hilbert 空間での直交射影を使って得られる。
 
