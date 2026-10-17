@@ -34,6 +34,10 @@ GPT-6.1 Sol (Medium〜Extra High) に生成させたものです。正しさは�
 - [mathlib のリファレンス](docs/mathlib/README.md)：多変数・多次元の微分積分を中心に、級数、行列・基底、ノルム・内積、コンパクト性、関数列と極限の交換など。
 - [mathlib の記号索引](docs/mathlib/symbols.md)：線形写像、ノルム、内積、近傍、勾配、積分、有限和など。
 
+### ブラウン運動・確率解析
+
+- [Brownian Motion のリファレンス](docs/brownian-motion/README.md)：ガウス過程、ブラウン運動の構成、停止時刻、マルチンゲール、二次変分、確率積分の定義と主な定理。
+
 ### Lean 4 の型と証明の基礎
 
 - [Lean 4 の型システムの基礎](docs/foundations/type_system.md)：依存型、帰納型、宇宙階層、証明の無関連性、停止性、商型、公理の概観。
