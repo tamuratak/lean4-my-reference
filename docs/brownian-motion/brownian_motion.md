@@ -9,7 +9,7 @@
 | 確率過程 $(X_t)_{t\in T}$ | `X : T → Ω → E` | 時刻と標本点から値を返す関数 |
 | 固定時刻の確率変数 $X_t$ | `X t` | `Ω → E` 型の関数 |
 | 固定標本点の経路 $t\mapsto X_t(\omega)$ | `fun t ↦ X t ω` | `T → E` 型の関数 |
-| $X$ の法則が $\nu$ | `ProbabilityTheory.HasLaw X ν P` | 可測性と押し出し測度の等式 |
+| $X$ の法則が $\nu$ | `ProbabilityTheory.HasLaw X ν P` | ほとんど至る所での可測性 `AEMeasurable X P` と押し出し測度の等式 |
 | 有限個の時刻での同時分布 | `fun ω ↦ I.restrict (X · ω)` | `I : Finset T` への制限 |
 | 実数値前ブラウン運動 | `ProbabilityTheory.IsPreBrownianReal X P` | ブラウン運動に対応する有限次元分布 |
 | 実数値ブラウン運動 | `ProbabilityTheory.IsBrownianReal X P` | 前ブラウン運動に連続性を加えた性質 |
@@ -96,6 +96,21 @@
 | 任意の $0<\beta<1/2$ に対する局所 Hölder 連続性 | `ProbabilityTheory.memHolder_brownian` |
 
 対応するモジュールは `BrownianMotion.Gaussian.BrownianMotion` である。`gaussianReal 0 t` の第2引数は分散を表す。`brownian` は `ℝ≥0 → (ℝ≥0 → ℝ) → ℝ` 型で、確率空間には測度 `gaussianLimit` を使う。
+
+`BrownianMotion.Gaussian.BrownianMotion` をインポートし、`t : ℝ≥0` が与えられているとき、固定時刻の分布の証明は次の式で得られる。
+
+```text
+ProbabilityTheory.hasLaw_brownian_eval (t := t)
+```
+
+得られる証明の型は次の命題である。
+
+```text
+ProbabilityTheory.HasLaw (ProbabilityTheory.brownian t)
+  (ProbabilityTheory.gaussianReal 0 t) ProbabilityTheory.gaussianLimit
+```
+
+数学では $B_t\sim N(0,t)$ に対応する。時刻は暗黙引数なので、`(t := t)` と名前を指定して渡せる。例えば `(t := 1)` とすれば、時刻 $1$ の値が平均 $0$、分散 $1$ の標準正規分布に従うという命題の証明になる。
 
 ## フィルトレーションと追加の性質
 

@@ -466,8 +466,8 @@ Brownian Motion のモジュールは、ガウス過程、連続な修正、可�
 
 | 内容 | 宣言名の例 |
 | --- | --- |
-| 有限個の下限 | `Finset.Nonempty.sSup_eq_max'` |
-| 有限個の下限 | `Finset.iSup_eq_max'_image` |
+| 有限集合上の上限と最大値 | `Finset.Nonempty.sSup_eq_max'` |
+| 有限集合上の上限と最大値 | `Finset.iSup_eq_max'_image` |
 
 #### 提供モジュール：`BrownianMotion.Auxiliary.HasGaussianLaw`
 

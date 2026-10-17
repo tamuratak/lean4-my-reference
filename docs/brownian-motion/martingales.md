@@ -233,8 +233,8 @@ $$
 
 | 内容 | 宣言名 |
 | --- | --- |
-| 二乗可積分性、識別不能な代表による二乗可積分性 | `ProbabilityTheory.IsSquareIntegrable` |
-| 二乗可積分性、識別不能な代表による二乗可積分性 | `ProbabilityTheory.IsAESquareIntegrable` |
+| 全経路の càdlàg 性を含む二乗可積分マルチンゲール性 | `ProbabilityTheory.IsSquareIntegrable` |
+| 二乗可積分マルチンゲールと識別不能であること | `ProbabilityTheory.IsAESquareIntegrable` |
 | 識別不能性で同一視した空間 | `ProbabilityTheory.SquareIntegrable` |
 | 終端極限を使う $L^2$ 空間への写像 | `ProbabilityTheory.SquareIntegrable.toL2` |
 | 終端極限を使う $L^2$ 空間への写像 | `ProbabilityTheory.SquareIntegrable.toL2Isom` |
@@ -250,7 +250,9 @@ $$
 | 連続部分と純不連続部分 | `ProbabilityTheory.discontinuousPart` |
 | 分解の等式 | `ProbabilityTheory.continuousPart_add_discontinuousPart` |
 
-純不連続性は、二乗可積分性と、すべての連続な二乗可積分マルチンゲールとの終端極限の $L^2$ 内積が零であることによって定義される。「すべての経路が不連続」という意味ではない。連続部分は Hilbert 空間での直交射影を使って得られる。
+`IsPurelyDiscontinuous X 𝓕 P` は、`IsAESquareIntegrable X 𝓕 P` と直交性を要求する。`IsAESquareIntegrable` は、`IsSquareIntegrable` を満たす過程と識別不能であることを表し、`X` 自身の全経路の càdlàg 性を要求しない。直交性は、`IsAESquareIntegrable Y 𝓕 P` を満たし、ほとんど確実に連続な経路を持つすべての過程 `Y` に対し、`X` と `Y` の終端極限の $L^2$ 内積が零であるという条件である。
+
+純不連続性は「すべての経路が不連続」という意味ではない。連続部分は Hilbert 空間での直交射影を使って得られる。
 
 極限の $L^2$ 収束、極限ノルムの等式、修正からの識別不能性、停止に対する安定性などの補題に直接 `sorry` があるため、空間の構造や分解の結果も未証明部分への依存に注意が必要である。
 
